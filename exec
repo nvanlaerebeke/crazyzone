@@ -1,0 +1,6 @@
+#!/bin/bash
+ROOT="$(cd "." >/dev/null 2>&1 && pwd)"
+
+. $ROOT/vendor/k3s-base/include.sh
+. $ROOT/lib/include.sh
+

@@ -1,0 +1,3 @@
+[submodule "vendor/k3s-base"]
+	path = vendor/k3s-base
+	url = https://github.com/nvanlaerebeke/k3s-base.git
