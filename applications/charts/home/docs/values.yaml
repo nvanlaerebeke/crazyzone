@@ -1,0 +1,3 @@
+name: docs
+hostname: docs.crazyzone.be
+tlssecret: secret-tls

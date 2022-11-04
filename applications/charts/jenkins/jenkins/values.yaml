@@ -1,0 +1,4 @@
+name: jenkins
+tlssecret: secret-tls
+hostname: jenkins.crazyzone.be
+namespace: jenkins

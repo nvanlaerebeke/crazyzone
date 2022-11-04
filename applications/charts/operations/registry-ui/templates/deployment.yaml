@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: registry-ui
+  name: registry-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-ui
+  template:
+    metadata:
+      labels:
+        app: registry-ui
+    spec:
+      volumes:
+        - name: registry-ui-config-volume
+          configMap: 
+            name: registry-ui-config     
+      containers:
+      - name: registry-ui
+        image: hyper/docker-registry-web:latest
+        ports:
+        - containerPort: 8080
+          name: registry-ui
+#        readinessProbe:
+#          httpGet:
+#            scheme: HTTP
+#            path: /
+#            port: 8080
+#          initialDelaySeconds: 10
+#          periodSeconds: 5          
+        volumeMounts:
+        - name: registry-ui-config-volume
+          mountPath: /conf

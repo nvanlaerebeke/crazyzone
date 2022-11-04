@@ -1,0 +1,37 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: repo-ub-2004-sync 
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+          - name: repo-storage
+            nfs: 
+              server: nas.crazyzone.be 
+              path: /volume1/docker-storage/repo/ubuntu-apt-mirror/20.04
+          - name: sources
+            configMap:
+              name: repo-sync-ub20.04-sources
+          - name: mirror
+            configMap:
+              name: repo-sync-ub20.04-mirror
+          containers:
+          - name: repo-ub-2004-sync
+            image: registry.crazyzone.be/repo-mirror-ub-20.04:latest
+            imagePullPolicy: Always
+            command: [ "apt-mirror" ]
+            volumeMounts:
+            - name: repo-storage
+              mountPath: /mnt/apt-mirror
+            - name: "sources"
+              mountPath: "/etc/apt/sources.list"
+              subPath: "sources.list"
+            - name: "mirror"
+              mountPath: "/etc/apt/mirror.list"
+              subPath: "mirror.list"
+    

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: power-exporter
+  name: power-exporter
+spec:
+  selector:
+    matchLabels:
+      app: power-exporter
+  template:
+    metadata:
+      labels:
+        app: power-exporter
+    spec:
+      containers:
+      - name: power-exporter
+        image: registry.crazyzone.be/powerreadout:latest
+        ports:
+        - containerPort: 80
+          name: power-exporter
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /metrics
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5          

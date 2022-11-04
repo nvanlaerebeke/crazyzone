@@ -1,0 +1,218 @@
+kube-prometheus-stack:
+  # Disable etcd monitoring. See https://github.com/cablespaghetti/k3s-monitoring/issues/4
+  kubeEtcd:
+    enabled: false
+  # Disable kube-controller-manager and kube-scheduler monitoring. See https://github.com/cablespaghetti/k3s-monitoring/issues/2
+  kubeControllerManager:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  alertmanager:
+    alertmanagerSpec:
+      useExistingSecret: true
+    ingress:
+      enabled: true
+      hosts: 
+      - alert.crazyzone.be
+      tls: 
+      - secretName: secret-tls
+        hosts:
+        - alert.crazyzone.be
+      path: /        
+  grafana:
+    admin:
+      existingSecret: prometheus-grafana
+    plugins: 
+      - digrich-bubblechart-panel
+      - grafana-clock-panel
+      - yesoreyeram-boomtable-panel
+      - agenty-flowcharting-panel
+      - jdbranham-diagram-panel
+      - vonage-status-panel
+      - briangann-gauge-panel
+      - redis-datasource
+      - ryantxu-ajax-panel
+    sidecar:
+      dashboards:
+        enabled: true
+        provider: 
+          foldersFromFilesStructure: true    
+        ## Annotations for Grafana dashboard configmaps
+        ##
+        annotations: 
+          k8s-sidecar-target-directory: "/tmp/dashboards/kubernetes"
+    grafana.ini:
+      paths:
+        data: /var/lib/grafana/data
+        logs: /var/log/grafana
+        plugins: /var/lib/grafana/plugins
+        provisioning: /etc/grafana/provisioning
+      analytics:
+        check_for_updates: true
+      log:
+        mode: console
+      grafana_net:
+        url: "https://grafana.net"
+      dashboards:
+        default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"
+    ingress:
+      enabled: true
+      hosts: 
+      - mon.crazyzone.be
+      tls: 
+      - secretName: secret-tls
+        hosts:
+        - mon.crazyzone.be
+      path: /
+  prometheus:
+    ingress:
+      enabled: true
+      hosts: 
+      - prometheus.crazyzone.be
+      tls: 
+      - secretName: secret-tls
+        hosts:
+        - prometheus.crazyzone.be
+      path: /
+    prometheusSpec:
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            selector:
+              matchLabels:
+                app: livesqlsb-prometheus
+            resources:
+              requests:
+                storage: 50Gi
+      scrapeInterval: 5s
+      additionalScrapeConfigs: 
+      - job_name: "backup.crazyzone.be"
+        static_configs:
+        - targets: ["backup.crazyzone.be:9100"]
+          labels: 
+            host: backup
+            endpoint: "metrics"
+            job: "node-exporter"
+      - job_name: "kvm.crazyzone.be"
+        static_configs:
+        - targets: ["kvm.crazyzone.be:9100"]
+          labels: 
+            host: kvm
+            endpoint: "metrics"
+            job: "node-exporter"
+      - job_name: "nico.crazyzone.be"
+        static_configs:     
+        - targets: ["nico.crazyzone.be:9100"]
+          labels: 
+            host: nico
+            endpoint: "metrics"
+            job: "node-exporter"
+      - job_name: "nas.crazyzone.be"
+        static_configs:
+        - targets: ["nas.crazyzone.be:9100"]
+          labels: 
+            host: nas
+            endpoint: "metrics"
+            job: "node-exporter"
+            type: "nas"
+      - job_name: snmp_nas.crazyzone.be
+        static_configs:
+        - targets:
+          - nas.crazyzone.be
+        metrics_path: /snmp
+        params:
+          module: [if_mib]
+        relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: prometheus-snmp-exporter:9116  # The SNMP exporter's real hostname:port.
+      - job_name: snmp_gateway.crazyzone.be
+        static_configs:
+        - targets:
+          - gateway.crazyzone.be
+        metrics_path: /snmp
+        params:
+          module: [if_mib]
+        relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: prometheus-snmp-exporter:9116  # The SNMP exporter's real hostname:port.
+      - job_name: power-reader.crazyzone.be
+        metrics_path: /probe
+        params:
+          module: [power]
+        static_configs:
+          - targets:
+            - https://power-reader.crazyzone.be/metrics
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+      - job_name: rack
+        metrics_path: /probe
+        params:
+          module: [plugwise]
+        static_configs:
+          - targets:
+            - https://plugwise.crazyzone.be/Plug/Usage/000D6F0001A5A3B6
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+      - job_name: aquarium
+        metrics_path: /probe
+        params:
+          module: [plugwise]
+        static_configs:
+          - targets:
+            - https://plugwise.crazyzone.be/Plug/Usage/000D6F00004BA1C6
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+      - job_name: nico
+        metrics_path: /probe
+        params:
+          module: [plugwise]
+        static_configs:
+          - targets:
+            - https://plugwise.crazyzone.be/Plug/Usage/000D6F00004BF588
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+      - job_name: tatjana
+        metrics_path: /probe
+        params:
+          module: [plugwise]
+        static_configs:
+          - targets:
+            - https://plugwise.crazyzone.be/Plug/Usage/000D6F00004BC20A
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+  prometheus-node-exporter:
+    hostRootFsMount:
+      enabled: false

@@ -1,0 +1,21 @@
+tlssecret: secret-tls
+hostname: guacamole.crazyzone.be
+guacamole:
+  postgres:
+    database: "guacamole"
+    hostname: "guacamole-postgresql"
+  service:
+    port: 8080
+  ingress:
+    enabled: false
+postgresql:
+  global:
+    postgresql:
+      postgresqlDatabase: "guacamole"
+      postgresqlUsername: "guacamole"
+      existingSecret: "guacamole-postgres-password"
+  volumePermissions:
+    enabled: true
+  persistence:
+    enabled: true
+    existingClaim: guacamole-postgres-storage-claim

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: registry-ui-config
+data:
+  config.yml: |-
+    registry:
+      # Docker registry url
+      url: https://registry.crazyzone.be/v2
+      # Docker registry fqdn
+      name: registry.crazyzone.be
+      # To allow image delete, should be false
+      readonly: false
+      trust_any_ssl: true
+      auth:
+        # Enable authentication
+        enabled: false
+        # Token issuer
+        # should equals to auth.token.issuer of docker registry
+        issuer: 'my issuer'
+        # Private key for token signing
+        # certificate used on auth.token.rootcertbundle should signed by this key
+        key: /conf/auth.key

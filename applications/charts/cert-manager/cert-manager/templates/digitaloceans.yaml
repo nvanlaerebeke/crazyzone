@@ -1,0 +1,14 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: digitalocean-dns
+  namespace: cert-manager
+spec:
+  encryptedData:
+    access-token: AgDI7kOqQXraSgnJSWDzc7K4YWrKAdhrDAe4pCWjbnZQt6yBNpzyPTEPvXkoEK6Z75ol7xrAIF/Gl0vkIL3CV/AMk0mLwtfMiIwYf6LdqM8VqvGdahfRiV8fwdIAqTVHv8H0jimQrVkUKGK74czpor65dCFl23pXXXAhzYskv/aYkJVKupPeP4suXPhnsBwvSHjmv0DDUS/86sRDsXMHKkVzzr7IVU+XTGZLQR7B8T41xSAUEnNRPuWP9lgAU1DLC9hMhefUhnZXEiQ5fQ4GmHJ5hY7gPLJhrbn3hg4DsSBTaMt/O9v0WDIY4mYf8IrgwhgThYsDZ1tjL/nemV2984oQkNECawQYhAfJVYSdcA/dQLRGlwuwNFJpWR9AbaVKFO52AbIRvmDo6Qw8b8Obdkxn9IeGv3Hor4WAGuBC6kxTpUKcQx8WMaqKnatkXfIgr58oVZqitVPPWHnl/H4nESd2ozMYsZwILLDQCm8AjHH993tI8fK5sISoi68xvYrKbNEbl5EgHtoZtGNec0xUCyVQnoyMMPh8bJx8ZXyRjCYb9o6Vl7L68//EbR5KXcUaMKSUuDndCPaWtwGvHNCLWBH8Yz5rX3Oajs88Zmd8BzR6jE21/EehG0nBbxWC28joj0UGNrlRIuL8czsFKpFWSEC2GMHlUrd4ESseNdu7xtI5JX7flA3aJI+O6BUqb3zI0pruHbqpQ4EnTDXezhe1SDmxITkcISi6aWJs0wifN+oLq24UoOY0GEs4JNp+cJE4GDh6NcHiJH8aDBVX+cijxSkxPxNtJ4SV3Ks=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: digitalocean-dns
+      namespace: cert-manager

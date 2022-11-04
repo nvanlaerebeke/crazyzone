@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: torrent
+  name: torrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: torrent
+  template:
+    metadata:
+      labels:
+        app: torrent
+    spec:
+      volumes:
+        - name: torrent-storage
+          nfs: 
+            server: nas.crazyzone.be 
+            path: /volume1/docker-storage/torrent/downloads     
+      containers:
+      - image: diameter/rtorrent-rutorrent:latest-alpine
+        name: torrent
+        tty: true
+        ports:
+        - name: ui
+          containerPort: 80
+        - name: incoming
+          containerPort: 49161          
+        - name: dht
+          containerPort: 49160
+          protocol: UDP
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5          
+        volumeMounts:
+        - name: torrent-storage
+          mountPath: /downloads
+

@@ -1,0 +1,3 @@
+name: torrent
+tlssecret: secret-tls
+hostname: torrent.crazyzone.be

@@ -1,0 +1,3 @@
+name: registry-ui
+tlssecret: secret-tls
+hostname: registry-ui.crazyzone.be

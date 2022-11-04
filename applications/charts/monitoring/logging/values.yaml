@@ -1,0 +1,17 @@
+loki:
+  ## ref: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+  ## If you set enabled as "True", you need :
+  ## - create a pv which above 10Gi and has same namespace with loki
+  ## - keep storageClassName same with below setting
+  persistence:
+    enabled: true
+    existingClaim: loki-claim
+
+promtail: 
+  config:
+      lokiAddress: http://logging-loki:3100/loki/api/v1/push
+  initContainer:
+    # -- Specifies whether the init container for setting inotify max user instances is to be enabled
+    enabled: true
+    # -- The inotify max user instances to configure
+    fsInotifyMaxUserInstances: 128    

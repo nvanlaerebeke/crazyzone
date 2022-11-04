@@ -1,0 +1,108 @@
+prometheus-json-exporter:
+  image:
+    repository: registry.crazyzone.be/json_exporter
+    tag: "0.4.1b"
+  ingress:
+    enabled: true
+    hosts:
+    - host: json-exporter.crazyzone.be
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+    tls: 
+    - secretName: secret-tls
+      hosts:
+        - json-exporter.crazyzone.be
+  configuration:
+    config: |
+      ---
+      modules:
+        power:
+          metrics:
+          - name: l1_power_usage
+            type: object
+            help: L1 Power Usage
+            path: '{.l1_power_usage}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: l1_power_generated
+            type: object
+            help: L1 Power Generated
+            path: '{.l1_power_generated}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: l1_amperage
+            type: object
+            help: L1 Current Line Amparage
+            path: '{.l1_amperage}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: l1_voltage
+            type: object
+            help: L1 Current Line Voltage
+            path: '{.l1_voltage}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: power_used_tariff_1
+            type: object
+            help: Total Power Used for Tarif 1
+            path: '{.power_used_tariff_1}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: power_used_tariff_2
+            type: object
+            help: Total Power Used for Tarif 2
+            path: '{.power_used_tariff_2}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: total_power_used
+            type: object
+            help: Total Power Used
+            path: '{.total_power_used}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: total_power_generated
+            type: object
+            help: Total Power Generated
+            path: '{.total_power_generated}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+
+          - name: gas_used
+            type: object
+            help: Total Gas Used
+            path: '{.gas_used}'
+            labels:
+              unit: '{.unit}'
+            values:
+              value: '{.value}'
+        plugwise:
+          metrics:
+          - name: power_consumption
+            path: "{ .power_consumption }"
+            labels:
+              unit: '{.unit}'
+            help: "Power used by the given plug"              

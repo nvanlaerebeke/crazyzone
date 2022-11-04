@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: repo
+  name: repo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repo
+  template:
+    metadata:
+      labels:
+        app: repo
+    spec:
+      volumes:
+        - name: repo-storage
+          nfs: 
+            server: nas.crazyzone.be 
+            path: /volume1/docker-storage/repo
+      containers:
+      - image: httpd:latest
+        name: repo
+        ports:
+        - containerPort: 80
+          name: repo
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 80          
+        volumeMounts:
+        - name: repo-storage
+          mountPath: /usr/local/apache2/htdocs/

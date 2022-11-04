@@ -1,0 +1,5 @@
+name: power-reader
+tlssecret: secret-tls
+hostnames: 
+  - power-reader.crazyzone.be
+replicaCount: 1

@@ -1,0 +1,19 @@
+heimdall:
+  env:
+    TZ: "Europe/Brussels"
+  ingress:
+    main:
+      enabled: true
+      hosts:
+        - host: crazyzone.be
+          paths:
+            - path: /
+      tls:
+        - secretName: secret-tls
+          hosts:
+            - crazyzone.be
+  persistence:
+    config:
+      enabled: true
+      type: pvc
+      existingClaim: heimdall-claim

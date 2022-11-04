@@ -1,0 +1,4 @@
+name: plugwise
+tlssecret: secret-tls
+hostnames: 
+  - plugwise.crazyzone.be

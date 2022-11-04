@@ -1,0 +1,17 @@
+{{- range $namespace := .Values.namespaces }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: secret-tls
+  namespace: {{ $namespace | quote }}
+spec:
+  additionalOutputFormats:
+  - type: CombinedPEM
+  secretName: secret-tls
+  issuerRef:
+    name: acme-issuer-prod
+    kind: ClusterIssuer
+  dnsNames:
+{{- range $hostname := $.Values.hostnames }}
+    - {{ $hostname | quote }}
+{{- end }}

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: registry
+  name: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      volumes:
+        - name: registry-storage
+          nfs: 
+            server: nas.crazyzone.be 
+            path: /volume1/docker-storage/docker-registry
+      containers:
+      - name: registry
+        image: registry:latest
+        ports:
+        - containerPort: 5000
+          name: registry
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5          
+        volumeMounts:
+        - name: registry-storage
+          mountPath: /var/lib/registry
+        env:
+        - name: HELM_EXPERIMENTAL_OCI
+          value: "1"
+        envFrom:
+        - configMapRef:
+            name: registry-config

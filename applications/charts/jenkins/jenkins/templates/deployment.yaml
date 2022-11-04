@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jenkins
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      serviceAccountName: jenkins
+      volumes:
+        - name: jenkins-storage
+          nfs: 
+            server: nas.crazyzone.be 
+            path: /volume1/docker-storage/jenkins
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+      containers:
+      - image: jenkins/jenkins:latest
+        name: jenkins
+        volumeMounts:
+        - name: jenkins-storage
+          mountPath: /var/jenkins_home   
+        - name: dockersock
+          mountPath: "/var/run/docker.sock"     
+        ports:
+        - name: jenkins
+          containerPort: 8080
+        - name: jnlp-port
+          containerPort: 50000          
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /login
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5          
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0

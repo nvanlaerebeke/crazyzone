@@ -1,0 +1,3 @@
+name: kickstart-www
+tlssecret: secret-tls
+hostname: kickstart.crazyzone.be
