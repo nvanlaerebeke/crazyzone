@@ -5,8 +5,8 @@ appVersion: 0.0.1
 description: Loki and Promtail deployment for log storage
 dependencies:
   - name: loki
-    version: "2.10.1"
+    version: "3.3.1"
     repository: "https://grafana.github.io/helm-charts"
   - name: promtail
-    version: "3.11.0"
+    version: "6.6.1"
     repository: "https://grafana.github.io/helm-charts"    
