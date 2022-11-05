@@ -1,0 +1,663 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards-configmap-crazyzone-home
+  labels:
+     grafana_dashboard: "1"
+  annotations:
+      k8s-sidecar-target-directory: "/tmp/dashboards/Crazyzone"
+data:
+  home.json: |-
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 35,
+      "iteration": 1654964669192,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "header_js": "{}",
+          "id": 2,
+          "method": "iframe",
+          "mode": "html",
+          "params_js": "",
+          "pluginVersion": "7.4.3",
+          "request": "http",
+          "responseType": "text",
+          "showErrors": true,
+          "showTime": false,
+          "showTimeFormat": "LTS",
+          "showTimeValue": "request",
+          "skipSameURL": false,
+          "templateResponse": true,
+          "transparent": true,
+          "type": "ryantxu-ajax-panel",
+          "url": "https://tools.crazyzone.be/clock/",
+          "withCredentials": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 13,
+            "x": 0,
+            "y": 3
+          },
+          "id": 4,
+          "options": {
+            "maxItems": 10,
+            "query": "",
+            "showHeadings": false,
+            "showRecentlyViewed": false,
+            "showSearch": true,
+            "showStarred": false,
+            "tags": [
+              "home"
+            ]
+          },
+          "pluginVersion": "8.5.3",
+          "title": "Crazy's Dashboards",
+          "transparent": true,
+          "type": "dashlist"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 0,
+              "displayName": "CPU Temp",
+              "mappings": [],
+              "max": 80,
+              "min": 20,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-green",
+                    "value": null
+                  },
+                  {
+                    "color": "dark-green",
+                    "value": 40
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 60
+                  },
+                  {
+                    "color": "red",
+                    "value": 70
+                  }
+                ]
+              },
+              "unit": "celsius"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 13,
+            "y": 3
+          },
+          "id": 10,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": false,
+            "text": {}
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "expr": "node_hwmon_temp_celsius{chip=\"pci0000:00_0000:00:18_3\", endpoint=\"metrics\", host=\"kvm\", instance=\"kvm.crazyzone.be:9100\", job=\"node-exporter\", sensor=\"temp1\"}",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "CPU  Temp KVM",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 0,
+              "displayName": "CPU Temp",
+              "mappings": [],
+              "max": 80,
+              "min": 20,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-green",
+                    "value": null
+                  },
+                  {
+                    "color": "dark-green",
+                    "value": 40
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 50
+                  },
+                  {
+                    "color": "red",
+                    "value": 70
+                  }
+                ]
+              },
+              "unit": "celsius"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 5,
+            "x": 19,
+            "y": 3
+          },
+          "id": 8,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": false,
+            "text": {}
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "expr": "node_hwmon_temp_celsius{chip=\"pci0000:00_0000:00:18_3\",endpoint=\"metrics\",host=\"nico\",instance=\"nico.crazyzone.be:9100\",job=\"node-exporter\",sensor=\"temp1\"}",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "CPU Temp Desktop  Nico",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {},
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 20,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 13,
+            "x": 0,
+            "y": 12
+          },
+          "id": 12,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean",
+                "lastNotNull",
+                "max",
+                "min"
+              ],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "8.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
+              "expr": "-irate(ifHCOutOctets{job=\"snmp_gateway.crazyzone.be\", ifName=\"igb0\"}[5m])",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "Out: {{ifName}} ({{ifAlias}})",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
+              "expr": "irate(ifHCInOctets{job=\"snmp_gateway.crazyzone.be\", ifName=\"igb0\"}[5m])",
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "In: {{ifName}} ({{ifAlias}})",
+              "refId": "B"
+            }
+          ],
+          "title": "Internet In/Out",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "watt"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 13,
+            "y": 12
+          },
+          "id": 16,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
+              "expr": "l1_power_usage_value{instance=\"https://power-reader.crazyzone.be/metrics\", job=\"power-reader.crazyzone.be\", unit=\"Watt\"}",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Power Usage",
+          "type": "timeseries"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {},
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 10,
+          "gridPos": {
+            "h": 10,
+            "w": 24,
+            "x": 0,
+            "y": 21
+          },
+          "hiddenSeries": false,
+          "id": 6,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.5.3",
+          "pointradius": 1,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:128",
+              "alias": "/firing/",
+              "stack": "B",
+              "transform": "negative-Y",
+              "zindex": -3
+            },
+            {
+              "$$hashKey": "object:129",
+              "alias": "/pending/",
+              "stack": "A"
+            },
+            {
+              "$$hashKey": "object:130",
+              "alias": ""
+            },
+            {
+              "$$hashKey": "object:131",
+              "alias": "/help_series_x_axes_in_center/",
+              "bars": false,
+              "hideTooltip": true,
+              "legend": false,
+              "lines": false,
+              "stack": false,
+              "yaxis": 2
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": true,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "ALERTS{alertstate=~\"firing\"}",
+              "interval": "",
+              "legendFormat": "{{alertname}} {{instance}} {{alertstate}} {{datacenter}}",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "1",
+              "hide": false,
+              "legendFormat": "help_series_x_axes_in_center",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeRegions": [],
+          "title": "Alerts History",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:168",
+              "format": "short",
+              "label": "Firing (-)   /  Pending (+)  ",
+              "logBase": 1,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:169",
+              "format": "short",
+              "logBase": 1,
+              "max": "1",
+              "min": "-1",
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": true,
+            "alignLevel": 0
+          }
+        }
+      ],
+      "refresh": "5s",
+      "schemaVersion": 36,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
+            },
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "definition": "label_values(ALERTS_FOR_STATE,instance)",
+            "hide": 2,
+            "includeAll": true,
+            "multi": true,
+            "name": "instance",
+            "options": [],
+            "query": {
+              "query": "label_values(ALERTS_FOR_STATE,instance)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
+            },
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "definition": "label_values(ALERTS_FOR_STATE,alertname)",
+            "hide": 2,
+            "includeAll": true,
+            "multi": true,
+            "name": "alertname",
+            "options": [],
+            "query": {
+              "query": "label_values(ALERTS_FOR_STATE,alertname)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          }
+        ]
+      },
+      "time": {
+        "from": "now-5m",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Crazy's Home",
+      "uid": "DQj1Pplnk",
+      "version": 2,
+      "weekStart": ""
+    }

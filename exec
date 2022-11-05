@@ -9,6 +9,9 @@ configure)
   echo "Configure Environment"
   configure
   ;;
+install_app)
+  argocd_install_application $2
+  ;;
 *)
   echo "Please provide a valid action"
   exit 1
