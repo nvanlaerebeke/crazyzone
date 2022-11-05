@@ -13,7 +13,7 @@ spec:
     kind: ClusterIssuer
   dnsNames:
 {{- range $hostname := $.Values.hostnames }}
-    - {{ $hostname | quote }}
+    - {{ $hostname }}
 {{- end }}
 ---
 {{- end }}
