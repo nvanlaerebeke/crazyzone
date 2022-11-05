@@ -44,7 +44,7 @@ data:
             "tagKeys": "alertname",
             "tags": [],
             "textFormat": "",
-            "titleFormat": "{{instance}}",
+            "titleFormat": "{{`{{instance}}`}}",
             "type": "tags",
             "useValueForTime": true
           },
@@ -178,7 +178,7 @@ data:
           "targets": [
             {
               "expr": "ALERTS{instance=~\"$instance\", alertname=~\"$alertname\", alertstate=~\"$alertstate\"}",
-              "legendFormat": "{{alertname}} {{instance}} {{alertstate}} {{datacenter}}",
+              "legendFormat": "{{`{{alertname}}`}} {{`{{instance}}`}} {{`{{alertstate}}`}} {{`{{datacenter}}`}}",
               "refId": "C"
             },
             {

@@ -332,7 +332,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "Out: {{ifName}} ({{ifAlias}})",
+              "legendFormat": "Out: {{`{{ifname}}`}} ({{`{{ifAlias}}`}})",
               "refId": "A"
             },
             {
@@ -344,7 +344,7 @@ data:
               "expr": "irate(ifHCInOctets{job=\"snmp_gateway.crazyzone.be\", ifName=\"igb0\"}[5m])",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "In: {{ifName}} ({{ifAlias}})",
+              "legendFormat": "In: {{`{{ifname}}`}} ({{`{{ifAlias}}`}})",
               "refId": "B"
             }
           ],
@@ -525,7 +525,7 @@ data:
               },
               "expr": "ALERTS{alertstate=~\"firing\"}",
               "interval": "",
-              "legendFormat": "{{alertname}} {{instance}} {{alertstate}} {{datacenter}}",
+              "legendFormat": "{{`{{alertname}}`}} {{`{{instance}}`}} {{`{{alertstate}}`}} {{`{{datacenter}}`}}",
               "refId": "C"
             },
             {

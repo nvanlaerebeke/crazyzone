@@ -756,7 +756,7 @@ data:
             {
               "expr": "irate(ifHCOutOctets{job=\"$Job\"}[5m])",
               "intervalFactor": 1,
-              "legendFormat": "{{ifName}} ({{ifAlias}})",
+              "legendFormat": "{{`{{ifName}}`}} ({{`{{ifAlias}}`}})",
               "refId": "B"
             }
           ],
@@ -820,7 +820,7 @@ data:
             {
               "expr": "irate(ifHCOutOctets{job=\"$Job\"}[5m])",
               "intervalFactor": 1,
-              "legendFormat": "{{ifName}} ({{ifAlias}})",
+              "legendFormat": "{{`{{ifName}}`}} ({{`{{ifAlias}}`}})",
               "refId": "B"
             }
           ],
@@ -887,13 +887,13 @@ data:
               "expr": "irate(ifHCOutOctets{job=\"$Job\"}[5m])",
               "instant": false,
               "intervalFactor": 1,
-              "legendFormat": "Out: {{ifName}} ({{ifAlias}})",
+              "legendFormat": "Out: {{`{{ifName}}`}} ({{`{{ifAlias}}`}})",
               "refId": "A"
             },
             {
               "expr": "-irate(ifHCInOctets{job=\"$Job\"}[5m])",
               "intervalFactor": 1,
-              "legendFormat": "In: {{ifName}} ({{ifAlias}})",
+              "legendFormat": "In: {{`{{ifName}}`}} ({{`{{ifAlias}}`}}",
               "refId": "B"
             }
           ],
