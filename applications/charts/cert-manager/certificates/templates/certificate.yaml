@@ -9,7 +9,7 @@ spec:
   - type: CombinedPEM
   secretName: secret-tls
   issuerRef:
-    name: acme-issuer-staging
+    name: acme-issuer-staging 
     kind: ClusterIssuer
   dnsNames:
 {{- range $hostname := $.Values.hostnames }}

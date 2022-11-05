@@ -1,12 +1,12 @@
 name: secret-tls
 namespaces:
-  - argocd
-  - default
+#  - argocd
+#  - default
   - home
-  - jenkins
-  - monitoring
-  - operations
-  - "cert-manager"
+#  - jenkins
+#  - monitoring
+#  - operations
+#  - "cert-manager"
 hostnames:
   - "*.crazyzone.be"
   - "crazyzone.be"
