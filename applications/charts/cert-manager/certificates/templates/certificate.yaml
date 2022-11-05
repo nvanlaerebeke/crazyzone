@@ -7,7 +7,7 @@ spec:
   additionalOutputFormats:
     - type: CombinedPEM
   dnsNames:
-    - "crazyzone.be"
+    - crazyzone.be
   issuerRef:
     kind: ClusterIssuer
     name: acme-issuer-staging
