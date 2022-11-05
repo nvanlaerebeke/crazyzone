@@ -15,3 +15,5 @@ spec:
 {{- range $hostname := $.Values.hostnames }}
     - {{ $hostname | quote }}
 {{- end }}
+---
+{{- end }}
