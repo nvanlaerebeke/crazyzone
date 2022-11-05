@@ -1,19 +1,15 @@
-{{- range $namespace := .Values.namespaces }}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
+  annotations:
   name: secret-tls
-  namespace: {{ $namespace | quote }}
+  namespace: default
 spec:
   additionalOutputFormats:
-  - type: CombinedPEM
-  secretName: secret-tls
-  issuerRef:
-    name: acme-issuer-staging 
-    kind: ClusterIssuer
+    - type: CombinedPEM
   dnsNames:
-{{- range $hostname := $.Values.hostnames }}
-    - {{ $hostname }}
-{{- end }}
----
-{{- end }}
+    - crazyzone.be
+ issuerRef:
+    kind: ClusterIssuer
+    name: acme-issuer-staging
+  secretName: secret-tls
