@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nuget-config-env
+  annotations:
+    timestamp: "{{ now | unixEpoch }}"
+data:
+  ApiKey: f0f67894-5a64-4ac1-9244-3b2d5b2c72ef
+  Storage__Type: FileSystem
+  Storage__Path: /var/baget/packages
+  Database__Type: Sqlite
+  Database__ConnectionString: Data Source=/var/baget/baget.db
+  Search__Type: Database

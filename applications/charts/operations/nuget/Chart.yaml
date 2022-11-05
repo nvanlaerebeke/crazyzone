@@ -1,0 +1,5 @@
+apiVersion: v1
+name: nuget
+version: 0.0.3
+appVersion: 0.0.1
+description: Crazy's nuget repositoryhome

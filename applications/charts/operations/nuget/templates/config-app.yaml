@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nuget-config-app
+  annotations:
+        timestamp: "{{ now | unixEpoch }}"
+data:
+  appsettings.json: |
+    {
+      "ApiKey": "f0f67894-5a64-4ac1-9244-3b2d5b2c72ef",
+      "PackageDeletionBehavior": "Unlist",
+      "AllowPackageOverwrites": true,
+
+      "Database": {
+        "Type": "Sqlite",
+        "ConnectionString": "Data Source=baget.db"
+      },
+
+      "Storage": {
+        "Type": "FileSystem",
+        "Path": ""
+      },
+
+      "Search": {
+        "Type": "Database"
+      },
+
+      "Mirror": {
+        "Enabled": true,
+        "PackageSource": "https://api.nuget.org/v3/index.json"
+      },
+
+      "Logging": {
+        "IncludeScopes": false,
+        "Debug": {
+          "LogLevel": {
+            "Default": "Warning"
+          }
+        },
+        "Console": {
+          "LogLevel": {
+            "Microsoft.Hosting.Lifetime": "Information",
+            "Default": "Warning"
+          }
+        }
+      }
+    }

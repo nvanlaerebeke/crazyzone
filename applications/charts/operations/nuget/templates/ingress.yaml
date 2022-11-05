@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nuget
+  annotations:
+      kubernetes.io/tls-acme: 'true'  
+      timestamp: "{{ now | unixEpoch }}"
+spec:
+  tls:
+    - secretName: {{ .Values.tlssecret }}
+      hosts:
+      - {{ .Values.hostname }}
+  rules:
+    - host: {{ .Values.hostname }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nuget
+                port:
+                  number: 80

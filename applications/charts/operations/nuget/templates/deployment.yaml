@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nuget
+  name: nuget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nuget
+  template:
+    metadata:
+      labels:
+        app: nuget
+      annotations:
+        timestamp: "{{ now | unixEpoch }}"
+    spec:
+      volumes:
+        - name: nuget-storage
+          nfs: 
+            server: nas.crazyzone.be 
+            path: /volume1/docker-storage/nuget
+        - name: nuget-config-app
+          configMap:
+            name: nuget-config-app
+      containers:
+      - name: nuget
+        image: loicsharma/baget:latest
+        ports:
+        - containerPort: 80
+          name: nuget
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5          
+        volumeMounts:
+        - name: nuget-storage
+          mountPath: /var/baget
+        - name: "nuget-config-app"
+          mountPath: "/app/appsettings.json"
+          subPath: "appsettings.json"
+        envFrom:
+        - configMapRef:
+            name: nuget-config-env
