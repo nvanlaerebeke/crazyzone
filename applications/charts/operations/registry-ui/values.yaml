@@ -2,7 +2,7 @@ name: registry-ui
 tlssecret: secret-tls
 hostname: registry-ui.crazyzone.be
 
-joxit/docker-registry-ui: 
+docker-registry-ui: 
   ui:
     # Number of replicas for the Deployment.
     replicas: 1

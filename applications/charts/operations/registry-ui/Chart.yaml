@@ -4,6 +4,6 @@ version: 0.0.4
 appVersion: 0.0.4
 description: ui for the container registry
 dependencies:
-  - name: joxit/docker-registry-ui
+  - name: docker-registry-ui
     version: "v1.10.0"
     repository: "https://helm.joxit.dev"
