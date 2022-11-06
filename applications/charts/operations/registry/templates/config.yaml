@@ -3,4 +3,18 @@ kind: ConfigMap
 metadata:
   name: registry-config
 data:
-  REGISTRY_STORAGE_DELETE_ENABLED: "true"
+  config.yml apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nuget-config-app
+  annotations:
+        timestamp: "{{ now | unixEpoch }}"
+data:
+  config.yml: |
+    version: 0.1
+      delete:
+        enabled: true
+    http:
+      headers:
+        X-Content-Type-Options: [nosniff]
+        Access-Control-Allow-Origin: ['*']
