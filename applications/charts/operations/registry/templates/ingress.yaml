@@ -14,8 +14,8 @@ kind: Ingress
 metadata:
   name: ingress-registry
   annotations:
-      kubernetes.io/ingress.class: traefik
-      traefik.ingress.kubernetes.io/router.entrypoints: web
+      #kubernetes.io/ingress.class: traefik
+      #traefik.ingress.kubernetes.io/router.entrypoints: web
       traefik.ingress.kubernetes.io/router.middlewares: registry-headers@kubernetescrd
       nginx.ingress.kubernetes.io/enable-cors: "true"
       nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, DELETE, OPTIONS"
