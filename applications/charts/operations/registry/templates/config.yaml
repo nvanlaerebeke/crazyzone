@@ -4,3 +4,4 @@ metadata:
   name: registry-config
 data:
   REGISTRY_STORAGE_DELETE_ENABLED: "true"
+  REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin: "*"
