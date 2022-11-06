@@ -31,7 +31,7 @@ docker-registry-ui:
     # Use root or nginx user inside the container, when this is false the target port must be greater or equal to 1024.
     runAsRoot: true
     # The name and tag of the docker image of the interface
-    image: joxit/docker-registry-ui:2.3.0
+    image: joxit/docker-registry-ui
     ingress:
       # Enable the ingress for the user interface.
       enabled: true
