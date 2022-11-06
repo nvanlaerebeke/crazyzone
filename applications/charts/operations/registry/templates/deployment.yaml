@@ -19,6 +19,10 @@ spec:
           nfs: 
             server: nas.crazyzone.be 
             path: /volume1/docker-storage/docker-registry
+        - name: config
+          configMap:
+            defaultMode: 420
+            name: docker-registry
       containers:
       - name: registry
         image: registry:latest
@@ -35,6 +39,8 @@ spec:
         volumeMounts:
         - name: registry-storage
           mountPath: /var/lib/registry
+        - mountPath: "/etc/docker/registry"
+          name: "config"
         env:
         - name: HELM_EXPERIMENTAL_OCI
           value: "1"
