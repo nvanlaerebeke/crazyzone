@@ -14,23 +14,18 @@ spec:
       labels:
         app: registry-ui
     spec:
-      volumes:
-        - name: registry-ui-config-volume
-          configMap: 
-            name: registry-ui-config     
       containers:
       - name: registry-ui
-        image: hyper/docker-registry-web:latest
+        image: joxit/docker-registry-ui:latest
         ports:
         - containerPort: 8080
           name: registry-ui
-#        readinessProbe:
-#          httpGet:
-#            scheme: HTTP
-#            path: /
-#            port: 8080
-#          initialDelaySeconds: 10
-#          periodSeconds: 5          
-        volumeMounts:
-        - name: registry-ui-config-volume
-          mountPath: /conf
+          env:
+          - name: REGISTRY_URL
+            value: "https://registry.crazyzone.be"
+          - name: REGISTRY_TITLE
+            value: "Crazyzone Private Registry"
+          - name: DELETE_IMAGES
+            value: true
+          - name: SINGLE_REGISTRY
+            value: true
