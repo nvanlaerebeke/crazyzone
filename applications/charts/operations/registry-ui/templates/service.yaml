@@ -8,7 +8,7 @@ spec:
   ports:
   - name: {{ .Values.name }}
     port: 80
-    targetPort: 8080
+    targetPort: 80
   selector:
     app: {{ .Values.name }}
   type: ClusterIP
