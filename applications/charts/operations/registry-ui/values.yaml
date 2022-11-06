@@ -1,3 +1,57 @@
 name: registry-ui
 tlssecret: secret-tls
 hostname: registry-ui.crazyzone.be
+
+joxit/docker-registry-ui: 
+  ui:
+    # Number of replicas for the Deployment.
+    replicas: 1
+    # Title of the registry
+    title: "Docker registry UI"
+    # Allow delete of images
+    deleteImages: true
+    # UI behave as a proxy of the registry
+    proxy: false
+    # The URL of your docker registry, may be a service (when proxy is on) or an external URL.
+    dockerRegistryUrl: "https://registry.crazyzone.be"
+    # Remove the menu that show the dialogs to add, remove and change the endpoint of your docker registry.
+    singleRegistry: true
+    # Update the default Nginx configuration and **set custom headers** for your backend docker registry. Only when `ui.proxy` is used.
+    # Example:
+    # nginxProxyHeaders:
+    #  - my-heeader-name: my-header-value
+    nginxProxyHeaders: []
+    # Update the default Nginx configuration and **forward custom headers** to your backend docker registry. Only when `ui.proxy` is used.
+    # Example:
+    # nginxProxyPassHeaders: [ my-first-header, my-second-header ]
+    nginxProxyPassHeaders: []
+    # Add header Control-Cache: no-store, no-cache on requests to registry server.
+    # This needs to update your registry configuration with : `Access-Control-Allow-Headers: ['Authorization', 'Accept', 'Cache-Control']`
+    useControlCacheHeader: false
+    # Use root or nginx user inside the container, when this is false the target port must be greater or equal to 1024.
+    runAsRoot: true
+    # The name and tag of the docker image of the interface
+    image: joxit/docker-registry-ui:2.3.0
+    ingress:
+      # Enable the ingress for the user interface.
+      enabled: true
+      # Fully qualified domain name of a network host.
+      host: registry-ui.crazyzone.be
+      # Path is matched against the path of an incoming request.
+      path: /
+      # Determines the interpretation of the Path matching, must be Prefix to serve assets.
+      pathType: Prefix
+      # The name of an IngressClass cluster resource.
+      ingressClassName: traefik
+      # TLS configuration
+      tls: 
+        - secretName: secret-tls
+          hosts:
+          - registry-ui.crazyzone.be
+
+      # Annotations to apply to the user interface ingress.
+      annotations: {}
+      # If you want a custom path, you can try this example:
+      # path: /ui(/|$)(.*)
+      # annotations:
+      #  nginx.ingress.kubernetes.io/rewrite-target: /$2
