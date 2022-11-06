@@ -12,7 +12,3 @@ data:
     storage:
       delete:
         enabled: true
-    http:
-      headers:
-        X-Content-Type-Options: [nosniff]
-        Access-Control-Allow-Origin: ['*']
