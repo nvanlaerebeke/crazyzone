@@ -38,6 +38,8 @@ spec:
         env:
         - name: HELM_EXPERIMENTAL_OCI
           value: "1"
+        - name:   REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin
+          value: "*"
         envFrom:
         - configMapRef:
             name: registry-config
