@@ -26,6 +26,6 @@ spec:
         - name: REGISTRY_TITLE
           value: "Crazyzone Private Registry"
         - name: DELETE_IMAGES
-          value: true
+          value: "true"
         - name: SINGLE_REGISTRY
-          value: true
+          value: "true"
