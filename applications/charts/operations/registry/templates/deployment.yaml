@@ -19,9 +19,6 @@ spec:
           nfs: 
             server: nas.crazyzone.be 
             path: /volume1/docker-storage/docker-registry
-        - name: registry-config
-          configMap:
-            name: registry-config
       containers:
       - name: registry
         image: registry:latest
@@ -36,14 +33,11 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 5          
         volumeMounts:
-          - name: registry-storage
-            mountPath: /var/lib/registry
-          - name: "registry-config"
-            mountPath: "/etc/docker/registry/config.yml"
-            subPath: "config.yml"
+        - name: registry-storage
+          mountPath: /var/lib/registry
         env:
         - name: HELM_EXPERIMENTAL_OCI
           value: "1"
-        #envFrom:
-        #- configMapRef:
-        #    name: registry-config
+        envFrom:
+        - configMapRef:
+            name: registry-config

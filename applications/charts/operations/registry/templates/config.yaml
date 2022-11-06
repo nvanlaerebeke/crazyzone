@@ -3,12 +3,4 @@ kind: ConfigMap
 metadata:
   name: registry-config
 data:
-  config.yml apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: registry-config
-data:
-  config.yml: |
-    storage:
-      delete:
-        enabled: true
+  REGISTRY_STORAGE_DELETE_ENABLED: "true"
