@@ -1,3 +1,14 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: registry-headers
+  namespace: operations
+spec:
+  headers:
+    customResponseHeaders:
+      Access-Control-Allow-Origin: "*"
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
