@@ -20,12 +20,12 @@ spec:
         ports:
         - containerPort: 8080
           name: registry-ui
-          env:
-          - name: REGISTRY_URL
-            value: "https://registry.crazyzone.be"
-          - name: REGISTRY_TITLE
-            value: "Crazyzone Private Registry"
-          - name: DELETE_IMAGES
-            value: true
-          - name: SINGLE_REGISTRY
-            value: true
+        env:
+        - name: REGISTRY_URL
+          value: "https://registry.crazyzone.be"
+        - name: REGISTRY_TITLE
+          value: "Crazyzone Private Registry"
+        - name: DELETE_IMAGES
+          value: true
+        - name: SINGLE_REGISTRY
+          value: true
