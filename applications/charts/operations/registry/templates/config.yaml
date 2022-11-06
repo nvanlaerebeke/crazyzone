@@ -6,9 +6,7 @@ data:
   config.yml apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nuget-config-app
-  annotations:
-        timestamp: "{{ now | unixEpoch }}"
+  name: registry-config
 data:
   config.yml: |
     version: 0.1
