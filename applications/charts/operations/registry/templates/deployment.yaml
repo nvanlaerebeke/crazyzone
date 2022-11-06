@@ -44,6 +44,3 @@ spec:
         env:
         - name: HELM_EXPERIMENTAL_OCI
           value: "1"
-        envFrom:
-        - configMapRef:
-            name: registry-config
