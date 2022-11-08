@@ -9,7 +9,7 @@ spec:
     namespace: 'operations'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/operations/gogs'
+    path: 'applications/charts/operations/gitea'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
