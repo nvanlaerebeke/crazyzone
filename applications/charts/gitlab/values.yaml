@@ -64,10 +64,10 @@ gitlab:
     ## Timezone for containers.
     time_zone: CET
 
-upgradeCheck:
-  enabled: false
-
-  ## Settings to for the Let's Encrypt ACME Issuer
+  upgradeCheck:
+    enabled: false
+  
+   ## Settings to for the Let's Encrypt ACME Issuer
   certmanager-issuer:
     # The email address to register certificates requested from Let's Encrypt.
     # Required if using Let's Encrypt.
