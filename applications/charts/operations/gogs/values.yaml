@@ -1,0 +1,15 @@
+gogs:
+  dbType: "postgres"
+  useInPodPostgres: false
+  #Connect to an external database
+  externalDB:
+    dbUser: "gogs"
+    dbPassword: "daAQcZku2QwMzj"
+    dbHost: "db-service-name.namespace.svc.cluster.local" # or some external host
+    dbPort: 5432
+    dbDatabase: "gogs"
+postgresql:
+  global:
+    postgresql: gogs-postgres-password
+  persistence:
+    existingClaim: gogs-postgres-storage-claim
