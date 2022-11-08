@@ -16,7 +16,7 @@ gitlab:
       path: /
       pathType: Prefix
     initialRootPassword: 
-      secret: gitlab-initial-root-password
+      secret: gitlab-root-password
       key: password
 
     ## https://docs.gitlab.com/charts/charts/globals#configure-gitaly-settings
