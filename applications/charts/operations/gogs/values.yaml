@@ -1,17 +1,21 @@
 gogs:
   dbType: "postgres"
-  useInPodPostgres: false
+  useInPodPostgres: true
+  ingress:
+    enabled: true
+  persistence:
+    enabled: true	
   #Connect to an external database
-  externalDB:
-    dbUser: "gogs"
-    dbPassword: "daAQcZku2QwMzj"
-    dbHost: "gogs-postgresql.operations.svc.cluster.local" 
-    dbPort: 5432
-    dbDatabase: "gogs"
-postgresql:
-  global:
-    postgresql:
-      existingSecret: "gogs-postgres-password"
+#  externalDB:
+#    dbUser: "gogs"
+#    dbPassword: "daAQcZku2QwMzj"
+#    dbHost: "gogs-postgresql.operations.svc.cluster.local" 
+#    dbPort: 5432
+#    dbDatabase: "gogs"
+#postgresql:
+#  global:
+#    postgresql:
+#      existingSecret: "gogs-postgres-password"
 
 #  global:
 #    postgresql: gogs-postgres-password
