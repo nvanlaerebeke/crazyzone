@@ -29,4 +29,6 @@ postgresql:
       servicePort: 5432
   persistence:
     existingClaim: gitea-postgres-storage-claim
-    size: 10Gi
+  selector:
+    matchLabels:
+      app: gitea-postgres-storage
