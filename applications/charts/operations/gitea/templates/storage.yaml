@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gogs-postgres-storage-name
+  name: gitea-postgres-storage-name
   namespace: operations
   labels:
-    app: gogs-postgres-storage
+    app: gitea-postgres-storage
 spec:
   storageClassName: standard
   capacity:
@@ -13,19 +13,19 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/gogs"
+    path: "/volume1/docker-storage/gitea"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gogs-postgres-storage-claim
+  name: gitea-postgres-storage-claim
 spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
     matchLabels:
-      app: gogs-postgres-storage
+      app: gitea-postgres-storage
   resources:
     requests:
       storage: 50Gi

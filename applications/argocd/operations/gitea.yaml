@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'gogs'
+  name: 'gitea'
 spec:
   project: 'default'
   destination:
