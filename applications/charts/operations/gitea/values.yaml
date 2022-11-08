@@ -15,15 +15,8 @@ gitea:
     enabled: true
     existingClaim: gitea-postgres-storage-claim
 
-  ## @param gitea.admin.username Username for the Gitea admin user
-  ## @param gitea.admin.existingSecret Use an existing secret to store admin user credentials
-  ## @param gitea.admin.password Password for the Gitea admin user
-  ## @param gitea.admin.email Email for the Gitea admin user
   admin:
-    #existingSecret: gitea-admin-secret
-    existingSecret:
-    username: admin
-    password: r8sA8CPHD9!bt6d
+    existingSecret: gitea-admin-secret
     email: "nico.vanlaerebeke@gmail.com"
 
 postgresql:
