@@ -13,12 +13,10 @@ gitea:
 
   persistence:
     enabled: true
-    existingClaim: gitea-postgres-storage-claim
+    existingClaim: gitea-storage-claim
 
   admin:
-    #existingSecret: gitea-admin-secret
-    username: "nvanlaerebeke"
-    password: "password"
+    existingSecret: gitea-admin-secret
     email: "nico.vanlaerebeke@gmail.com"
 
 postgresql:
@@ -30,4 +28,5 @@ postgresql:
       postgresqlPassword: gitea
       servicePort: 5432
   persistence:
+    existingClaim: gitea-postgres-storage-claim
     size: 10Gi
