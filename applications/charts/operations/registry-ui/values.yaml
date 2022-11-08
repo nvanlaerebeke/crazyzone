@@ -34,7 +34,7 @@ docker-registry-ui:
     image: joxit/docker-registry-ui
     ingress:
       # Enable the ingress for the user interface.
-      enabled: true
+      enabled: false
       # Fully qualified domain name of a network host.
       host: registry-ui.crazyzone.be
       # Path is matched against the path of an incoming request.
