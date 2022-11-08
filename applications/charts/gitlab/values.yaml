@@ -6,7 +6,7 @@ namespace: gitlab
 gitlab:
   global:
     hosts:
-      domain: gitlab.crazyzone.be
+      domain: crazyzone.be
     ingress:
       annotations: {}
       enabled: true
