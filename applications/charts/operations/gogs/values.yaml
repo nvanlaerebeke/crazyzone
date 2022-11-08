@@ -5,7 +5,7 @@ gogs:
   externalDB:
     dbUser: "gogs"
     dbPassword: "daAQcZku2QwMzj"
-    dbHost: "db-service-name.operations.svc.cluster.local" 
+    dbHost: "gogs-postgresql.operations.svc.cluster.local" 
     dbPort: 5432
     dbDatabase: "gogs"
 postgresql:
