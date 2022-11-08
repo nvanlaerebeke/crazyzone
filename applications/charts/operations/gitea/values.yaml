@@ -16,7 +16,9 @@ gitea:
     existingClaim: gitea-postgres-storage-claim
 
   admin:
-    existingSecret: gitea-admin-secret
+    #existingSecret: gitea-admin-secret
+    username: "nvanlaerebeke"
+    password: "password"
     email: "nico.vanlaerebeke@gmail.com"
 
 postgresql:
