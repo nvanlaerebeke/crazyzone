@@ -1,38 +1,38 @@
-#gitea:
-#  ingress:
-#    enabled: true
-#    hosts:
-#      - host: git.crazyzone.be
-#        paths:
-#          - path: /
-#            pathType: Prefix
-#    tls:
-#      - secretName: chart-example-tls
-#        hosts:
-#          - git.crazyzone.be
-#
-#  persistence:
-#    enabled: true
-#    existingClaim: gitea-postgres-storage-claim
-#
-#  ## @param gitea.admin.username Username for the Gitea admin user
-#  ## @param gitea.admin.existingSecret Use an existing secret to store admin user credentials
-#  ## @param gitea.admin.password Password for the Gitea admin user
-#  ## @param gitea.admin.email Email for the Gitea admin user
-#  admin:
-#    #existingSecret: gitea-admin-secret
-#    existingSecret:
-#    username: admin
-#    password: r8sA8CPHD9!bt6d
-#    email: "nico.vanlaerebeke@gmail.com"
-#
-#postgresql:
-#  enabled: true
-#  global:
-#    postgresql:
-#      postgresqlDatabase: gitea
-#      postgresqlUsername: gitea
-#      postgresqlPassword: gitea
-#      servicePort: 5432
-#  persistence:
-#    size: 10Gi
+gitea:
+  ingress:
+    enabled: true
+    hosts:
+      - host: git.crazyzone.be
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: chart-example-tls
+        hosts:
+          - git.crazyzone.be
+
+  persistence:
+    enabled: true
+    existingClaim: gitea-postgres-storage-claim
+
+  ## @param gitea.admin.username Username for the Gitea admin user
+  ## @param gitea.admin.existingSecret Use an existing secret to store admin user credentials
+  ## @param gitea.admin.password Password for the Gitea admin user
+  ## @param gitea.admin.email Email for the Gitea admin user
+  admin:
+    #existingSecret: gitea-admin-secret
+    existingSecret:
+    username: admin
+    password: r8sA8CPHD9!bt6d
+    email: "nico.vanlaerebeke@gmail.com"
+
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      postgresqlDatabase: gitea
+      postgresqlUsername: gitea
+      postgresqlPassword: gitea
+      servicePort: 5432
+  persistence:
+    size: 10Gi
