@@ -15,10 +15,6 @@ gitea:
     enabled: true
     existingClaim: gitea-storage-claim
 
-  admin:
-    existingSecret: gitea-admin-secret
-    email: "nico.vanlaerebeke@gmail.com"
-
   postgresql:
     enabled: true
     global:
@@ -32,3 +28,8 @@ gitea:
     selector:
       matchLabels:
         app: gitea-postgres-storage
+
+  gitea:
+    admin:
+      existingSecret: gitea-admin-secret
+      email: "nico.vanlaerebeke@gmail.com"
