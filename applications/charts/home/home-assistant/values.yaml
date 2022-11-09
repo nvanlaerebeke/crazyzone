@@ -4,6 +4,12 @@ home-assistent:
   ingress:
     main:
       enabled: true
+      annotations:
+        nginx.org/websocket-services: home-assistant
+      hosts:
+        - host: home.crazyzone.be
+          paths:
+            - path: /
   persistence:
     config:
       enabled: true
