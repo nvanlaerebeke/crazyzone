@@ -1,0 +1,16 @@
+home-assistent:
+  env:
+    TZ: CET
+  ingress:
+    main:
+      enabled: true
+  persistence:
+    config:
+      enabled: true
+  postgresql:
+    enabled: true
+    primary:
+      persistence:
+        primary:
+          enabled: true
+          existingClaim: home-assistant-claim
