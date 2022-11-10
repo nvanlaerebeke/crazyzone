@@ -1,15 +1,6 @@
 home-assistent:
   env:
     TZ: CET
-  ingress:
-    main:
-      enabled: true
-      annotations:
-        nginx.org/websocket-services: home-assistant
-      hosts:
-        - host: home-assistant.crazyzone.be
-          paths:
-            - path: /
   persistence:
     config:
       enabled: true
