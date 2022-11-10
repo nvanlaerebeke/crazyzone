@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: "RELEASE-NAME-home-assistant"
+                name: "home-assistant"
                 port:
                   number: 8123
