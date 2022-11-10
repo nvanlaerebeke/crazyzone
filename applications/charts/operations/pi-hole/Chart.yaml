@@ -5,5 +5,5 @@ appVersion: 0.0.1
 description: sealed secret support for the cluster
 dependencies:
   - name: pihole
-    version: "2.5.4"
+    version: "2.9.3"
     repository: "https://mojo2600.github.io/pihole-kubernetes/"
