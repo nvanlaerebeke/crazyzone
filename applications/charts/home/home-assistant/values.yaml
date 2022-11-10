@@ -7,7 +7,7 @@ home-assistent:
       annotations:
         nginx.org/websocket-services: home-assistant
       hosts:
-        - host: home.crazyzone.be
+        - host: home-assistant.crazyzone.be
           paths:
             - path: /
   persistence:
