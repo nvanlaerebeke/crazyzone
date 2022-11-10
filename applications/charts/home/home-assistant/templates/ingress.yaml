@@ -2,10 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: "ingress-home-assistant"
-  annotations:
-      kubernetes.io/tls-acme: 'true' 
-      ingress.kubernetes.io/ssl-redirect: "true"
-      kubernetes.io/ingress.allow-http: "false"
 spec:
   tls:
     - secretName: secret-tls
@@ -19,6 +15,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: "home-assistant"
+                name: home-assistant
                 port:
                   number: 8123
