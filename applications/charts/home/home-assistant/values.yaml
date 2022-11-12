@@ -11,6 +11,5 @@ home-assistant:
     enabled: true
     primary:
       persistence:
-        primary:
-          enabled: true
-          existingClaim: home-assistant-storage-postgres-claim
+        enabled: true
+        existingClaim: home-assistant-storage-postgres-claim
