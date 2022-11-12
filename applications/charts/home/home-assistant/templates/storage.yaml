@@ -1,10 +1,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: home-assistant
-  namespace: home
+  name: home-assistant-storage-config
   labels:
-    app: home-assistant
+    app: home-assistant-storage-config
 spec:
   storageClassName: standard
   capacity:
@@ -13,20 +12,51 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/home-assistant"
+    path: "/volume1/docker-storage/home-assistant/config"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: home-assistant-claim
-  namespace: home
+  name: home-assistant-storage-config-claim
 spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
     matchLabels:
-      app: home-assistant
+      app: home-assistant-storage-config
+  resources:
+    requests:
+      storage: 50Gi
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: home-assistant-storage-postgres
+  labels:
+    app: home-assistant-storage-postgres
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteOnce
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/home-assistant/postgres"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant-storage-postgres-claim
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      app: home-assistant-storage-postgres
   resources:
     requests:
       storage: 50Gi
