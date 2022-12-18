@@ -29,7 +29,7 @@ spec:
                 values:
                 - power
       containers:
-      - image: registry.crazyzone.be/powerreadout:0.0.8
+      - image: registry.crazyzone.be/powerreadout:0.0.9
         name:  {{ $.Values.name }}
         volumeMounts:
         - mountPath: /dev/ttyUSB
