@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: ingress-power-reader
   annotations:
-      kubernetes.io/tls-acme: 'true' 
       ingress.kubernetes.io/ssl-redirect: "true"
       kubernetes.io/ingress.allow-http: "false"
 spec:
