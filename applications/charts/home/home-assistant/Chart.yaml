@@ -1,9 +1,0 @@
-apiVersion: v1
-name: assistant
-version: 0.0.1
-appVersion: 0.0.1
-description: home assistant
-dependencies:
-  - name: home-assistant
-    version: "13.4.2"
-    repository: "https://k8s-at-home.com/charts/"

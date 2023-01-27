@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: acme-issuer-staging
+  name: hetzner-acme-issuer-prod
   # namespace: your-namespace
 spec:
   acme:
@@ -12,21 +12,23 @@ spec:
     # Configure your server here...
     # ---
     # Letsencrypt Production
-    # server: https://acme-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     # - or -
     # Letsencrypt Staging
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    #server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: cert-manager-staging-issuer-account-key
+      name: crazytje-prod-issuer-account-key
     solvers:
     # Configure DNS or HTTP Challenge here...
     # ---
     # DNS Challenge:
     - dns01:
-        digitalocean:
-          tokenSecretRef:
-            name: digitalocean-dns
-            key: access-token
+        webhook:
+          groupName: acme.crazytje.be
+          solverName: hetzner
+          config:
+            secretName: hetzner-access-token
+            apiUrl: https://dns.hetzner.com/api/v1
         # Configure your DNS Provider here...
         # ---
         # cloudflare:

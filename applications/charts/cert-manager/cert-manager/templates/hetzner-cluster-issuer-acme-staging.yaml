@@ -1,0 +1,55 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: hetzner-acme-issuer-staging
+  # namespace: your-namespace
+spec:
+  acme:
+    # Configure your email here...
+    # ---
+    email: nico.vanlaerebeke@gmail.com
+
+    # Configure your server here...
+    # ---
+    # Letsencrypt Production
+    # server: https://acme-v02.api.letsencrypt.org/directory
+    # - or -
+    # Letsencrypt Staging
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: crazytje-staging-issuer-account-key
+    solvers:
+    # Configure DNS or HTTP Challenge here...
+    # ---
+    # DNS Challenge:
+    - dns01:
+        webhook:
+          groupName: acme.crazytje.be
+          solverName: hetzner
+          config:
+            secretName: hetzner-access-token
+            apiUrl: https://dns.hetzner.com/api/v1
+        # Configure your DNS Provider here...
+        # ---
+        # cloudflare:
+        #   email: your-email@address
+        # API Key:
+        #   apiKeySecretRef:
+        #     name: cloudflare-api-key-secret
+        #     key: api-key
+        # - or -
+        # API Token:
+        #   apiTokenSecretRef:
+        #     name: cloudflare-api-token-secret
+        #     key: api-token        
+      # (Optional) Add DNS selectors
+      # ---
+      # selector:
+      #   dnsNames:
+      #   - 'your-domain'
+      #   - '*.your-domain'
+
+    # HTTP Challenge:
+    #  - http01:
+    #      ingress:
+    #        class: traefik

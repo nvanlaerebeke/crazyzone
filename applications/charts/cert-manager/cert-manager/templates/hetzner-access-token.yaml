@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: hetzner-access-token
+  namespace: cert-manager
+spec:
+  encryptedData:
+    api-key: AgC+f4qsUj3hUGZ+B6Qk8X8xVs7UWbHvn8MYMfL0ebpIFoSqbrLNbVUrNjwyY6/917HlVwX3wHsZo0jzC3nlUPno8g2OzHi9bbwxI0QL1r3Yt8US9+cWSZx+AtzRK4Hxlowzo2ip5UZZBj+gyuek8RL5PS3UXvyUh2Q7bE9rnUuDs+2RIC35mkj6o838bZM4RJM2spbihBhURSrNb86FSKWoNJC5UtwLAkcrAhkjqjyOZprAzCQeRvOoZIH6rYhV787sKP9exxvsFYRmQZfdkztDjtcTtvpyMLopOoBr76UcayU1VRFul1gB6P+RH2FMWY3WMOY2GCAX3pAeosuau4kULZYEzPzTW8ThmvZFVBh26fvch5Rt6DpXMzki7EhOWEP5Mdv3z04A4IZ/I56YSFuOZ/qn/655fJf9xqzvpd9frMwPNClj4F4y2QCF2YJQ+GUF/VKtU1lec00qxd749LfwbZIs82gpO/S2cqwhYG3+024aLgoXak+aAPsBJE5d5rBMjkhdcfqEzICBwNnQlIg+6YowXDhWo4nlVjjX5w+VKVypi00P4pXz/C2qMXBWV2/2tggT/JyONoMLRxd67i3iKfdzOTxxIpT/LRSHvfgdMFzo3CvyYMM6Izxxi0vkicrAVxCEQEeCSNGUKbbqVDHh8C069RKwYQSoICJxLmkDDZgcJ0eiuylcsmiiUQTcAgsKN1K4pZw0nexckR+4ZLtrnAFfSrSwAIebGc7k75H47w==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: hetzner-access-token
+      namespace: cert-manager
+    type: Opaque

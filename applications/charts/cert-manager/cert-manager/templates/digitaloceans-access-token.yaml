@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: digitalocean-access-token
+  namespace: cert-manager
+spec:
+  encryptedData:
+    access-token: AgCrD82Y8x9/4LDjQPutOZiJfngTYqpBWrNiVd6elbC9ApRIFkU7ZRwRh2Wdjz+V7u1Ky1BXCVVZGtIO53xGQp56tLl00l/+2gneNXnWZS7SLJXzvrkLJwFNItAVpup0RUzrV/XrpDoo0rrca2VEIIJSMysp4iRX8kzNjsnVA7tdfvABeBjASg2EIgE8YdT+Cc5dHnwAmsgLUPEuEo6DT4oYY9iF2qdRT5Kv2SCkxvm2WQKtKs/3L7kd4/VbkWzxhKRfc90h8h2I8ows3W3epxC17UeUbd3fB790CuTPR860sbMGFDigmSCo6IVvvgX97TDbm9grgLlR2nczxqOyPbI5m0whSskaUxhd4fuByvnYtb9ykEBeyIfR7rZRvWPqccGlE7MB5ymhF/RpBqDcfzkzwjvv+Xw0q/eTEPPWveyreRe3OZrvTRq21CgGPsjw4qrh6Wnz53/fu8XERXi2h88swn3O3MBOO36Ku3zO8fkf62U22KwjrtKGWsbQ3Rlotj3B1Zujw7Olxlq6pXg5gwRmhoRg1Gtp0RL6lwN1EV0o3U068moospxpbvEEvezdnTaxokoRb2EJ0+VYcMeVJj4RveEohmDBFiPOeyuTN59foO1VUmpj3B+pGNkoW9fxPQXTIQQwTkqYN87S1Xnt+c4BPih+D1lFKJhWn3YPTd9OYDjaefVqmSGDV7a6gdoTCjBBq7xQKy3483eLpscOFqYD1oG3WuRty7sQSh2UmJQTrUrTLUmhYjDS3l7jBia2CIaW0DlGn6UROFWP4S5Kw5sHg44Q4PydFu0=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: digitalocean-access-token
+      namespace: cert-manager
+    type: Opaque
