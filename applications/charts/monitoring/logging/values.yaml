@@ -14,4 +14,7 @@ promtail:
     # -- Specifies whether the init container for setting inotify max user instances is to be enabled
     enabled: true
     # -- The inotify max user instances to configure
-    fsInotifyMaxUserInstances: 128    
+    fsInotifyMaxUserInstances: 128
+  tolerations:
+    - effect: NoSchedule
+      operator: Exists
