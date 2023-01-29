@@ -6,7 +6,7 @@ spec:
   project: 'default'
   destination:
     name: ''
-    namespace: 'monitoring'
+    namespace: 'power'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'applications/charts/power/power-reader'
