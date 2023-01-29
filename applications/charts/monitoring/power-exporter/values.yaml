@@ -1,3 +1,0 @@
-name: power-exporter
-tlssecret: secret-tls
-hostname: power-exporter.crazyzone.be

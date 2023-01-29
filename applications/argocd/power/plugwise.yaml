@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: power-reader
+  name: plugwise
 spec:
   project: 'default'
   destination:
@@ -9,7 +9,7 @@ spec:
     namespace: 'monitoring'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/monitoring/power-reader'
+    path: 'applications/charts/power/plugwise'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
