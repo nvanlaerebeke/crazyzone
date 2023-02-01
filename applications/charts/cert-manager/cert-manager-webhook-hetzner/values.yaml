@@ -7,7 +7,7 @@ cert-manager-webhook-hetzner:
   # solve the DNS01 challenge.
   # This group name should be **unique**, hence using your own company's domain
   # here is recommended.
-  groupName: acme.crazytje.be
+  groupName: acme.crazyzone.be
 
   certManager:
     namespace: cert-manager

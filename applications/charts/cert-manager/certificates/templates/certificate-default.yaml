@@ -11,11 +11,5 @@ spec:
     name: hetzner-acme-issuer-prod
     kind: ClusterIssuer
   dnsNames:
-    - "*.crazytje.be"
-    - "*.crazytje.com"
-    - "*.crazyzone.be"
-    - "*.crazymanga.be"
-    - "crazytje.be"
-    - "crazytje.com"
     - "crazyzone.be"
-    - "crazymanga.be"
+    - "*.crazyzone.be"

@@ -24,7 +24,7 @@ spec:
     # DNS Challenge:
     - dns01:
         webhook:
-          groupName: acme.crazytje.be
+          groupName: acme.crazyzone.be
           solverName: hetzner
           config:
             secretName: hetzner-access-token
