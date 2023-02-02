@@ -12,7 +12,7 @@ gitea:
           - git.crazyzone.be
   service:            
     ssh:
-      type: LoadBalancer
+      type: NodePort
       port: 22
   persistence:
     enabled: true
