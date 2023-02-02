@@ -14,6 +14,7 @@ gitea:
     ssh:
       type: NodePort
       port: 22
+      clusterIP: 
   persistence:
     enabled: true
     existingClaim: gitea-storage-claim
