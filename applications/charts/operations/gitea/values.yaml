@@ -10,7 +10,10 @@ gitea:
       - secretName: chart-example-tls
         hosts:
           - git.crazyzone.be
-
+  service:            
+    ssh:
+      type: LoadBalancer
+      port: 22
   persistence:
     enabled: true
     existingClaim: gitea-storage-claim
