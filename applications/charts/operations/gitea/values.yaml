@@ -13,7 +13,7 @@ gitea:
   service:            
     ssh:
       type: NodePort
-      nodePort: 20000
+      nodePort: 30022
       port: 22
       clusterIP: 
   persistence:
