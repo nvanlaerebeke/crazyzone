@@ -30,4 +30,5 @@ spec:
   resources:
     requests:
       storage: 100Gi
+  volumeName: jenkins-nmd
   volumeMode: Filesystem
