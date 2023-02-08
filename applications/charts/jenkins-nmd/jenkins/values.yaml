@@ -1,7 +1,7 @@
 jenkins:
   persistence:
     enabled: true
-    existingClaim: jenkins-nmd
+    existingClaim: jenkins-nmd-claim
     size: 50Gi
   volumePermissions:
     enabled: true
