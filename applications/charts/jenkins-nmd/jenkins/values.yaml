@@ -1,6 +1,7 @@
 jenkins:
   jenkinsUser: nvanlaerebeke
   jenkinsPassword: password
+  serviceAccountName: jenkins-nmd
   persistence:
     enabled: true
     existingClaim: jenkins-nmd-claim
