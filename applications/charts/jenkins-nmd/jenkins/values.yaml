@@ -1,0 +1,13 @@
+jenkins:
+  persistence:
+    enabled: true
+    existingClaim: jenkins-nmd
+    size: 50Gi
+  volumePermissions:
+    enabled: true
+  ingress:
+    enabled: true
+    hostname: jenkins-nmd.crazyzone.be
+    tls:
+      secrets: secret-tls
+
