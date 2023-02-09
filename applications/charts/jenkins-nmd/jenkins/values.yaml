@@ -8,8 +8,8 @@ jenkins:
     size: 50Gi
   volumePermissions:
     enabled: true
-  service:
-    type: ClusterIP
+    #  service:
+    #type: ClusterIP
   ingress:
     enabled: true
     hostname: jenkins-nmd.crazyzone.be
