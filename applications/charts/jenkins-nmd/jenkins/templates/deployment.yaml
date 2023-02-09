@@ -34,7 +34,7 @@ spec:
         ports:
         - name: jenkins-nmd
           containerPort: 8080
-        - name: jenkins-nmd-jnlp-port
+        - name: jnlp-port
           containerPort: 50000          
         readinessProbe:
           httpGet:

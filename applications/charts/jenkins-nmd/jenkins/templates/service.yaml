@@ -12,6 +12,6 @@ spec:
   - name: jenkins-nmd-ui
     port: 8080
     targetPort: 8080
-  - name: jenkins-jnlp
+  - name: jnlp-port
     port: 50000
     targetPort: 50000    
