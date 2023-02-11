@@ -1,0 +1,38 @@
+harbor:
+  externalURL: harbor.crazyzone.be
+  existingSecretAdminPassword: harbor-secret
+  
+  expose:
+    type: ingress
+    tls:
+      enabled: true
+      secret:
+        secretName: secret-tls
+    ingress:
+      hosts:
+        core: harbor.crazyzone.be
+  persistence:
+    enabled: true
+    persistentVolumeClaim:
+      database:
+        existingClaim: harbor-storage-claim
+        subPath: database
+      database:
+        existingClaim: harbor-storage-claim
+        subPath: redis
+      registry:
+        existingClaim: harbor-storage-claim
+        subPath: registry
+      chartmuseum:
+        existingClaim: harbor-storage-claim
+        subPath: charts
+      trivy:
+        existingClaim: harbor-storage-claim
+        subPath: trivy
+      jobservice:
+        jobLog:
+          existingClaim: harbor-storage-claim
+          subPath: jobs/logs
+        scanDataExports:
+          existingClaim: harbor-storage-claim
+          subPath: jobs/exports
