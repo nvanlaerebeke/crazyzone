@@ -13,7 +13,7 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/artifactory"
+    path: "/volume1/docker-storage/artifactory/artifactory"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
