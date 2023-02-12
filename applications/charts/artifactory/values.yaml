@@ -21,13 +21,16 @@ artifactory-oss:
           hosts:
             artifactory.crazyzone.be     
     artifactory:
+      unifiedSecretInstallation: false
       global:
         ## Artifactory
         ## See full list of supported Artifactory options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
         nginx:
           enabled: false  
-        persistence:
-          existingClaim: artifactory-storage-claim
+      persistence:
+        enabled: true
+        existingClaim: artifactory-storage-claim
+        customBinarystoreXmlSecret: ""
 
       postgresql:
         enabled: true
