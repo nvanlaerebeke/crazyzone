@@ -10,22 +10,22 @@
 ## All values are under the 'artifactory' sub chart.
 artifactory-oss:
   artifactory:
+    ## Ingress
+    ## See full list of supported Ingress options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
+    ingress:
+      enabled: true
+      hosts:
+        - artifactory.crazyzone.be
+      tls:
+        - secretName: secret-tls
+          hosts:
+            artifactory.crazyzone.be     
     artifactory:
-      ## Artifactory
-      ## See full list of supported Artifactory options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
-      nginx:
-        enabled: false
-      ## Ingress
-      ## See full list of supported Ingress options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
-      ingress:
-        enabled: true
-        hosts:
-          - artifactory.crazyzone.be
-        tls:
-          - secretName: secret-tls
-            hosts:
-              artifactory.crazyzone.be
       global:
+        ## Artifactory
+        ## See full list of supported Artifactory options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
+        nginx:
+          enabled: false  
         persistence:
           existingClaim: artifactory-storage-claim
 
