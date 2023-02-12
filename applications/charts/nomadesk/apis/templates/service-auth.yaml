@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nomadesk-auth
+  name: nomadesk-auth
+spec:
+  selector:
+    app: nomadesk-auth
+  type: ClusterIP
+  ports:
+    - name: auth
+      port: 80
+      targetPort: 80
