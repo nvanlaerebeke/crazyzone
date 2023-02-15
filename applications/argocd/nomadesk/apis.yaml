@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nuget
+  name: 'nomadesk-apis'
 spec:
-  project: 'operations'
+  project: 'nomadesk'
   destination:
     name: ''
     namespace: 'operations'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/operations/nuget'
+    path: 'applications/charts/operations/gitea'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:

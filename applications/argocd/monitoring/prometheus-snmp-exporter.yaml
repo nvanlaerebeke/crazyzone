@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: prometheus-snmp-exporter
 spec:
-  project: 'default'
+  project: 'monitoring'
   destination:
     name: ''
     namespace: 'monitoring'

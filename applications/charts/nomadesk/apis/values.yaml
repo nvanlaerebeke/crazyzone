@@ -2,6 +2,5 @@ global:
   name: nomadesk-apis
   ingress:
     enabled: true
-    hostname: nomadesk-account.crazyzone.be
     tls:
       existingSecret: secret-tls

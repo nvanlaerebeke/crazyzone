@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'cert-manager-webhook-hetzner'
 spec:
-  project: 'default'
+  project: 'cert-manager'
   destination:
     name: ''
     namespace: 'cert-manager'

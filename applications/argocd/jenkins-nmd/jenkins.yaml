@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'jenkins-nmd'
 spec:
-  project: 'default'
+  project: 'jenkins-nmd'
   destination:
     name: ''
     namespace: 'jenkins-nmd'

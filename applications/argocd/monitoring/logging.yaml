@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: logging
 spec:
-  project: 'default'
+  project: 'monitoring'
   destination:
     name: ''
     namespace: 'monitoring'

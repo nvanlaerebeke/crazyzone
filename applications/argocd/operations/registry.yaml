@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: registry
 spec:
-  project: 'default'
+  project: 'operations'
   destination:
     name: ''
     namespace: 'operations'

@@ -1,0 +1,72 @@
+nomadesk:
+  global:
+    registry: "registry.crazyzone.be"
+  nomadesk:
+    hostname: "nmd.crazyzone.be"
+    version: "dev"
+    admin:
+      autocreate: true
+      email: "nico.vanlaerebeke@unifiedpost.com"
+      enablePartnerPortal: true
+    bgtapi:
+    controller:
+    comapi:
+    devdocs:
+      enabled: true
+    licenseserver:
+      enabled: true
+    my:
+    settings:
+    shorturl:
+      enabled: true
+    storage:
+      enablePersistentStorage: true
+    syncserver:
+      port:
+        type: Ingress
+    ingress:
+      enabled: true
+    db: 
+      autocreate: true
+      postgresHost: "nmd.crazyzone.be"
+      postgresPort: 30000
+      postgresDbPassword: "password"
+    redis:
+      hostname: "nmd.crazyzone.be"
+      port: 30002
+      password: "password"
+  postgres:
+    enabled: true  
+  redis:
+    enabled: true
+    master:
+      persistence:
+        enabled: false 
+  minio:
+    enabled: true
+    ingress:
+      hosts:
+        - "mimio.crazyzone.be"
+      tls:
+        - secretName: tls-secret
+          hosts:
+            - "minio.crazyzone.be"
+    consoleIngress:
+      hosts:
+        - "minio-console.crazyzone.be"
+      tls:
+        - secretName: tls-secret
+          hosts:
+            - "minio-console.crazyzone.be"
+  mailhog:
+    enabled: true
+    ingress:
+      hosts:
+        - host: "mail.crazyzone.be"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: tls-secret
+          hosts:
+            - "mail.crazyzone.be"

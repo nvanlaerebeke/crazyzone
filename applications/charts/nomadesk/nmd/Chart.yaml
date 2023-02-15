@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nomadesk
+description: Nomadesk Stack
+type: application
+version: "10.8.12"
+appVersion: "10.8.12"
+dependencies:
+  - name: nomadesk
+    repository: https://nomadesk.com
+    version: "10.8.12"

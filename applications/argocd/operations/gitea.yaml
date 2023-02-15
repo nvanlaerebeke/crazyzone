@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'gitea'
 spec:
-  project: 'default'
+  project: 'operations'
   destination:
     name: ''
     namespace: 'operations'
