@@ -6,10 +6,10 @@ spec:
   project: 'nomadesk'
   destination:
     name: ''
-    namespace: 'operations'
+    namespace: 'nomadesk-apis'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/operations/gitea'
+    path: 'applications/charts/nomadesk/apis'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
