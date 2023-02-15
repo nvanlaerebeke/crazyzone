@@ -6,5 +6,5 @@ function configure {
     argocd_install_dir "$ROOT/applications/argocd/monitoring/"
     argocd_install_dir "$ROOT/applications/argocd/operations/"
     argocd_install_dir "$ROOT/applications/argocd/power/"
-    argocd_install_dir "$ROOT/applications/argocd/artifactory/"
+    argocd_install_dir "$ROOT/applications/argocd/nomadesk/"
 }
