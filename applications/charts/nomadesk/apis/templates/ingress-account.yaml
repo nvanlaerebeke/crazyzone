@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-nomadesk-auth
+  name: ingress-nomadesk-account
   annotations:
       kubernetes.io/tls-acme: 'true' 
       ingress.kubernetes.io/ssl-redirect: "true"
@@ -15,10 +15,10 @@ spec:
     - host: nmd.crazyzone.be
       http:
         paths:
-          - path: /auth
+          - path: /account
             pathType: Prefix
             backend:
               service:
-                name: nomadesk-auth
+                name: nomadesk-account
                 port:
                   number: 80

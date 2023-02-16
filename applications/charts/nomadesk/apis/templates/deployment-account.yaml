@@ -2,27 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nomadesk-auth
-  name: nomadesk-auth
+    app: nomadesk-account
+  name: nomadesk-account
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nomadesk-auth
+      app: nomadesk-account
   template:
     metadata:
       labels:
-        app: nomadesk-auth
+        app: nomadesk-account
     spec:
       containers:
-      - name: nomadesk-auth
-        image: registry.crazyzone.be/nomadesk-auth:latest
+      - name: nomadesk-account
+        image: registry.crazyzone.be/nomadesk-account:latest
         ports:
         - containerPort: 80
-          name: auth
+          name: account
         envFrom:
           - configMapRef:
-              name: auth-env
+              name: account-env
         readinessProbe:
           httpGet:
             scheme: HTTP
