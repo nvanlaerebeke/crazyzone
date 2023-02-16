@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: secret-tls
+                name: nomadesk-vault
                 port:
                   number: 80
