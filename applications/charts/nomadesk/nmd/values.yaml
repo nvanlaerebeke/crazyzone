@@ -46,27 +46,27 @@ nomadesk:
     enabled: true
     ingress:
       hosts:
-        - "mimio.crazyzone.be"
+        - "mimio-nmd.crazyzone.be"
       tls:
         - secretName: tls-secret
           hosts:
-            - "minio.crazyzone.be"
+            - "minio-nmd.crazyzone.be"
     consoleIngress:
       hosts:
-        - "minio-console.crazyzone.be"
+        - "minio-nmd-console.crazyzone.be"
       tls:
         - secretName: tls-secret
           hosts:
-            - "minio-console.crazyzone.be"
+            - "minio-nmd-console.crazyzone.be"
   mailhog:
     enabled: true
     ingress:
       hosts:
-        - host: "mail.crazyzone.be"
+        - host: "mail-nmd.crazyzone.be"
           paths:
             - path: /
               pathType: Prefix
       tls:
         - secretName: tls-secret
           hosts:
-            - "mail.crazyzone.be"
+            - "mail-nmd.crazyzone.be"
