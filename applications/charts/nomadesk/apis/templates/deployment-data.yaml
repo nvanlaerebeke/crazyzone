@@ -2,28 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nomadesk-account
-  name: nomadesk-account
+    app: nomadesk-data
+  name: nomadesk-data
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nomadesk-account
+      app: nomadesk-data
   template:
     metadata:
       labels:
-        app: nomadesk-account
+        app: nomadesk-data
     spec:
       containers:
-      - name: nomadesk-account
-        image: registry.crazyzone.be/nomadesk-account:latest
+      - name: nomadesk-data
+        image: registry.crazyzone.be/nomadesk-data:latest
         ports:
         - containerPort: 80
-          name: account
+          name: data
         readinessProbe:
           httpGet:
             scheme: HTTP
-            path: /
+            path: /readyz
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 5

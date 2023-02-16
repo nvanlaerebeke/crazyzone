@@ -10,12 +10,12 @@ spec:
   tls:
     - secretName: secret-tls
       hosts:
-        - nomadesk-auth.crazyzone.be
+        - nmd.crazyzone.be
   rules:
-    - host: nomadesk-auth.crazyzone.be
+    - host: nmd.crazyzone.be
       http:
         paths:
-          - path: /
+          - path: /auth
             pathType: Prefix
             backend:
               service:

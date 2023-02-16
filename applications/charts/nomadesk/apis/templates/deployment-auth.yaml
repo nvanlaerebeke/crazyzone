@@ -20,10 +20,13 @@ spec:
         ports:
         - containerPort: 80
           name: auth
+        envFrom:
+          - configMapRef:
+              name: auth-env
         readinessProbe:
           httpGet:
             scheme: HTTP
-            path: /
+            path: /readyz
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 5

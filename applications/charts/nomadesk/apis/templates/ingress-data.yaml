@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-nomadesk-account
+  name: ingress-nomadesk-accountdata
   annotations:
       kubernetes.io/tls-acme: 'true' 
       ingress.kubernetes.io/ssl-redirect: "true"
@@ -10,12 +10,12 @@ spec:
   tls:
     - secretName: secret-tls
       hosts:
-        - nomadesk-account.crazyzone.be
+        - nmd.crazyzone.be
   rules:
-    - host: nomadesk-account.crazyzone.be
+    - host: nmd.crazyzone.be
       http:
         paths:
-          - path: /
+          - path: /data
             pathType: Prefix
             backend:
               service:
