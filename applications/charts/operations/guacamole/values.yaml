@@ -17,6 +17,7 @@ postgresql:
         existingSecret: "guacamole-postgres-password"
   volumePermissions:
     enabled: true
-  persistence:
-    enabled: true
-    existingClaim: guacamole-postgres-storage-claim
+  primary:  
+    persistence:
+      enabled: true
+      existingClaim: guacamole-postgres-storage-claim
