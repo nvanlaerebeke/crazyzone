@@ -4,6 +4,7 @@ guacamole:
   postgres:
     database: "guacamole"
     hostname: "guacamole-postgresql"
+    password: "L6UwuxgrXH"
   service:
     port: 8080
   ingress:
