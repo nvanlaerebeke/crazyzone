@@ -1,6 +1,0 @@
-dependencies:
-- name: artifactory-oss
-  repository: https://charts.jfrog.io
-  version: 107.49.6
-digest: sha256:7fe7d818b7e6d4f02dfdc4d847ad348e78bd292f06033b05b764673570c16394
-generated: "2023-02-12T00:00:36.663938012+01:00"
