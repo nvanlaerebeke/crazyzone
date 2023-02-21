@@ -17,7 +17,7 @@ postgresql:
         existingSecret: "guacamole-postgres-password"
   auth:
     secretKeys:
-      adminPasswordKey: postgresql-password
+      adminPasswordKey: "postgresql-password"
   volumePermissions:
     enabled: true
   primary:  
