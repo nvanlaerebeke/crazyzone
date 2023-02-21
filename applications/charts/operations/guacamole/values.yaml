@@ -11,9 +11,10 @@ guacamole:
 postgresql:
   global:
     postgresql:
-      postgresqlDatabase: "guacamole"
-      postgresqlUsername: "guacamole"
-      existingSecret: "guacamole-postgres-password"
+      auth: 
+        database: "guacamole"
+        username: "guacamole"
+        existingSecret: "guacamole-postgres-password"
   volumePermissions:
     enabled: true
   persistence:
