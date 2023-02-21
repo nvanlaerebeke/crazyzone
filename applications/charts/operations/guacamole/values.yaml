@@ -15,6 +15,9 @@ postgresql:
         database: "guacamole"
         username: "guacamole"
         existingSecret: "guacamole-postgres-password"
+  auth:
+    secretKeys:
+      adminPasswordKey: postgresql-password
   volumePermissions:
     enabled: true
   primary:  
