@@ -6,8 +6,10 @@ harbor:
     type: ingress
     tls:
       enabled: true
+      certSource: secret
       secret:
         secretName: secret-tls
+        notarySecretName: secret-tls
     ingress:
       hosts:
         core: harbor.crazyzone.be
