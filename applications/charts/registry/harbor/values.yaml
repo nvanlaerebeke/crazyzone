@@ -36,6 +36,6 @@ harbor:
         subPath: trivy
       jobservice:
         jobLog:
-          existingClaim: harbor-job-logs-storage-claim
+          existingClaim: harbor-storage-job-logs-claim
         scanDataExports:
-          existingClaim: harbor-job-exports-storage-claim
+          existingClaim: harbor-storage-job-exports-claim
