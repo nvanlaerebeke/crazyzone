@@ -35,7 +35,7 @@ harbor:
       jobservice:
         jobLog:
           existingClaim: harbor-storage-claim
-          subPath: jobs/logs
+          subPath: logs
         scanDataExports:
           existingClaim: harbor-storage-claim
-          subPath: jobs/exports
+          subPath: exports
