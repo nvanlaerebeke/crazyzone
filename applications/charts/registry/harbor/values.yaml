@@ -26,6 +26,9 @@ harbor:
       chartmuseum:
         existingClaim: harbor-storage-claim
         subPath: charts
+      redis:
+        existingClaim: harbor-storage-claim
+        subPath: charts
       trivy:
         existingClaim: harbor-storage-claim
         subPath: trivy

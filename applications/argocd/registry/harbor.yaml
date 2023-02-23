@@ -9,7 +9,7 @@ spec:
     namespace: 'registry'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/operations/harbor'
+    path: 'applications/charts/registry/harbor'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
