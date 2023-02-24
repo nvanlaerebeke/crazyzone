@@ -39,3 +39,5 @@ harbor:
           existingClaim: harbor-storage-job-logs-claim
         scanDataExports:
           existingClaim: harbor-storage-job-exports-claim
+  metrics:
+    enabled: true
