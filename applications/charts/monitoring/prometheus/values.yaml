@@ -214,6 +214,25 @@ kube-prometheus-stack:
             target_label: instance
           - target_label: __address__
             replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
+      - job_name: 'harbor-exporter'
+        scrape_interval: 20s
+        static_configs:
+          # Scrape metrics from the Harbor exporter component
+          - targets: ['10.43.83.52:8001']
+      - job_name: 'harbor-core'
+        scrape_interval: 20s
+        params:
+          # Scrape metrics from the Harbor core component
+          comp: ['core']
+        static_configs:
+          - targets: ['10.43.83.52:8001']
+      - job_name: 'harbor-registry'
+        scrape_interval: 20s
+        params:
+          # Scrape metrics from the Harbor registry component
+          comp: ['registry']
+        static_configs:
+          - targets: ['10.43.83.52:8001']
   prometheus-node-exporter:
     hostRootFsMount:
       enabled: false
