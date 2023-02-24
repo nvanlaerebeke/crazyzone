@@ -1,5 +1,5 @@
 harbor:
-  externalURL: harbor.crazyzone.be
+  externalURL: https://harbor.crazyzone.be
   existingSecretAdminPassword: harbor-secret
   
   expose:
