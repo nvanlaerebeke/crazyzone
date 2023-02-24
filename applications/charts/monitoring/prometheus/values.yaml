@@ -87,13 +87,6 @@ kube-prometheus-stack:
                 storage: 50Gi
       scrapeInterval: 5s
       additionalScrapeConfigs: 
-      - job_name: "backup.crazyzone.be"
-        static_configs:
-        - targets: ["backup.crazyzone.be:9100"]
-          labels: 
-            host: backup
-            endpoint: "metrics"
-            job: "node-exporter"
       - job_name: "kvm.crazyzone.be"
         static_configs:
         - targets: ["kvm.crazyzone.be:9100"]
@@ -165,20 +158,6 @@ kube-prometheus-stack:
         static_configs:
           - targets:
             - https://plugwise.crazyzone.be/Plug/Usage/000D6F0001A5A3B6
-        relabel_configs:
-          - source_labels: [__address__]
-            target_label: __param_target
-          - source_labels: [__param_target]
-            target_label: instance
-          - target_label: __address__
-            replacement: json-exporter.crazyzone.be ## Location of the json exporter's real <hostname>:<port>
-      - job_name: aquarium
-        metrics_path: /probe
-        params:
-          module: [plugwise]
-        static_configs:
-          - targets:
-            - https://plugwise.crazyzone.be/Plug/Usage/000D6F00004BA1C6
         relabel_configs:
           - source_labels: [__address__]
             target_label: __param_target
