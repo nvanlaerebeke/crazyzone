@@ -2037,7 +2037,7 @@ data:
                   "instant": false,
                   "interval": "",
                   "intervalFactor": 1,
-                  "legendFormat": "{{instance}}-{{operation}}",
+                  "legendFormat": "{{ "{{" }}instance}}-{{ "{{" }}operation}}",
                   "refId": "A"
                 }
               ],
