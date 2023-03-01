@@ -12,7 +12,7 @@ spec:
     app.kubernetes.io/instance: unifi
     app.kubernetes.io/name: unifi
   type: ClusterIP
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -24,7 +24,7 @@ spec:
       port: 8080
       targetPort: 8080
   type: ClusterIP
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -40,7 +40,7 @@ spec:
       port: 8843
       targetPort: 8843
   type: ClusterIP
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -52,7 +52,7 @@ spec:
       port: 6789
       targetPort: 6789
   type: ClusterIP
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
