@@ -7,5 +7,7 @@ function configure {
     argocd_install_dir "$ROOT/applications/argocd/operations/"
     argocd_install_dir "$ROOT/applications/argocd/power/"
     argocd_install_dir "$ROOT/applications/argocd/registry/"
+    argocd_install_dir "$ROOT/applications/argocd/rancher/"
+    argocd_install_dir "$ROOT/applications/argocd/unifi/"
 #    argocd_install_dir "$ROOT/applications/argocd/nomadesk/"
 }

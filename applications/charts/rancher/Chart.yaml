@@ -1,8 +1,8 @@
 apiVersion: v1
-name: gitea
+name: rancher
 version: 0.0.1
 appVersion: 0.0.1
-description: Git server for crazyzone
+description: Cluster managment
 dependencies:
   - name: rancher
     version: "2.7.1"

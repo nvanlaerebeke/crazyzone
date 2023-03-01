@@ -138,7 +138,7 @@ rancher:
     ## Volume kind to use for persistence: persistentVolumeClaim, configMap
     volumeKind: persistentVolumeClaim
     ## Use an existing volume. Custom logos should be copied to the volume by the user
-    volumeName: rancher-storage
+    volumeName: rancher-storage-claim
     ## Just for volumeKind: persistentVolumeClaim
     ## To disables dynamic provisioning, set storageClass: "" or storageClass: "-"
     # storageClass: "-"
