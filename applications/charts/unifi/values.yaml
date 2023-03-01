@@ -60,6 +60,8 @@ unifi:
       enabled: true
       hosts:
       - host: unifi.crazyzone.be
+        paths:
+        - path: /
       tls:
       - secretName: unifi.crazyzone.be
         hosts:
