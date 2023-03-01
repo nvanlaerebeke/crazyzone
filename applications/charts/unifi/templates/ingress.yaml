@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: unifi
+spec:
+  tls:
+    - hosts:
+        - unifi.crazyzone.be
+      secretName: unifi.crazyzone.be
+  rules:
+    - host: unifi.crazyzone.be
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unifi
+                port:
+                  number: 8443
