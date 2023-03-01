@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'harbor'
+  name: 'unifi'
 spec:
   project: 'operations'
   destination:
     name: ''
-    namespace: 'registry'
+    namespace: 'unifi'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'applications/charts/unifi'
