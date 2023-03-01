@@ -20,7 +20,7 @@ spec:
       protocol: TCP
       port: 8080
       targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
@@ -32,11 +32,7 @@ spec:
       protocol: TCP
       port: 8880
       targetPort: 8880
-    - name: websecure
-      protocol: TCP
-      port: 8843
-      targetPort: 8843
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
@@ -48,7 +44,7 @@ spec:
       protocol: TCP
       port: 6789
       targetPort: 6789
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
@@ -60,4 +56,4 @@ spec:
       protocol: UDP
       port: 3478
       targetPort: 3478
-  type: ClusterIP
+  type: LoadBalancer
