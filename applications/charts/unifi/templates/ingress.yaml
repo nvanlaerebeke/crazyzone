@@ -6,7 +6,7 @@ spec:
   tls:
     - hosts:
       - wifi.crazyzone.be
-      secretName: wifi.crazyzone.be
+      secretName: secret-tls
   rules:
     - host: wifi.crazyzone.be
       http:
