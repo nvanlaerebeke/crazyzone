@@ -4,6 +4,6 @@ version: 0.0.1
 appVersion: 0.0.1
 description: Ubiquiti unifi controller 
 dependencies:
-  - name: unifi
-    version: "5.1.2"
-    repository: "https://k8s-at-home.com/charts"
+- name: unifi
+  version: "13.0.10"
+  repository: "https://charts.truecharts.org/"
