@@ -5,10 +5,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - unifi.crazyzone.be
-      secretName: unifi.crazyzone.be
+      - wifi.crazyzone.be
+      secretName: wifi.crazyzone.be
   rules:
-    - host: unifi.crazyzone.be
+    - host: wifi.crazyzone.be
       http:
         paths:
           - path: /
