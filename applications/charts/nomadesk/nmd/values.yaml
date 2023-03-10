@@ -21,6 +21,7 @@ nomadesk:
       enabled: true
     storage:
       enablePersistentStorage: true
+      existingVolumeClaim: nmd-storage
     syncserver:
       port:
         type: Ingress
@@ -36,7 +37,8 @@ nomadesk:
       port: 30002
       password: "password"
   postgres:
-    enabled: true  
+    enabled: true
+    existingClaim: nmd-storage-db 
   redis:
     enabled: true
     master:
@@ -44,6 +46,9 @@ nomadesk:
         enabled: false 
   minio:
     enabled: true
+    persistence:
+      enabled: true
+      existingClaim: nmd-storage-minio
     ingress:
       hosts:
         - "mimio-nmd.crazyzone.be"
