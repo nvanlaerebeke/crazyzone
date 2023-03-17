@@ -22,7 +22,7 @@ spec:
           name: account
         envFrom:
           - configMapRef:
-              name: account-env
+              name: environment
         readinessProbe:
           httpGet:
             scheme: HTTP

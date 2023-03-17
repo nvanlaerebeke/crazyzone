@@ -20,6 +20,9 @@ spec:
         ports:
         - containerPort: 80
           name: data
+        envFrom:
+          - configMapRef:
+              name: environment
         readinessProbe:
           httpGet:
             scheme: HTTP
