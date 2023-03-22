@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nomadesk-license
+  name: nomadesk-license
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nomadesk-license
+  template:
+    metadata:
+      labels:
+        app: nomadesk-license
+    spec:
+      containers:
+      - name: nomadesk-license
+        image: registry.crazyzone.be/nomadesk-license:latest
+        ports:
+        - containerPort: 80
+          name: license
+        envFrom:
+          - configMapRef:
+              name: environment
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /readyz
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+
