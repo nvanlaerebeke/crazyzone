@@ -26,6 +26,9 @@ spec:
       containers:
       - image: jenkins/jenkins:latest
         name: jenkins-nmd
+        resources:
+          requests:
+            memory: "4096Mi"
         volumeMounts:
         - name: jenkins-nmd-storage
           mountPath: /var/jenkins_home   

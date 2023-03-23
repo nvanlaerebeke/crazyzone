@@ -26,6 +26,9 @@ spec:
       containers:
       - image: jenkins/jenkins:latest
         name: jenkins
+        resources:
+          requests:
+            memory: "4096Mi"
         volumeMounts:
         - name: jenkins-storage
           mountPath: /var/jenkins_home   
