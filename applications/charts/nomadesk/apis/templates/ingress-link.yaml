@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nomadesk-link
+  annotations:
+      kubernetes.io/tls-acme: 'true' 
+      ingress.kubernetes.io/ssl-redirect: "true"
+      kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+    - secretName: secret-tls
+      hosts:
+        - nmd.crazyzone.be
+  rules:
+    - host: nmd.crazyzone.be
+      http:
+        paths:
+          - path: /link
+            pathType: Prefix
+            backend:
+              service:
+                name: nomadesk-link
+                port:
+                  number: 80
