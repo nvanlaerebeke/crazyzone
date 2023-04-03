@@ -5,13 +5,13 @@ heimdall:
     main:
       enabled: true
       hosts:
-        - host: crazyzone.be
+        - host: www.crazyzone.be
           paths:
             - path: /
       tls:
         - secretName: secret-tls
           hosts:
-            - crazyzone.be
+            - www.crazyzone.be
   persistence:
     config:
       enabled: true
