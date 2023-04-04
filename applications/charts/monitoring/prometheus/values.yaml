@@ -212,6 +212,13 @@ kube-prometheus-stack:
           comp: ['registry']
         static_configs:
           - targets: ['10.43.83.52:8001']
+      - job_name: "vulnerability"
+        static_configs:
+        - targets: ["host.crazyzone.be"]
+          labels: 
+            host: host
+            endpoint: "metrics"
+            job: "vulnerabilities"          
   prometheus-node-exporter:
     hostRootFsMount:
       enabled: false
