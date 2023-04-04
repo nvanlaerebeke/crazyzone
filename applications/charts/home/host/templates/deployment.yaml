@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: host
+  name: host
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: host
+  template:
+    metadata:
+      labels:
+        app: host
+    spec:
+      volumes:
+        - name: host-storage
+          persistentVolumeClaim:
+            claimName: host-claim
+      containers:
+      - name: host
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+          name: host
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        volumeMounts:
+        - name: host-storage
+          mountPath: /usr/local/apache2/htdocs/

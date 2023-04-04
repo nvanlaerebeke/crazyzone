@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-host
+  annotations:
+      kubernetes.io/tls-acme: 'true' 
+      ingress.kubernetes.io/ssl-redirect: "true"
+      kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+    - secretName: tls-secret
+      hosts:
+        - host.crazyzone.be
+  rules:
+    - host: host.crazyzone.be
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: host
+                port:
+                  number: 80
