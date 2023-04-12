@@ -213,9 +213,9 @@ kube-prometheus-stack:
         static_configs:
           - targets: ['10.43.83.52:8001']
       - job_name: "vulnerability"
+        scrape_interval: 300s
         static_configs:
         - targets: ["harbor-vulnerability-exporter.crazyzone.be"]
-          scrape_interval: 300s
           labels: 
             host: host
             endpoint: "metrics"
