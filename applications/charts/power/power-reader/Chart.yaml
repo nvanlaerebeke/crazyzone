@@ -2,4 +2,8 @@ apiVersion: v1
 name: power-reader
 version: 0.0.1
 appVersion: 0.0.1
-description: Application that reads date from the P1 serial port
+description: Application that reads data from the P1 serial port
+dependencies:
+  - name: power-reader
+    version: "0.0.1"
+    repository: "oci://harbor.crazyzone.be/crazyzone-helm"
