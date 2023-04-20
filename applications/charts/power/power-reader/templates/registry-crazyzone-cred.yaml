@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: registry-crazyzone-cred
+  namespace: power
+spec:
+  encryptedData:
+    config.json: AgDAanSi1AXZpfWmKyO2vbRyT5Q1Ia/ktgZ/XBuHLXV5J5ffZiNcYufF4BpkO8OWNxW90t/DQNL0A7z67ciR5DDkQ0IS+quy3zExKFzxdZMfvuqpumOws46oJ6aOOw2PU5LWFnK9bKe7rphr5ehWpuvTFvI6ArcUDvg2wlLXlmOtGW8JLcK3r3S6b89eo3wTk6Ga+/S4Rt6GHdPxN2Lfco/wQbqmq2AHgaX7NsqWsDJ0ICMP+k+PFAzV+62A0LARPzUMP5fVJH87AghTotlvkNs8pHgrwvPTqdDTUnUf7vPhv7IfmrgsqEgrkoMv8praSUpgUoOUZH9wKY+Sc8lujXXtCUXGZeAN7WkD3AjV+q4GHOQ1EKfg2eu5q/cgnuSPLQUfjBcFr5PFNpRn0vrPveLO4D5EuRhzpp858JNrINrS5/yqkNsKuj72QBn+oM6XOWVzwQU4y3hX9IfPgIUNMK5TNw8dtprec369sDbx3qWAkogcblk2UolsAbmtCNdcorg4yJ2DkDjxCmKQobBOPhqksPtBRa5Q+lKl+5UYll6Xl4pDhyfL8HAZ8YDe3eemFS9v2h+Czj+lGZgGenlCu4I/j6zd39Ae4osPADeS/G32fqbgHPYQwAleVn/P+awykyxEh/OXI+yL5sMWQ47KwcVtONPMxu9LEN8S2e/waR8kguPwwYpUVn+3DRlKywd6G5RskXZWNJlp61le9rJLSdVmS3fUUSbsfZoVMLsUkMQCy/Ojj/taiFiFWcfXt20hPNePEiOb+GaLtm21wEKtgcSOxWiw7D5s0i+V0KiswWqgBo1rtMf66ph4qfn9lKLEYsmnyV4N/j+oBSnwpQH9gS8dF0P0JxNf1JpGnqfU/b6pIvCOAiaBSaBY7wXUyZLcYRs3mwvwRNP4
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: registry-crazyzone-cred
+      namespace: power
+    type: kubernetes.io/dockerconfigjson
