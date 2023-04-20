@@ -5,5 +5,5 @@ appVersion: 0.0.2
 description: personal documentation
 dependencies:
   - name: home-docs
-    version: "0.0.2"
+    version: "0.0.3"
     repository: "oci://harbor.crazyzone.be/crazyzone-helm"
