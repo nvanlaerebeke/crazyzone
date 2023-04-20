@@ -3,3 +3,7 @@ name: plugwise
 version: 0.0.1
 appVersion: 0.0.1
 description: Application to communicate with the plugwise stick and circles
+dependencies:
+  - name: plugwise
+    version: "0.0.1"
+    repository: "oci://harbor.crazyzone.be/crazyzone-helm"
