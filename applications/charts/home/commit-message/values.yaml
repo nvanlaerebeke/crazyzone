@@ -1,0 +1,4 @@
+global:
+  existingRegisrySecret: registry-crazyzone-cred-commit-message
+hostnames:
+  - commit.crazyzone.be
