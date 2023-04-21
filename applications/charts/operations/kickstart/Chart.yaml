@@ -3,3 +3,7 @@ name: kickstart-www
 version: 0.0.2
 appVersion: 0.0.2
 description: web server providing kickstart files
+dependencies:
+  - name: kickstart
+    version: "0.0.3"
+    repository: "oci://harbor.crazyzone.be/crazyzone-helm"

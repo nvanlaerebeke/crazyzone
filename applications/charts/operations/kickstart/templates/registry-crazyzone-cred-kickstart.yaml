@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: registry-crazyzone-cred-kickstart
+  namespace: operations
+spec:
+  encryptedData:
+    .dockerconfigjson: AgCogirN3I3hs+7VIbAfTvbIHJWNcUyBEFyj9i2ewdbP/V/PUv1COEgs1hjquE6PaarnwBQ2r3UWz6CPtcz5tTbUoUSbTk23AWCLZgdvPPM/8LiN3HeonFS+OJPCk7dHBTo8MW+qlaN35OVQnCufDq3nRF9Xsf9DqmxhFhMDarRivfwOWjqWJbANTWToBUWGprA/gU+/TOXL6ZzG5yr4H3NlY7Vrmitf/IacupWMJ/upf1dM2HKCE0Y6kqjZ6IlWnFBXRox9DB6OfO2otgl64/g8FaopdbHbJw5UNHA9FhFGGYGuPJ9DOYe3rLCa0KLqbS/K/eQ+rI7xgB7Q+XsnQ8IbiSpeOKo6ig/3mJPBwQcsqXfenYhieM+09Dx7Ue0MTx4K7vrmwjV31ADMez3lrg/UD2MnKBgZpL0VFJRb9NE26lks2zqxKw59QtlgTlDB5kjTmJ2o2ZqAZYxS2cZQeCXDPaRFjIfKBk2n8B+fK8iLx6A3m4y7kGFM962rOAMdISgREQITfGRWnevhRMtZMFI/Zhmdz7Qs6J5gihwWjE8m6eY/hxsyJPhnaJ4YpzXX0gEo274jy5uuKZJw5rc2qjHYfXGINrqddbpV52BujujymOVn3gg//zL4fwTu5i48x9vNg/grWSPmvgCw20HteMjDvlTtCh5d2D9ALpSECYxEiBWMtfwy9Rdc2iDeX5S8bj+VpuWNHXxuXIEmldlLfqF/p4GpdcsY5NRFdeprb19e3b0F00tgH5KV3p7cekZ0BAYPw1FBZGG0CEzh9hODFrrFFPZ8ztxPOcnO5vc6UgbfR9QQpMDTF5qtBWJhEIG7p1ooeHFAXqSlwnlkN8cszCs2ydkR94NKVu2te5PPnlaNTbiQS0H3ACmKzQCT71adbr0P/7SimSuq
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: registry-crazyzone-cred-kickstart
+      namespace: operations
+    type: kubernetes.io/dockerconfigjson

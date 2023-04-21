@@ -1,5 +1,0 @@
-name: web
-tlssecret: secret-tls
-hostnames: 
-  - web.crazyzone.be
-replicaCount: 1
