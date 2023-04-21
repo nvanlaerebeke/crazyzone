@@ -5,5 +5,5 @@ appVersion: 0.0.3
 description: commit message generator
 dependencies:
   - name: commit-message
-    version: "0.0.4"
+    version: "0.0.5"
     repository: "oci://harbor.crazyzone.be/crazyzone-helm"
