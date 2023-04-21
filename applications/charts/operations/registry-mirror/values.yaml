@@ -1,3 +1,0 @@
-name: registry-mirror
-tlssecret: secret-tls
-hostname: registry-mirror.crazyzone.be

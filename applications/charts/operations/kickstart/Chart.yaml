@@ -1,9 +1,9 @@
 apiVersion: v1
 name: kickstart
-version: 0.0.4
-appVersion: 0.0.4
+version: 0.0.5
+appVersion: 0.0.5
 description: web server providing kickstart files
 dependencies:
   - name: kickstart
-    version: "0.0.4"
+    version: "0.0.5"
     repository: "oci://harbor.crazyzone.be/crazyzone-helm"
