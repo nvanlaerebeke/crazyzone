@@ -1,9 +1,9 @@
 apiVersion: v1
 name: commit-message
-version: 0.0.2
-appVersion: 0.0.2
+version: 0.0.3
+appVersion: 0.0.3
 description: commit message generator
 dependencies:
   - name: commit-message
-    version: "0.0.3"
+    version: "0.0.4"
     repository: "oci://harbor.crazyzone.be/crazyzone-helm"
