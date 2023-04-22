@@ -1,2 +1,3 @@
-global:
-  existingRegisrySecret: registry-crazyzone-cred-powerreader
+power-reader:
+  global:
+    existingRegisrySecret: registry-crazyzone-cred-powerreader

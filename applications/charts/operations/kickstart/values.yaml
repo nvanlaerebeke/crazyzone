@@ -1,2 +1,3 @@
-global:
-  existingRegisrySecret: registry-crazyzone-cred-kickstart
+kickstart:
+  global:
+    existingRegisrySecret: registry-crazyzone-cred-kickstart

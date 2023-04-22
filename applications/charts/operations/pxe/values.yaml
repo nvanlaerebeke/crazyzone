@@ -1,2 +1,3 @@
-global:
-  existingRegisrySecret: registry-crazyzone-cred-pxe
+pxe:
+  global:
+    existingRegisrySecret: registry-crazyzone-cred-pxe

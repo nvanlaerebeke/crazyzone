@@ -1,2 +1,3 @@
-global:
-  existingRegisrySecret: registry-crazyzone-cred-plugwise
+plugwise:
+  global:
+    existingRegisrySecret: registry-crazyzone-cred-plugwise
