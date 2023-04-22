@@ -1,3 +1,0 @@
-name: registry
-tlssecret: secret-tls
-hostname: registry.crazyzone.be

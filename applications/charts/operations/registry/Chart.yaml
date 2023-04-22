@@ -1,5 +1,0 @@
-apiVersion: v1
-name: registry
-version: 0.0.2
-appVersion: 0.0.1
-description: container registry 
