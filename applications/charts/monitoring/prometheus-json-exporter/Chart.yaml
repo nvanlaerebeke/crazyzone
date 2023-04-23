@@ -1,10 +1,10 @@
 apiVersion: v1
 name: prometheus-json-exporter
-version: 0.0.1
-appVersion: 0.0.1
+version: 0.6.1
+appVersion: 0.6.1
 description: prometheus json exporter
 dependencies:
   - name: prometheus-json-exporter
-    version: "0.2.0"
+    version: "0.6.1"
     repository: "https://prometheus-community.github.io/helm-charts/"
 

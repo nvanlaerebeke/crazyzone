@@ -1,9 +1,8 @@
 apiVersion: v1
 description: A Helm chart for the Hetzner DNS webhook for cert-manager
 name: cert-manager-webhook-hetzner
-version: 0.0.1
-appVersion: 0.0.0
+version: 1.2.2
 dependencies:
   - name: cert-manager-webhook-hetzner
-    version: "1.1.1"
+    version: "1.2.2"
     repository: "https://vadimkim.github.io/cert-manager-webhook-hetzner"

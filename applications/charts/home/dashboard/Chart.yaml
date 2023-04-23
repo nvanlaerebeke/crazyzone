@@ -1,9 +1,9 @@
 apiVersion: v1
 name: dashboard
-version: 0.0.1
-appVersion: 0.0.1
+version: 8.5.2
+appVersion: 8.5.2
 description: dashboard/landing page
 dependencies:
   - name: heimdall
-    version: "8.2.0"
-    repository: "https://k8s-at-home.com/charts/"
+    version: "8.5.2"
+    repository: "https://djjudas21.github.io/charts/"
