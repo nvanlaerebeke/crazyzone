@@ -22,6 +22,8 @@ gitea:
   persistence:
     enabled: true
     existingClaim: gitea-storage-claim
+    primary:
+      existingClaim: gitea-storage-claim
 
   postgresql:
     enabled: true
@@ -31,11 +33,13 @@ gitea:
           postgresqlDatabase: gitea
           postgresqlUsername: gitea
           postgresqlPassword: gitea
-    persistence:
-      existingClaim: gitea-postgres-storage-claim
-    selector:
-      matchLabels:
-        app: gitea-postgres-storage
+    primary:
+      persistence:
+        enabled: true
+        existingClaim: gitea-postgres-storage-claim
+        selector:
+          matchLabels:
+            app: gitea-postgres-storage
 
   gitea:
     admin:
