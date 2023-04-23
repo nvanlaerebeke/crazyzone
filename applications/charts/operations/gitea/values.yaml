@@ -24,10 +24,10 @@ gitea:
     enabled: true
     global:
       postgresql:
-        postgresqlDatabase: gitea
-        postgresqlUsername: gitea
-        postgresqlPassword: gitea
-        servicePort: 5432
+        auth:
+          postgresqlDatabase: gitea
+          postgresqlUsername: gitea
+          postgresqlPassword: gitea
     persistence:
       existingClaim: gitea-postgres-storage-claim
     selector:
