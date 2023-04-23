@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: harbor-storage-job-exports-name
-  namespace: operations
+  namespace: registry
   labels:
     app: harbor-storage-job-exports
 spec:
