@@ -1,9 +1,9 @@
 apiVersion: v1
 name: gitea
-version: 8.1.0
-appVersion: 8.1.0
+version: 6.0.3
+appVersion: 6.0.3
 description: Git server for crazyzone
 dependencies:
   - name: gitea
-    version: "8.1.0"
+    version: "6.0.3"
     repository: "https://dl.gitea.io/charts/"
