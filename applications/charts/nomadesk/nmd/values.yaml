@@ -1,6 +1,8 @@
 nomadesk:
   global:
-    registry: "registry.crazyzone.be"
+    registry: "harbor.crazyzone.be/nomadesk"
+    imagePullSecrets:
+      - registry-nomadesk-cred
   nomadesk:
     hostname: "nmd.crazyzone.be"
     version: "dev"

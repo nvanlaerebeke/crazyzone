@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: registry-nomadesk-cred
+data:
+  .dockerconfigjson: >-
+    ewoJImF1dGhzIjogewoJCSJoYXJib3IuY3Jhenl6b25lLmJlIjogewoJCQkiYXV0aCI6ICJjbTlpYjNRa2JtOXRZV1JsYzJzclkyeDFjM1JsY2pvMlFrNW1jRFZ6TW14NlRWbGpSVWswY2twSU1VWlhUV0ZqWmxKaU5UUldlZz09IgoJCX0KCX0KfQ==
+type: kubernetes.io/dockerconfigjson
