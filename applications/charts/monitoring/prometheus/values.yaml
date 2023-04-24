@@ -42,6 +42,8 @@ kube-prometheus-stack:
         annotations: 
           k8s-sidecar-target-directory: "/tmp/dashboards/kubernetes"
     grafana.ini:
+      server:
+        enable_gzip: true
       paths:
         data: /var/lib/grafana/data
         logs: /var/log/grafana
@@ -54,7 +56,20 @@ kube-prometheus-stack:
       grafana_net:
         url: "https://grafana.net"
       dashboards:
-        default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"
+        default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"\
+      auth.generic_oauth:
+        enabled: true
+        name: Keycloak-OAuth
+        client_id: grafana
+        client_secret: lX0132zljIBeTMYKq4AYzmC58AcUjBvr
+        scopes: openid email profile offline_access roles
+        email_attribute_path: email
+        login_attribute_path: username
+        name_attribute_path: full_name
+        auth_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/auth
+        token_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/token
+        api_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/userinfo
+        role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
     ingress:
       enabled: true
       hosts: 
