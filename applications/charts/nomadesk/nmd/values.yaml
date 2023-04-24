@@ -10,15 +10,10 @@ nomadesk:
       autocreate: true
       email: "nico.vanlaerebeke@unifiedpost.com"
       enablePartnerPortal: true
-    bgtapi:
-    controller:
-    comapi:
     devdocs:
       enabled: true
     licenseserver:
       enabled: true
-    my:
-    settings:
     shorturl:
       enabled: true
     storage:
