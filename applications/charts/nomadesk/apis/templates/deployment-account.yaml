@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nomadesk-account
-        image: registry.crazyzone.be/nomadesk-account:latest
+        image: harbor.crazyzone.be/nomadesk/nomadesk-account:latest
         ports:
         - containerPort: 80
           name: account

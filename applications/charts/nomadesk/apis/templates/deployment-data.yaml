@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nomadesk-data
-        image: registry.crazyzone.be/nomadesk-data:latest
+        image: harbor.crazyzone.be/nomadesk/nomadesk-data:latest
         ports:
         - containerPort: 80
           name: data

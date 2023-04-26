@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nomadesk-vault
-        image: registry.crazyzone.be/nomadesk-vault:latest
+        image: harbor.crazyzone.be/nomadesk/nomadesk-vault:latest
         ports:
         - containerPort: 80
           name: vault

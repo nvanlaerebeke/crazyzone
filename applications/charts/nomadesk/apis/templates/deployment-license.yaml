@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nomadesk-license
-        image: registry.crazyzone.be/nomadesk-license:latest
+        image: harbor.crazyzone.be/nomadesk/nomadesk-license:latest
         ports:
         - containerPort: 80
           name: license

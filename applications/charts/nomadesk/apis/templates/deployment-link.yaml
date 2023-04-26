@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nomadesk-link
-        image: registry.crazyzone.be/nomadesk-link:latest
+        image: harbor.crazyzone.be/nomadesk/nomadesk-link:latest
         ports:
         - containerPort: 80
           name: link
