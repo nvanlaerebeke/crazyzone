@@ -1,5 +1,7 @@
+
 global:
   name: nomadesk-apis
+  existingRegisrySecret: registry-crazyzone-cred-nomadesk-api
   ingress:
     enabled: true
     tls:

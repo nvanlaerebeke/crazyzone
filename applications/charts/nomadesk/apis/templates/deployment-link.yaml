@@ -30,4 +30,7 @@ spec:
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 5
-
+{{- if $.Values.global.existingRegisrySecret }}
+      imagePullSecrets:
+        - name: {{ $.Values.global.existingRegisrySecret }}
+{{ end }}

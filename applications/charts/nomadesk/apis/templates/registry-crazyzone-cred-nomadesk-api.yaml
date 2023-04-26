@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: registry-crazyzone-cred-nomadesk-api
+  namespace: nomadesk
+spec:
+  encryptedData:
+    .dockerconfigjson: AgB38q0slO9WXawUjD4KH3GPf2Sc7or9FASLK0CUIcxfidYyrU6BhfsAOhL8HINF9FV+D+v0ssu+ZP7vQffcAv7UL62opN+nV8vF7oAyPutYPo+BnsP6VHwAHfIQik9xFK3vkZu/zRWtReY8L8Sc6nW9n0wxR3R/OiUlrpttqUvweKEVhhnQtGcUERjbEX7lf4DDy+gr2AGTcFOzbWLUF4qQP/wwWQOz1tF6CKnsJVrEDUqtkNXcvDEs4ytjvoqS8YO3odSeXsBcNlHA+l5EiPtRdDqGFsAGNkO1Oi4PFUtqBM+opgml69qjDl9AFahje/f1/DAugJSRpo1c4AVb0F2uIiX8YSNywbtIiJgBy5QU4PqgH46Dt5zMQeR5sNeF2dYHN3dmjr1bIuP6f+6PwaFTnmEsdULfc1Mp7jAcGVJh6Ti4R23S4PMeZNWmiQJPGd5pcuvwtSc1LiSeqOk3649g6ShTVKLBXMChn2afBeKQmW5jZW64lTHBGeZphQcuj1XfOe04fStFSuH69t99xLA77RGjY9l19ATDX1HVNADh7694Z7dHXPwkeEma06u0YSeKhY+MivOFq3IDFt+yLsMpQttRtOG0byyx8LXb7pMhE9DW4JZ6Vdjm4OzTAr/2loyvvFV3qfoWpIex71koVOc8LVudON0SRQLeiUJNRGHZ+w0KjilYphFzub9SBoxu3ADdR2duMo4E3M7wn2Bu23qeWraDgCgYXN+KygD/q3DQK2/AkKvJX+t4EnfroXpPawzgRLDufgGsXPs87F9YWiJeF58Or+tEn6yWMI7u+eaIntO0UKR6XiumHP+bfIYWfLk+p2XPvL2m6CCYv2gdBqq1TKG4thm1U8L0u7fDPtFzw1708HAQsG9485mFEi+qChCMEA83odCl
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: registry-crazyzone-cred-nomadesk-api
+      namespace: nomadesk
+    type: kubernetes.io/dockerconfigjson
