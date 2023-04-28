@@ -52,7 +52,6 @@ gitea:
         selector:
           matchLabels:
             app: gitea-postgres-storage
-
   gitea:
     admin:
       existingSecret: gitea-admin-secret
