@@ -29,6 +29,11 @@ gitea:
     enabled: true
     global:
       postgresql:
+        #for postgresql v11
+        postgresqlDatabase: gitea
+        postgresqlUsername: gitea
+        postgresqlPassword: gitea
+        #for postgresql v15
         auth:
           postgresqlDatabase: gitea
           postgresqlUsername: gitea
