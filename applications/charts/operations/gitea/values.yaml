@@ -38,6 +38,13 @@ gitea:
           postgresqlDatabase: gitea
           postgresqlUsername: gitea
           postgresqlPassword: gitea
+    #for postgres v11
+    persistence:
+      existingClaim: gitea-postgres-storage-claim          
+    selector:
+      matchLabels:
+        app: gitea-postgres-storage
+    #for postgres v15 
     primary:
       persistence:
         enabled: true
