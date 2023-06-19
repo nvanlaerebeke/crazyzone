@@ -8,7 +8,7 @@ minio:
 
   persistence:
     enabled: true
-    #existingClaim: minio-storage-claim
+    existingClaim: minio-storage-claim
 
   ingress:
     enabled: true
