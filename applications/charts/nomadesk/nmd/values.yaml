@@ -43,10 +43,18 @@ nomadesk:
         enabled: false 
   minio:
     enabled: true
+    mode: standalone
+    replicas: 1
+    rootUser: admin
+    rootPassword: password
+    resources:
+      requests:
+        memory: 512Mi
     persistence:
       enabled: true
       existingClaim: nmd-storage-minio-claim
     ingress:
+      enabled: true
       hosts:
         - "mimio-nmd.crazyzone.be"
       tls:
@@ -54,6 +62,7 @@ nomadesk:
           hosts:
             - "minio-nmd.crazyzone.be"
     consoleIngress:
+      enabled: true
       hosts:
         - "minio-nmd-console.crazyzone.be"
       tls:
