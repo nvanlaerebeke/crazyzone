@@ -1,31 +1,34 @@
-mode: standalone
-rootUser: "admin"
-rootPassword: "password"
-replicas: 1
+minio:
+  mode: standalone
 
-persistence:
-  enabled: true
-  #existingClaim: minio-storage-claim
+  rootUser: "admin"
+  rootPassword: "password"
 
-ingress:
-  enabled: true
-  path: /
-  hosts:
-    - minio.crazyzone.be
-  tls: 
-    - secretName: secret-tls
-      hosts:
-        - minio.crazyzone.be
-consoleIngress:
-  enabled: true
-  path: /
-  hosts:
-    - console.crazyzone.be
-  tls: 
-    - secretName: secret-tls
-      hosts:
-        - minio-console.crazyzone.be
+  replicas: 1
 
-resources:
-  requests:
-    memory: 512Mi
+  persistence:
+    enabled: true
+    #existingClaim: minio-storage-claim
+
+  ingress:
+    enabled: true
+    path: /
+    hosts:
+      - minio.crazyzone.be
+    tls: 
+      - secretName: secret-tls
+        hosts:
+          - minio.crazyzone.be
+  consoleIngress:
+    enabled: true
+    path: /
+    hosts:
+      - console.crazyzone.be
+    tls: 
+      - secretName: secret-tls
+        hosts:
+          - minio-console.crazyzone.be
+
+  resources:
+    requests:
+      memory: 512Mi
