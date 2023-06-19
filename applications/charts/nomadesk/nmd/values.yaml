@@ -69,6 +69,9 @@ nomadesk:
         - secretName: tls-secret
           hosts:
             - "minio-nmd-console.crazyzone.be"
+    tls:
+      enabled: true
+      certSecret: secret-tls-minio
   mailhog:
     enabled: true
     ingress:
