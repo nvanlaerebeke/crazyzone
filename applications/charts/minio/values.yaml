@@ -23,7 +23,7 @@ minio:
     enabled: true
     path: /
     hosts:
-      - console.crazyzone.be
+      - minio-console.crazyzone.be
     tls: 
       - secretName: secret-tls
         hosts:
