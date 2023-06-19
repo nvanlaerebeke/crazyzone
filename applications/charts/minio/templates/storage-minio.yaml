@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nmd-storage-minio
-  namespace: nomadesk
+  name: minio-storage
+  namespace: minio
   labels:
-    app: nmd-storage-minio
+    app: minio-storage
 spec:
   storageClassName: standard
   capacity:
@@ -13,19 +13,19 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/nomadesk/minio"
+    path: "/volume1/docker-storage/minio"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nmd-storage-minio-claim
+  name: minio-storage-claim
 spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
     matchLabels:
-      app: nmd-storage-minio
+      app: minio-storage
   resources:
     requests:
       storage: 50Gi
