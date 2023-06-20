@@ -35,7 +35,8 @@ nomadesk:
       password: "password"
   postgres:
     enabled: true
-    existingClaim: nmd-storage-db-claim
+    persistence:
+      existingClaim: nmd-storage-db-claim
   redis:
     enabled: true
     master:
