@@ -2,4 +2,4 @@
 langs: "ar,cs,da,de,en,es,fi,fr,it,ja,lt,lv,nb_NO,nl,pl,pt,ro,sk,sr,sv"
 apikey: 894bb7c1-6bee-42ca-9df3-facfefe050dc
 hostname: translate.crazyzone.be
-tls-secret: tls-secret
+tls-secret: tlssecret
