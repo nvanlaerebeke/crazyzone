@@ -9,7 +9,7 @@ spec:
     namespace: 'home'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/home/libtranslate'
+    path: 'applications/charts/home/libretranslate'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
