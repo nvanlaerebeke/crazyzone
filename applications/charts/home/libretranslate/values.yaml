@@ -1,5 +1,5 @@
 # list loaded languages or leave empty to load all
-langs: "ar,cs,da,de,en,es,fi,fr,it,ja,lt,lv,nb_NO,nl,pl,pt,ro,sk,sr,sv"
+langs: "ar,cs,da,de,en,es,fi,fr,it,ja,nb,nl,pl,pt,sk,sv"
 apikey: 894bb7c1-6bee-42ca-9df3-facfefe050dc
 hostname: translate.crazyzone.be
 tlssecret: secret-tls
