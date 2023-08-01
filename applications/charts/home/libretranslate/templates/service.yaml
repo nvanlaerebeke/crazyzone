@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: libretranslate-svc
-  namespace: libretranslate-prod
 spec:
   selector:
     app: libretranslate
