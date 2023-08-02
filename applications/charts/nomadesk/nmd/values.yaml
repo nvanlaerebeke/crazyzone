@@ -10,6 +10,10 @@ nomadesk:
       autocreate: true
       email: "nico.vanlaerebeke@unifiedpost.com"
       enablePartnerPortal: true
+    billing:
+      enable: true
+    billingapi:
+      enable: true
     devdocs:
       enabled: true
     licenseserver:
