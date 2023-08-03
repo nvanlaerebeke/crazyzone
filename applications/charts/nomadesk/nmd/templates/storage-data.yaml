@@ -5,6 +5,7 @@ metadata:
   labels:
     app: nmd-storage
 spec:
+  storageClassName: standard
   capacity:
     storage: 50Gi
   accessModes:
@@ -18,6 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: nmd-storage-claim
 spec:
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
