@@ -8,7 +8,7 @@ nomadesk:
     version: "dev"
     admin:
       autocreate: true
-      email: "nico.vanlaerebeke@unifiedpost.com"
+      email: "nico.vanlaerebeke@nomadesk.com"
       enablePartnerPortal: true
     billing:
       enable: false
