@@ -14,20 +14,5 @@ spec:
       containers:
       - name: libretranslate
         image: libretranslate/libretranslate:latest
-        resources:
-          limits:
-            memory: "1Gi"
-            cpu: "500m"
         ports:
         - containerPort: 5000
-        env:
-        - name: "LT_LOAD_ONLY"
-          valueFrom:
-            configMapKeyRef:
-              name: libretranslate-config
-              key: langs
-        - name: "TRANSLATE_KEY"
-          valueFrom:
-            configMapKeyRef:
-              name: libretranslate-config
-              key: ltapikey

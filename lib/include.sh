@@ -10,4 +10,5 @@ function configure {
     #argocd_install_dir "$ROOT/applications/argocd/rancher/"
     #argocd_install_dir "$ROOT/applications/argocd/unifi/"
     #argocd_install_dir "$ROOT/applications/argocd/nomadesk/"
+    #argocd_install_dir "$ROOT/applications/argocd/minio/"
 }
