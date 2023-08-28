@@ -1,5 +1,0 @@
-name: secret-tls
-namespaces:
-  - default
-hostnames:
-  - "crazyzone.be"
