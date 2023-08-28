@@ -8,7 +8,7 @@ spec:
   - type: CombinedPEM
   secretName: secret-tls
   issuerRef:
-    name: hetzner-acme-issuer-staging
+    name: hetzner-acme-issuer-prod
     kind: ClusterIssuer
   dnsNames:
     - "crazyzone.be"
