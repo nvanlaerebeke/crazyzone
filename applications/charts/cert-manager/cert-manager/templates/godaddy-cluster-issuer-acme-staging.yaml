@@ -9,7 +9,7 @@ spec:
     privateKeySecretRef:
       name: godaddy-letsencrypt-staging # staging or production
     solvers:
-      dns01:
+    - dns01:
         webhook:
           groupName: acme.nomadesk.com
           solverName: godaddy
