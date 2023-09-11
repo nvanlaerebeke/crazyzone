@@ -4,22 +4,18 @@ metadata:
   name: godaddy-acme-issuer-staging
 spec:
   acme:
-    # ACME Server
-    # prod : https://acme-v02.api.letsencrypt.org/directory
-    # staging : https://acme-staging-v02.api.letsencrypt.org/directory
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    # ACME Email address
     email: nico.vanlaerebeke@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: godaddy-letsencrypt-staging # staging or production
     solvers:
       dns01:
         webhook:
+          groupName: acme.nomadesk.com
+          solverName: godaddy
           config:
             apiKeySecretRef:
               name: godaddy-api-key
               key: token
             production: true
             ttl: 600
-          groupName: acme.nomadesk.com
-          solverName: godaddy
