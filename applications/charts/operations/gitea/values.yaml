@@ -20,6 +20,8 @@ gitea:
       clusterIP: 
   persistence:
     enabled: true
+    create: false
+    claimName: gitea-storage-claim
     existingClaim: gitea-storage-claim
     primary:
       existingClaim: gitea-storage-claim
@@ -51,7 +53,12 @@ gitea:
         selector:
           matchLabels:
             app: gitea-postgres-storage
+  postgresql-ha:
+    enabled: false
   gitea:
     admin:
       existingSecret: gitea-admin-secret
       email: "nico.vanlaerebeke@gmail.com"
+    config:
+      server: 
+        ROOT_URL: https://git.crazyzone.be
