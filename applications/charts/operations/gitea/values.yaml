@@ -1,6 +1,5 @@
 gitea:
   image:
-    tag: "latest"
     rootless: true
   ingress:
     enabled: true
