@@ -1,6 +1,4 @@
 gitea:
-  image:
-    rootless: true
   ingress:
     enabled: true
     hosts:
