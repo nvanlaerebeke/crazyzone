@@ -69,7 +69,7 @@ database:
   username: kiwi
   # Set a password value via the command line argument:
   # >>> helm upgrade --install --namespace <my_namespace> <helm_repo>/kiwi --set database.password=<my_password>
-  # password:
+  password: "UQm%98Hjsg"
 
 mariadb:
   image:
