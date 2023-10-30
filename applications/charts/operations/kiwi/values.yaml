@@ -9,10 +9,9 @@ service:
   type: ClusterIP
   port:
     http: 8080
-    https: 8443
 
 ingress:
-  enabled: true
+  enabled: false
   #className: nginx
   #annotations:
   #  acme.cert-manager.io/http01-edit-in-place: "true"
@@ -24,7 +23,8 @@ ingress:
 
   host: qa.crazyzone.be
   tls:
-    enabled: true
+    secretName: secret-tls
+    enabled: false
     port: 443
 
 resources:
@@ -41,7 +41,7 @@ storage:
   persistent: true
 
   # Available class can be listed by "kubectl get storageclasses" command
-  class: standard
+  class: local-path
 
   # The size of the storgae where uploaded files will be kept
   size: 32Gi
@@ -66,10 +66,10 @@ database:
 
   # If external
   db_name: kiwi
-  username: root
+  username: kiwi
   # Set a password value via the command line argument:
   # >>> helm upgrade --install --namespace <my_namespace> <helm_repo>/kiwi --set database.password=<my_password>
-  password: "UQm%98Hjsg"
+  password: password
 
 mariadb:
   image:
@@ -78,7 +78,7 @@ mariadb:
   auth:
     database: kiwi
     # checkov:skip=CKV_SECRET_6:Base64 High Entropy String
-    username: root
+    username: kiwi
     # checkov:skip=CKV_SECRET_6:Base64 High Entropy String
     existingSecret: kiwi-credentials
 
