@@ -1,5 +1,3 @@
 plugwise:
   global:
     existingRegisrySecret: registry-crazyzone-cred-plugwise
-  device:
-    path: /dev/ttyUSB1
