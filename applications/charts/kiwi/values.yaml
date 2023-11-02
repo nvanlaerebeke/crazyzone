@@ -1,0 +1,17 @@
+kiwitcms:
+  ingress:
+    enabled: true
+    host: qa.crazyzone.be
+    secretName: secret-tls
+  persistence:
+    enabled: true
+    existingClaim: kiwi-uploads-claim
+  postgresql:
+    auth:
+      create: false
+      existingSecret: kiwi-postgres-password
+    primary:
+      persistence:
+        enabled: true
+        existingClaim: kiwi-db-claim
+
