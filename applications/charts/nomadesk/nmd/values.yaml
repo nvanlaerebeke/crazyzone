@@ -1,6 +1,6 @@
 nomadesk:
   global:
-    registry: "registry.nomadesk.org/nomadesk"
+    registry: "registry.nomadesk.com/nomadesk"
     imagePullSecrets:
       - registry-nomadesk-cred
   nomadesk:
