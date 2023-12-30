@@ -48,7 +48,7 @@ nomadesk:
         auth:
           existingSecret: "nomadesk-postgres-password"
     image:
-      tag: 11.21.0
+      tag: 16
     primary:
       service:
         type: NodePort
@@ -56,7 +56,7 @@ nomadesk:
           postgresql: 30000
       persistence:
         enabled: true
-        existingClaim: nmd-storage-db-claim
+        existingClaim: nmd-storage-db-claim-new
   redis:
     enabled: true
     master:
