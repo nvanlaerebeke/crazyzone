@@ -1,5 +1,0 @@
-apiVersion: v1
-name: nomadesk-api's
-version: 0.0.1
-appVersion: 0.0.1
-description: Set of API's for nomadesk applications

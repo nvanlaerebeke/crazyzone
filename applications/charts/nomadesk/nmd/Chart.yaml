@@ -1,10 +1,9 @@
-apiVersion: v2
-name: nomadesk
-description: Nomadesk Stack
-type: application
-version: "10.8.12"
-appVersion: "10.8.12"
+apiVersion: v1
+name: nomadesk-nvl
+version: 10.10.0
+appVersion: 10.10.0
+description: Nico's Nomadesk Server
 dependencies:
   - name: nomadesk
-    repository: https://nomadesk.com
-    version: "10.8.12"
+    version: "10.10.0"
+    repository: "oci://registry.nomadesk.org/nomadesk-helm"

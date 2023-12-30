@@ -1,8 +1,0 @@
-
-global:
-  name: nomadesk-apis
-  existingRegisrySecret: registry-nomadesk-cred-apis
-  ingress:
-    enabled: true
-    tls:
-      existingSecret: secret-tls

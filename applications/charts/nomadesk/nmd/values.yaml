@@ -1,6 +1,6 @@
 nomadesk:
   global:
-    registry: "harbor.crazyzone.be/nomadesk"
+    registry: "registry.nomadesk.org/nomadesk"
     imagePullSecrets:
       - registry-nomadesk-cred
   nomadesk:
@@ -11,9 +11,9 @@ nomadesk:
       email: "nico.vanlaerebeke@nomadesk.com"
       enablePartnerPortal: true
     billing:
-      enable: false
+      enable: true
     billingapi:
-      enable: false
+      enable: true
     devdocs:
       enabled: true
     licenseserver:
@@ -28,6 +28,7 @@ nomadesk:
         type: Ingress
     ingress:
       enabled: true
+      tlssecret: secret-tls
     db: 
       autocreate: true
       postgresHost: "nmd.crazyzone.be"
@@ -37,10 +38,25 @@ nomadesk:
       hostname: "nmd.crazyzone.be"
       port: 30002
       password: "password"
-  postgres:
+  postgresql:
     enabled: true
-    persistence:
-      existingClaim: nmd-storage-db-claim
+    auth:
+      secretKeys:
+        adminPasswordKey: "postgresql-password"
+    global:
+      postgresql:
+        auth:
+          existingSecret: "nomadesk-postgres-password"
+    image:
+      tag: 11.21.0
+    primary:
+      service:
+        type: NodePort
+        nodePorts:
+          postgresql: 30000
+      persistence:
+        enabled: true
+        existingClaim: nmd-storage-db-claim
   redis:
     enabled: true
     master:
@@ -48,40 +64,11 @@ nomadesk:
         enabled: false 
   minio:
     enabled: false
-    mode: standalone
-    replicas: 1
-    rootUser: admin
-    rootPassword: password
-    resources:
-      requests:
-        memory: 512Mi
-    persistence:
-      enabled: true
-      existingClaim: nmd-storage-minio-claim
-    ingress:
-      enabled: true
-      hosts:
-        - "mimio-nmd.crazyzone.be"
-      tls:
-        - secretName: tls-secret
-          hosts:
-            - "minio-nmd.crazyzone.be"
-    consoleIngress:
-      enabled: true
-      hosts:
-        - "minio-nmd-console.crazyzone.be"
-      tls:
-        - secretName: tls-secret
-          hosts:
-            - "minio-nmd-console.crazyzone.be"
-    tls:
-      enabled: true
-      certSecret: secret-tls-minio
   mailhog:
     enabled: true
     ingress:
       hosts:
-        - host: "mail-nmd.crazyzone.be"
+        - host: "mail-nvl.crazyzone.be"
           paths:
             - path: /
               pathType: Prefix

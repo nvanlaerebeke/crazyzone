@@ -1,8 +1,16 @@
-apiVersion: v1
-kind: Secret
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
 metadata:
+  creationTimestamp: null
   name: registry-nomadesk-cred
-data:
-  .dockerconfigjson: >-
-    ewoJImF1dGhzIjogewoJCSJoYXJib3IuY3Jhenl6b25lLmJlIjogewoJCQkiYXV0aCI6ICJjbTlpYjNRa2JtOXRZV1JsYzJzclkyeDFjM1JsY2pvMlFrNW1jRFZ6TW14NlRWbGpSVWswY2twSU1VWlhUV0ZqWmxKaU5UUldlZz09IgoJCX0KCX0KfQ==
-type: kubernetes.io/dockerconfigjson
+  namespace: nomadesk
+spec:
+  encryptedData:
+    .dockerconfigjson: AgBFOnTafvUDw06nHvDoe16cwTx8sdev8E1/IZuAXRER3CoeOt7avXMVzcr3wzRcRBxQhGdQALdeNxpW1lgGBZYOhFgmtlzPT5E2Z/R4fpTitiOW1ROAN3yxO0eX0ZhPcs2nlE1p4Ot/WEbyo8TXwz0zTBVVBD4jUIwdLWu22Od4pqmdNgEeWimXW2fZMsg1QdjNho/nLsPw5ReyhXHHVhULfXK9LbWivkijJFRvkRjx4dQhkoe4Jx0+0/BqA9VisSFPu/ouktEx4psHzvxfZ+6ToUagOlLawaoUE+HpoNuvsCMunEw+5ukHxrlN6NzYPVGy92xIiDjz6fij5v372dyYtmRk/pft+3qMAbWR/efOljeifyUaP7qwSjTGa3zonUxmLi9upSCJ88EYQW5rjaCqkWEtV6JiTFjlWB5uasDfP5WlJIsoUMbA+vBko+8Eme8gBQ3GUYzm69CVNmYUP1oQBz15GfuVVHgfT92NY+8DlURjk5o43VwSKUMmpq744IWILMgs175TXlEo6hW1c42iEVcvsD+0KXbdRtVL5Jsm0djhXULavz+j3Lz+Uq2LxBmuJ19FUHUp8uY0YML2bKwbpuMnddKvDpdLuDWP5Bc4QSi3AWoqukH/TJLoUxrpSGhgIYP3vL0xN4sjx199c/lLFUNjHvAkrKUv8MmlVW/Hj+5xfHIBcA0hce4XF7xJtrmvdqVmojwEv1HqI/LCTlVCtE7J/tjGqsLhqbszKuAusqAOEFvxziM3/qGwpFg686E6uxcFKBjCJ1/M4eSY4eYFGaW7D8UOZ+fSQV2vUNw3FQemss0Y8OKNmbLCmb7VmacmDt8X/7STEOaoyO4HTzl2uOsqIuFr2+eeKndg0uX9h+p/N6FCYKstBDIHMywS5eqWDFWy+oPBD+A4O4UuIsnT5npjSlflBcAY+U+Mc88Jy+whgnc8622ClRuZ2lYvLfsrL47HPnlB0K4IIixboziJdrywQYQCLqjq9YvuO7Gwc5R19U2B2Pa89l3xChn1ZJ6kyRuHDn4/pmj4s3/bRoNjh8arOAU0Yz9W07RkUjbXXGeQ3h8TLY5C93a1we83C8XgVKVPhUc79vyR/GSr9h6OzsNtiatxk14f5noJ7ByaJy8L+kSg9GOsTg==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: registry-nomadesk-cred
+      namespace: nomadesk
+    type: kubernetes.io/dockerconfigjson
