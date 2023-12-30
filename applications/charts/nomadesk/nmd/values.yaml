@@ -11,15 +11,15 @@ nomadesk:
       email: "nico.vanlaerebeke@nomadesk.com"
       enablePartnerPortal: true
     billing:
-      enable: true
+      enable: false
     billingapi:
-      enable: true
+      enable: false
     devdocs:
-      enabled: true
+      enabled: false
     licenseserver:
-      enabled: true
+      enabled: false
     shorturl:
-      enabled: true
+      enabled: false
     storage:
       enablePersistentStorage: true
       existingVolumeClaim: nmd-storage-claim
