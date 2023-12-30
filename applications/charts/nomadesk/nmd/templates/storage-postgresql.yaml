@@ -12,7 +12,7 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/nomadesk/db"
+    path: "/volume1/docker-storage/nomadesk/db/nmd"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
