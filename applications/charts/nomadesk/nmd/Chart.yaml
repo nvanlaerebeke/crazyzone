@@ -5,5 +5,5 @@ appVersion: 10.10.0
 description: Nico's Nomadesk Server
 dependencies:
   - name: nomadesk
-    version: "10.10.46"
+    version: "10.10.44"
     repository: "oci://registry.nomadesk.com/nomadesk-helm"
