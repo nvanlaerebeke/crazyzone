@@ -23,9 +23,7 @@ spec:
               volumeMounts:
               - name: host-storage
                 mountPath: /mnt
-                restartPolicy: Never
+              restartPolicy: Never
           terminationGracePeriodSeconds: 30
-          imagePullSecrets:
-            - name: registry-nomadesk-cred
   successfulJobsHistoryLimit: 0
   failedJobsHistoryLimit: 1
