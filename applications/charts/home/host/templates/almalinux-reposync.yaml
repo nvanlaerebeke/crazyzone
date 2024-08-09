@@ -11,6 +11,8 @@ spec:
       ttlSecondsAfterFinished: 500
       template:
         spec:
+          imagePullSecrets:
+            - name: registry-crazyzone-cred-commit-message
           volumes:
           - name: host-storage
             persistentVolumeClaim:
