@@ -15,15 +15,15 @@ spec:
           volumes:
           - name: host-storage
             persistentVolumeClaim:
-            claimName: almalinux-claimdd
+            claimName: almalinux-claim
           containers:
             - name: almalinux-9-reposync
               image: harbor.crazyzone.be/crazyzone/almalinux9-reposync
               imagePullPolicy: Always
+              restartPolicy: Never
               volumeMounts:
               - name: host-storage
                 mountPath: /mnt
-              restartPolicy: Never
           terminationGracePeriodSeconds: 30
   successfulJobsHistoryLimit: 0
   failedJobsHistoryLimit: 1
