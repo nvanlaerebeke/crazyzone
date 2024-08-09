@@ -2,7 +2,6 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: almalinux-9-reposync
-  namespace: default
 spec:
   schedule: 45 2 * * *
   concurrencyPolicy: Allow
