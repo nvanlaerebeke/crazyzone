@@ -12,7 +12,7 @@ spec:
       template:
         spec:
           imagePullSecrets:
-            - name: registry-crazyzone-cred-commit-message
+            - name: registry-crazyzone-cred-home-docs
           volumes:
           - name: host-storage
             persistentVolumeClaim:
