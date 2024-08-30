@@ -1,6 +1,6 @@
 immich:
   image:
-    tag: latest
+    tag: main
   immich:
     persistence:
       library:

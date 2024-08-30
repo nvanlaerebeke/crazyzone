@@ -1,6 +1,6 @@
 function configure {
     #argocd_install_dir "$ROOT/applications/argocd/cert-manager/"
-    #argocd_install_dir "$ROOT/applications/argocd/home/"
+    argocd_install_dir "$ROOT/applications/argocd/home/"
     #argocd_install_dir "$ROOT/applications/argocd/jenkins/"
     #argocd_install_dir "$ROOT/applications/argocd/jenkins-nmd/"
     #argocd_install_dir "$ROOT/applications/argocd/monitoring/"
@@ -9,7 +9,7 @@ function configure {
     #argocd_install_dir "$ROOT/applications/argocd/registry/"
     #argocd_install_dir "$ROOT/applications/argocd/rancher/"
     #argocd_install_dir "$ROOT/applications/argocd/unifi/"
-    argocd_install_dir "$ROOT/applications/argocd/nomadesk/"
+    #argocd_install_dir "$ROOT/applications/argocd/nomadesk/"
     #argocd_install_dir "$ROOT/applications/argocd/minio/"
     #argocd_install_dir "$ROOT/applications/argocd/default/"
 }
