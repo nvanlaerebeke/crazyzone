@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-immich
+  labels:
+    app: immich-immich
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 500Gi
+  accessModes:
+  - ReadWriteOnce
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/immich/immich"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-immich-claim
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      app: immich-immich
+  resources:
+    requests:
+      storage: 500Gi
+  volumeMode: Filesystem

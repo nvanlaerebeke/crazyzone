@@ -1,0 +1,29 @@
+immich:
+  image:
+    tag: latest
+  immich:
+    persistence:
+      library:
+        existingClaim: immich-immich-claim
+  postgresql:
+    enabled: true
+    primary:
+      persistence:
+        existingClaim: immich-db-claim
+  redis:
+    enabled: true
+    master:
+      persistence:
+        existingClaim: immich-redis-claim
+  server:
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: photos.crazyzone.be
+            paths:
+              - path: "/"
+        tls: 
+        - secretName: secret-tls
+          hosts:
+          - photos.crazyzone.be
