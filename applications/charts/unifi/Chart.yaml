@@ -3,3 +3,7 @@ name: unifi
 version: 0.0.1
 appVersion: 0.0.1
 description: Ubiquiti unifi controller 
+dependencies:
+  - name: unifi-controller
+    version: "2.6.1"
+    repository: "https://qonstrukt.github.io/helm-charts"

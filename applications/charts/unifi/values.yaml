@@ -1,78 +1,101 @@
-unifi:
+unifi-controller:
   image:
-    repository: tccr.io/truecharts/unifi
-    tag: 7.3.76@sha256:1c550120dd2bb462f16bac6a54bee03be500c5118ab86bd4904a18143ea97bac
+    repository: linuxserver/unifi-controller
     pullPolicy: IfNotPresent
+    tag: 
+
+  replicaCount: 1
+
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+
+  environment:
+    timezone: "Europe/Brussels"
+    uid: 1000
+    gid: 1000
+    memLimit: 1920    # Keep this a little below the resource limits
+    memStartup: 1024  # Set this rougly to the resource requests
 
   service:
-    main:
-      ports:
-        main:
-          protocol: HTTPS
-          port: 8443
-          targetPort: 8443
-    comm:
-      enabled: true
-      ports:
-        comm:
-          enabled: true
-          port: 8080
-          targetPort: 8080
-    stun:
-      enabled: true
-      ports:
-        stun:
-          enabled: true
-          port: 3478
-          targetPort: 3478
-          protocol: UDP
-    speedtest:
-      enabled: true
-      ports:
-        speedtest:
-          enabled: true
-          port: 6789
-          targetPort: 6789
-    guestportal:
-      enabled: true
-      ports:
-        web:
-          enabled: true
-          port: 8880
-          targetPort: 8880
-          protocol: HTTP
-        websecure:
-          enabled: true
-          port: 8843
-          targetPort: 8843
-          protocol: HTTPS
+    type: "LoadBalancer"
+    annotations: {}
+      # traefik.ingress.kubernetes.io/service.serversscheme: https
+    ports:
+      devicecom: 8080
+      webapi: 8443
+    appDiscovery: false
+    syslogCapture: false
+    loadBalancerIP: ""
 
-  securityContext:
-    readOnlyRootFilesystem: false
-
-  podSecurityContext:
-    runAsGroup: 999
-    runAsUser: 999
-
-  env: {}
   ingress:
-    main:
-      enabled: true
-      hosts:
+    enabled: true
+    className: ""
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    hosts:
       - host: unifi.crazyzone.be
         paths:
-        - path: /
-      tls:
-      - secretName: unifi.crazyzone.be
+          - path: /
+            pathType: ImplementationSpecific
+    tls: 
+      - secretName: secret-tls
         hosts:
-        - unifi.crazyzone.be
+          - unifi.crazyzone.be
 
+
+  # if set, use this persistant volume claim for the internal mongodb
   persistence:
-    config:
-      enabled: true
-      mountPath: "/unifi"
-      existingClaim: unifi-storage-claim
-
-  portal:
     enabled: true
+    accessMode: ReadWriteOnce 
+    size: 8Gi 
+    ## database data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    storageClass: local-path
+    annotations: {}
+    backup:
+      enabled: true
+      accessMode: ReadWriteOnce 
+      size: 8Gi 
+      ## database data Persistent Volume Storage Class
+      ## If defined, storageClassName: <storageClass>
+      ## If set to "-", storageClassName: "", which disables dynamic provisioning
+      storageClass: local-path
+      annotations: {}
 
+
+
+  podSecurityContext: {}
+    # runAsUser: 999
+    # fsGroup: 999
+
+  securityContext: {}
+  #  capabilities:
+  #     drop:
+  #     - ALL
+  #  readOnlyRootFilesystem: false
+  #  runAsNonRoot: true
+  #  runAsUser: 999
+
+  resources: 
+    limits:
+      cpu: 500m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 1Gi
+
+
+  nodeSelector: {}
+    #unifi-controller/enabled: "true"          
+
+  tolerations: []
+
+  affinity: {}
