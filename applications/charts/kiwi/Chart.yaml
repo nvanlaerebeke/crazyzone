@@ -1,9 +1,0 @@
-apiVersion: v1
-name: kiwi
-version: 0.0.1
-appVersion: 0.0.1
-description: Kiwi TCMS
-dependencies:
-  - name: kiwitcms
-    version: "0.0.1"
-    repository: "oci://registry-1.docker.io/crazytje"

@@ -1,4 +1,0 @@
-name: jenkins-nmd
-tlssecret: secret-tls
-hostname: jenkins-nmd.crazyzone.be
-namespace: jenkins-nmd
