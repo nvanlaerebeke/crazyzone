@@ -53,6 +53,10 @@ gitea:
             app: gitea-postgres-storage
   postgresql-ha:
     enabled: false
+  redis-cluster:
+    enabled: false
+  redis:
+    enabled: true
   gitea:
     admin:
       existingSecret: gitea-admin-secret
