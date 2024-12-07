@@ -44,6 +44,8 @@ gitea:
       matchLabels:
         app: gitea-postgres-storage
     #for postgres v15 
+    image:
+      tag: 15-debian-12
     primary:
       persistence:
         enabled: true
