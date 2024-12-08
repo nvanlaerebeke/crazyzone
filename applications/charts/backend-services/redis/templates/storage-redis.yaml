@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: db-storage
+  name: redis-storage
   namespace: services
   labels:
-    app: db-storage
+    app: redis-storage
 spec:
   storageClassName: standard
   capacity:
@@ -13,19 +13,19 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/backend-services/postgresql"
+    path: "/volume1/docker-storage/backend-services/redis"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: db-storage-claim
+  name: redis-storage-claim
 spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
     matchLabels:
-      app: db-storage
+      app: redis-storage
   resources:
     requests:
       storage: 50Gi
