@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: netbox-storage-reports
+  namespace: monitoring
+  labels:
+    app: netbox-storage-reports
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteOnce
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/netbox/reports"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: netbox-storage-reports-claim
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      app: netbox-storage-reports
+  resources:
+    requests:
+      storage: 50Gi
+  volumeMode: Filesystem
