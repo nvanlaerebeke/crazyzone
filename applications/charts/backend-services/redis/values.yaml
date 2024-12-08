@@ -1,4 +1,7 @@
 redis:
+  auth:
+    existingSecret: "redis-password"
+    existingSecretPasswordKey: "redis-password"
   volumePermissions:
     enabled: true
   master:
