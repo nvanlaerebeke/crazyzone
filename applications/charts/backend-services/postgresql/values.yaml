@@ -16,3 +16,5 @@ postgresql:
     persistence:
       enabled: true
       existingClaim: db-storage-claim
+  volumePermissions:
+    enabled: true
