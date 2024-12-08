@@ -26,7 +26,7 @@ netbox:
       - secretName: secret-tls
         hosts:
           - netbox.crazyzone.be
-  postgres:
+  postgresql:
     enabled: false
   externalDatabase:
     host: postgresql.services.svc.cluster.local
