@@ -37,6 +37,7 @@ netbox:
     enabled: false
   tasksRedis:
     host: redis-master.services.svc.cluster.local
+    username: default
     existingSecretName: "netbox-secrets"
     existingSecretKey: redis-password
     database: 1
