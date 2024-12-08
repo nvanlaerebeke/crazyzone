@@ -6,7 +6,7 @@ postgresql:
   global:
     postgresql:
       auth:
-        existingSecret: "postgres-password"
+        existingSecret: "postgresql-password"
   primary:
     resourcesPreset: large
     service:
