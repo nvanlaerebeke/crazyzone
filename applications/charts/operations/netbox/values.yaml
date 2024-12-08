@@ -909,7 +909,7 @@ netbox:
   ingress:
     ## @param ingress.enabled Enable ingress record generation
     ##
-    enabled: false
+    enabled: true
     ## @param ingress.pathType Ingress Path type
     ##
     pathType: ImplementationSpecific
@@ -931,7 +931,7 @@ netbox:
     ##
     annotations: {}
     hosts:
-      - host: chart-example.local
+      - host: netbox.crazyzone.be
         paths:
           # You can manually specify the service name and service port if
           # required. This could be useful if for exemple you are using the AWS
@@ -947,10 +947,10 @@ netbox:
           # NB: You may also want to set the basePath above
           - /
 
-    tls: []
-    #  - secretName: chart-example-tls
-    #    hosts:
-    #      - chart-example.local
+    tls: 
+      - secretName: secret-tls
+        hosts:
+          - netbox.crazyzone.be
 
   ## @section Metrics parameters
 
