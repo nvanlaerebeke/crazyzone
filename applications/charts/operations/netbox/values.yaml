@@ -20,6 +20,7 @@ netbox:
     enabled: true
     hosts:
       - host: netbox.crazyzone.be
+        paths: /
     tls: 
       - secretName: secret-tls
         hosts:
