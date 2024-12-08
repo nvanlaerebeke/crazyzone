@@ -1,9 +1,5 @@
 minio:
   mode: standalone
-
-  rootUser: "admin"
-  rootPassword: "password"
-
   replicas: 1
 
   persistence:
