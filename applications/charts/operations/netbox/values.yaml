@@ -43,6 +43,7 @@ netbox:
     database: 1
   cachingRedis:
     database: 2
+    username: default
     host: redis-master.services.svc.cluster.local
     existingSecretName: "netbox-secrets"
     existingSecretKey: redis-password
