@@ -2,7 +2,7 @@ postgresql:
   enabled: true
   auth:
     secretKeys:
-      adminPasswordKey: "postgresql-password"
+      adminPasswordKey: "postgres-password"
   global:
     postgresql:
       auth:
