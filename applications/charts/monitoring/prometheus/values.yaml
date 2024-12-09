@@ -31,7 +31,6 @@ kube-prometheus-stack:
       - vonage-status-panel
       - briangann-gauge-panel
       - redis-datasource
-      - ryantxu-ajax-panel
     sidecar:
       dashboards:
         enabled: true
@@ -57,13 +56,6 @@ kube-prometheus-stack:
         url: "https://grafana.net"
       dashboards:
         default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"
-      panels:
-        allow_embedding: true
-      security:
-        allow_embedding: true
-        x_frame_options: ""
-      security_headers:
-        content_security_policy: "script-src 'self' https://host.crazyzone.be 'unsafe-inline'; frame-src 'self' https://host.crazyzone.be; child-src 'self' https://host.crazyzone.be; default-src 'self';"
       #auth.generic_oauth:
       #  enabled: true
       #  name: Keycloak-OAuth
