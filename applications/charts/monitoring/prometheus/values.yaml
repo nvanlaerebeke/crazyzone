@@ -59,19 +59,24 @@ kube-prometheus-stack:
         default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"
       panels:
         allow_embedding: true
-      #auth.generic_oauth:
-      #  enabled: true
-      #  name: Keycloak-OAuth
-      #  client_id: grafana
-      #  client_secret: lX0132zljIBeTMYKq4AYzmC58AcUjBvr
-      #  scopes: openid email profile offline_access roles
-      #  email_attribute_path: email
-      #  login_attribute_path: username
-      #  name_attribute_path: full_name
-      #  auth_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/auth
-      #  token_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/token
-      #  api_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/userinfo
-      #  role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
+      security:
+        allow_embedding: true
+        x_frame_options: ""
+      security_headers:
+        content_security_policy: "script-src 'self' https://host.crazyzone.be 'unsafe-inline'; frame-src 'self' https://host.crazyzone.be; child-src 'self' https://host.crazyzone.be; default-src 'self';"
+      auth.generic_oauth:
+        enabled: true
+        name: Keycloak-OAuth
+        client_id: grafana
+        client_secret: lX0132zljIBeTMYKq4AYzmC58AcUjBvr
+        scopes: openid email profile offline_access roles
+        email_attribute_path: email
+        login_attribute_path: username
+        name_attribute_path: full_name
+        auth_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/auth
+        token_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/token
+        api_url: https://keycloak.crazytje.be/realms/Crazyzone/protocol/openid-connect/userinfo
+        role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
     ingress:
       enabled: true
       hosts: 
