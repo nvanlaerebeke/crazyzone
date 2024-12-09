@@ -28,7 +28,7 @@ nomadesk:
         type: Ingress
     ingress:
       enabled: true
-      tlssecret: secret-tls
+      tlssecret: crazyzone-be-tls
     db: 
       autocreate: true
       postgresHost: "nmd.crazyzone.be"

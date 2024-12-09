@@ -1,3 +1,3 @@
 name: torrent
-tlssecret: secret-tls
+tlssecret: crazyzone-be-tls
 hostname: torrent.crazyzone.be

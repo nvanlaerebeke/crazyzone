@@ -1,7 +1,7 @@
 prometheus-json-exporter:
-  image:
-    repository: registry.crazyzone.be/json_exporter
-    tag: "0.4.1b"
+#  image:
+#    repository: registry.crazyzone.be/json_exporter
+#    tag: "0.4.1b"
   ingress:
     enabled: true
     hosts:
@@ -10,7 +10,7 @@ prometheus-json-exporter:
         - path: /
           pathType: ImplementationSpecific
     tls: 
-    - secretName: secret-tls
+    - secretName: crazyzone-be-tls
       hosts:
         - json-exporter.crazyzone.be
   configuration:

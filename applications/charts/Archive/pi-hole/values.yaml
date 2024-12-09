@@ -12,7 +12,7 @@ pihole:
     hosts:
       - pihole.crazyzone.be
     tls: 
-    - secretName: secret-tls
+    - secretName: crazyzone-be-tls
       hosts:
       - pihole.crazyzone.be
   persistentVolumeClaim:

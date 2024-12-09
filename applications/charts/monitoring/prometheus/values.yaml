@@ -15,7 +15,7 @@ kube-prometheus-stack:
       hosts: 
       - alert.crazyzone.be
       tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
         - alert.crazyzone.be
       path: /        
@@ -75,7 +75,7 @@ kube-prometheus-stack:
       hosts: 
       - mon.crazyzone.be
       tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
         - mon.crazyzone.be
       path: /
@@ -85,7 +85,7 @@ kube-prometheus-stack:
       hosts: 
       - prometheus.crazyzone.be
       tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
         - prometheus.crazyzone.be
       path: /

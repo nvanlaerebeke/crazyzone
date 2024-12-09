@@ -12,7 +12,7 @@ minio:
     hosts:
       - minio.crazyzone.be
     tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
           - minio.crazyzone.be
   consoleIngress:
@@ -21,7 +21,7 @@ minio:
     hosts:
       - minio-console.crazyzone.be
     tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
           - minio-console.crazyzone.be
 

@@ -25,6 +25,6 @@ immich:
             paths:
               - path: "/"
         tls: 
-        - secretName: secret-tls
+        - secretName: crazyzone-be-tls
           hosts:
           - photos.crazyzone.be

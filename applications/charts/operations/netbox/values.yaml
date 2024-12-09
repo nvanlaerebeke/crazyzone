@@ -24,7 +24,7 @@ netbox:
         paths: 
         - /
     tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
           - netbox.crazyzone.be
   postgresql:

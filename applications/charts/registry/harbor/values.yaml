@@ -8,8 +8,8 @@ harbor:
       enabled: true
       certSource: secret
       secret:
-        secretName: secret-tls
-        notarySecretName: secret-tls
+        secretName: crazyzone-be-tls
+        notarySecretName: crazyzone-be-tls
     ingress:
       hosts:
         core: harbor.crazyzone.be

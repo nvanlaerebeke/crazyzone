@@ -9,7 +9,7 @@ heimdall:
           paths:
             - path: /
       tls:
-        - secretName: secret-tls
+        - secretName: crazyzone-be-tls
           hosts:
             - www.crazyzone.be
   persistence:

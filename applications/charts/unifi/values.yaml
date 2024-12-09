@@ -45,7 +45,7 @@ unifi-controller:
           - path: /
             pathType: ImplementationSpecific
     tls: 
-      - secretName: secret-tls
+      - secretName: crazyzone-be-tls
         hosts:
           - unifi.crazyzone.be
 
