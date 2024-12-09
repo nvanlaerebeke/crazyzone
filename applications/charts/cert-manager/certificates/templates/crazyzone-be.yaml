@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: crazyzone-be
+  namespace: default
+spec:
+  secretName: crazyzone-be-tls
+  renewBefore: 720h
+  dnsNames:
+    - "crazyzone.be"
+    - "*.crazyzone.be"  
+  additionalOutputFormats:
+  - type: CombinedPEM
+  privateKey:
+    rotationPolicy: Always    
+  issuerRef:
+    name: hetzner-acme-issuer-prod
+    kind: ClusterIssuer
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "default,argocd,home,jenkins,monitoring,operations,power,registry" # Control destination namespaces
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true" # Auto create reflection for matching namespaces
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "default,argocd,home,jenkins,monitoring,operations,power,registry" # Control auto-reflection namespaces
