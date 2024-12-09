@@ -10,6 +10,7 @@ netbox:
   loginRequired: true
   timeZone: CET
   existingSecret: ""
+  resourcesPreset: "medium"
   persistence:
     enabled: true
     existingClaim: "netbox-storage-data-claim"
