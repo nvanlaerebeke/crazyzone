@@ -57,7 +57,9 @@ kube-prometheus-stack:
         url: "https://grafana.net"
       dashboards:
         default_home_dashboard_path: "/tmp/dashboards/Crazyzone/home.json"
-      #6auth.generic_oauth:
+      panels:
+        allow_embedding: true
+      #auth.generic_oauth:
       #  enabled: true
       #  name: Keycloak-OAuth
       #  client_id: grafana
