@@ -39,5 +39,17 @@ harbor:
           existingClaim: harbor-storage-job-logs-claim
         scanDataExports:
           existingClaim: harbor-storage-job-exports-claim
+#  redis:
+#    type: external
+#    external:
+#      addr: redis-master.services.svc.cluster.local:6379
+#      coreDatabaseIndex: "3"
+#      jobserviceDatabaseIndex: "4"
+#      registryDatabaseIndex: "5"
+#      trivyAdapterIndex: "6"
+#      harborDatabaseIndex: "7"
+#      cacheLayerDatabaseIndex: "8"
+#      username: default
+#      existingSecretName: "harbor-secrets"
   metrics:
     enabled: true
