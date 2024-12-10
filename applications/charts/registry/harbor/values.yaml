@@ -16,23 +16,28 @@ harbor:
   persistence:
     enabled: true
     persistentVolumeClaim:
+      database:
+        existingClaim: harbor-storage-claim
+        subPath: database
+      database:
+        existingClaim: harbor-storage-claim
+        subPath: redis
       registry:
         existingClaim: harbor-storage-claim
         subPath: registry
-      jobservice:
-        jobLog:
-          existingClaim: harbor-storage-job-logs-claim   
-      database:
-        existingClaim: harbor-storage-claim
-        subPath: db
-      redis:
+      chartmuseum:
         existingClaim: harbor-storage-claim
         subPath: charts
-      chartmuseum:
+      redis:
         existingClaim: harbor-storage-claim
         subPath: charts
       trivy:
         existingClaim: harbor-storage-claim
         subPath: trivy
+      jobservice:
+        jobLog:
+          existingClaim: harbor-storage-job-logs-claim
+        scanDataExports:
+          existingClaim: harbor-storage-job-exports-claim
   metrics:
     enabled: true
