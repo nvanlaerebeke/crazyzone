@@ -12,9 +12,9 @@ openproject:
       name: "OpenProject Admin"
       mail: "nico.vanlaerebeke@gmail.com"
   persistence:
-    enabled: false
-  s3:
     enabled: true
+  s3:
+    enabled: false
     auth:
       existingSecret: openproject-secrets
     bucketName: open-project
