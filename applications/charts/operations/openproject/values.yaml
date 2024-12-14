@@ -13,6 +13,8 @@ openproject:
       mail: "nico.vanlaerebeke@gmail.com"
   persistence:
     enabled: true
+    accessModes:
+      - "ReadWriteOnce"
   s3:
     enabled: false
     auth:
