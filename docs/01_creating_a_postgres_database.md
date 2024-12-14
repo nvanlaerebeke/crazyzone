@@ -31,7 +31,7 @@ CREATE DATABASE <database>;
 -- Grant the user access to the new database
 GRANT ALL PRIVILEGES ON DATABASE <database> TO <user>;
 ALTER DATABASE <database> OWNER TO <user>;
-GRANT CREATE ON SCHEMA public TO netbox;
+GRANT CREATE ON SCHEMA public TO <user>;
 ```
 
 If the user does not have permissions on public, do the following:
@@ -39,6 +39,13 @@ If the user does not have permissions on public, do the following:
 Log in as postgres on the database and run:
 
 ```sql
+GRANT ALL ON SCHEMA public TO <user>;
+```
+
+Or, when logged in as postgres user:
+
+```sql
+\c <database>
 GRANT ALL ON SCHEMA public TO <user>;
 ```
 

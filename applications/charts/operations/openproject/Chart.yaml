@@ -1,0 +1,9 @@
+apiVersion: v1
+name: openproject
+version: 9.3.0
+appVersion: 9.3.0
+description: Powerful classic, agile or hybrid project management in a secure environment.
+dependencies:
+  - name: openproject
+    version: "9.3.0"
+    repository: "https://charts.openproject.org"
