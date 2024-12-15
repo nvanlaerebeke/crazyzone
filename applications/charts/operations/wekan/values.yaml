@@ -1,0 +1,15 @@
+wekan:
+  endpoint: wekan.crazyzone.be
+  root_url: https://wekan.crazyzone.be
+  ingress:
+    enabled: true
+    hosts: 
+      - wekan.crazyzone.be
+    tls:
+      - secretName: crazyzone-be-tls
+        hosts:
+          - wekan.crazyzone.be
+  mongodb:
+    enabled: true
+    persistence:
+      existingClaim: "wekan-storage-db-claim"
