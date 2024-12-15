@@ -32,6 +32,14 @@ gitea:
   redis:
     enabled: true
   gitea:
+    database:
+      builtIn:
+        enabled: false
+      external:
+        host: "postgresql.services.svc.cluster.local"
+        port: 5432
+        name: "gitea"
+        username: "gitea"
     admin:
       existingSecret: gitea-admin-secret
       email: "nico.vanlaerebeke@gmail.com"
