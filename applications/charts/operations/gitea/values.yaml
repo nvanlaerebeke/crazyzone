@@ -23,36 +23,8 @@ gitea:
     existingClaim: gitea-storage-claim
     primary:
       existingClaim: gitea-storage-claim
-
   postgresql:
-    enabled: true
-    global:
-      postgresql:
-        #for postgresql v11
-        postgresqlDatabase: gitea
-        postgresqlUsername: gitea
-        postgresqlPassword: gitea
-        #for postgresql v15
-        auth:
-          postgresqlDatabase: gitea
-          postgresqlUsername: gitea
-          postgresqlPassword: gitea
-    #for postgres v11
-    persistence:
-      existingClaim: gitea-postgres-storage-claim          
-    selector:
-      matchLabels:
-        app: gitea-postgres-storage
-    #for postgres v15 
-    image:
-      tag: 15-debian-12
-    primary:
-      persistence:
-        enabled: true
-        existingClaim: gitea-postgres-storage-claim
-        selector:
-          matchLabels:
-            app: gitea-postgres-storage
+    enabled: false
   postgresql-ha:
     enabled: false
   redis-cluster:
