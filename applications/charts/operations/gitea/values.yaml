@@ -33,8 +33,6 @@ gitea:
     enabled: true
   gitea:
     database:
-      builtIn:
-        enabled: false
       external:
         host: "postgresql.services.svc.cluster.local"
         port: 5432
