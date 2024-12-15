@@ -30,7 +30,7 @@ gitea:
   redis-cluster:
     enabled: false
   redis:
-    enabled: true
+    enabled: false
   gitea:
     database:
       external:

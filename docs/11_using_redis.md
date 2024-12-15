@@ -21,3 +21,19 @@ To connect to the redis server, run:
 redis-cli -h redis-master.services.svc.cluster.local 
 AUTH default <password>
 ```
+
+## Redis Database List
+
+| Index |      Service      |
+| ----- | ----------------- |
+| 0     |                   |
+| 1     | netbox-tasks      |
+| 2     | netbox-caching    |
+| 3     | gitea             |
+| 4     |                   |
+| 5     |                   |
+| 6     |                   |
+| 7     |                   |
+| 8     |                   |
+| 9     |                   |
+| 10    |                   |
