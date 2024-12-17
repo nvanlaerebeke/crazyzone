@@ -76,3 +76,18 @@ Copy over the dump to your local system:
 ```console
 kubectl cp <namespace>/<pod-name>:<path-to-file-in-pod> <local-path> 
 ```
+
+Create the new database, user and set the password.  
+Once that is done, start a local container and mount the database dumps in it.
+
+Restore the dumps using pg_restore:
+
+```console
+docker run -ti --rm -v `pwd`:/mnt --name postgres17 postgres:17 bash
+```
+
+And to restore:
+
+```console
+pg_restore -h home.crazyzone.be -p 30000 -U postgres -d <database> /tmp/<dump.sql>
+```
