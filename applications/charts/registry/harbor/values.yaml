@@ -40,7 +40,7 @@ harbor:
         scanDataExports:
           existingClaim: harbor-storage-job-exports-claim
   redis:
-    type: external
+    type: internal
     external:
       addr: redis-master.services.svc.cluster.local:6379
       coreDatabaseIndex: "4"
