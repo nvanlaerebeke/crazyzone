@@ -55,3 +55,24 @@ As services that will be running in different namespaces will need to access thi
 
 In kubernetes the DNS name is `<service-name>.<namespace>.svc.cluster.local`, so in this case this will be `postgresql.services.svc.cluster.local`.  
 The port the service runs on is the default `5432` port for internal use, externally this is reachable on port `30000`.
+
+## Migration
+
+Connect to the old database:
+
+```console
+kubectl run postgresql-postgresql-client --rm --tty -i --restart='Never' --namespace <namespace> --image bitnami/postgresql --command -- bash
+```
+
+Dump the database(s):
+
+```console
+cd /tmp/
+PGPASSWORD=<password> pg_dump -U postgres -h <source-host> -F c -b -v -f db_dump.sql <database>
+```
+
+Copy over the dump to your local system:
+
+```console
+kubectl cp <namespace>/<pod-name>:<path-to-file-in-pod> <local-path> 
+```

@@ -19,9 +19,6 @@ harbor:
       database:
         existingClaim: harbor-storage-claim
         subPath: db
-      #database:
-      #  existingClaim: harbor-storage-claim
-      #  subPath: redis
       registry:
         existingClaim: harbor-storage-claim
         subPath: registry
