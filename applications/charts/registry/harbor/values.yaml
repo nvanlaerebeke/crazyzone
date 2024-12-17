@@ -50,6 +50,6 @@ harbor:
       harborDatabaseIndex: "8"
       cacheLayerDatabaseIndex: "9"
       username: default
-      #existingSecret: harbor-secrets
+      existingSecret: harbor-secrets
   metrics:
     enabled: true
