@@ -30,10 +30,10 @@ AUTH default <password>
 | 1     | netbox-tasks      |
 | 2     | netbox-caching    |
 | 3     | gitea             |
-| 4     |                   |
-| 5     |                   |
-| 6     |                   |
-| 7     |                   |
-| 8     |                   |
-| 9     |                   |
+| 4     | harbor-core       |
+| 5     | harbor-job        |
+| 6     | harbor-registry   |
+| 7     | harbor-trivy      |
+| 8     | harbor-db         |
+| 9     | harbor-cache      |
 | 10    |                   |
