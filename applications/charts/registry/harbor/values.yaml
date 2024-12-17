@@ -38,11 +38,12 @@ harbor:
           existingClaim: harbor-storage-job-exports-claim
   database:
     type: external
-    host: "postgresql.services.svc.cluster.local"
-    port: "5432"
-    username: "harbor"
-    coreDatabase: "registry"
-    existingSecret: "harbor-secrets"
+    external:
+      host: "postgresql.services.svc.cluster.local"
+      port: "5432"
+      username: "harbor"
+      coreDatabase: "registry"
+      existingSecret: "harbor-secrets"
   redis:
     type: external
     external:
