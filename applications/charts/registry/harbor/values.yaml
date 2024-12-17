@@ -18,10 +18,10 @@ harbor:
     persistentVolumeClaim:
       database:
         existingClaim: harbor-storage-claim
-        subPath: database
-      database:
-        existingClaim: harbor-storage-claim
-        subPath: redis
+        subPath: db
+      #database:
+      #  existingClaim: harbor-storage-claim
+      #  subPath: redis
       registry:
         existingClaim: harbor-storage-claim
         subPath: registry
@@ -40,7 +40,7 @@ harbor:
         scanDataExports:
           existingClaim: harbor-storage-job-exports-claim
   redis:
-    type: internal
+    type: external
     external:
       addr: redis-master.services.svc.cluster.local:6379
       coreDatabaseIndex: "4"
