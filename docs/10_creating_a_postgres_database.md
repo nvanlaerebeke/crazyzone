@@ -68,7 +68,7 @@ Dump the database(s):
 
 ```console
 cd /tmp/
-PGPASSWORD=<password> pg_dump -U postgres -h <source-host> -F c -b -v -f db_dump.sql <database>
+PGPASSWORD=<password> pg_dump -U postgres -h <source-host> -v --schema=public -f db_dump.sql <database>
 ```
 
 Copy over the dump to your local system:

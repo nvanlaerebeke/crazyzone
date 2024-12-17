@@ -37,7 +37,7 @@ harbor:
         scanDataExports:
           existingClaim: harbor-storage-job-exports-claim
   database:
-    type: internal
+    type: external
     external:
       host: "postgresql.services.svc.cluster.local"
       port: "5432"
