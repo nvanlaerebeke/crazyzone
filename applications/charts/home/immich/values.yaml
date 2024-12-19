@@ -1,6 +1,6 @@
 immich:
   image:
-    tag: v1.119.0
+    tag: v1.123.0
   immich:
     persistence:
       library:
