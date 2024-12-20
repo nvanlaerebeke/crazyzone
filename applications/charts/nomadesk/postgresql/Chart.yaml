@@ -1,0 +1,9 @@
+apiVersion: v1
+name: PostgreSQL
+version: 16.2.5
+appVersion: 16.2.5
+description: PostgreSQL
+dependencies:
+  - name: postgresql
+    version: "16.2.5"
+    repository: "oci://registry-1.docker.io/bitnamicharts"

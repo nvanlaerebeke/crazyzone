@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'nmd-postgresql'
+spec:
+  project: 'default'
+  destination:
+    name: ''
+    namespace: 'nomadesk'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'applications/charts/nomadesk/postgres'
+    repoURL: '$GIT_URL'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

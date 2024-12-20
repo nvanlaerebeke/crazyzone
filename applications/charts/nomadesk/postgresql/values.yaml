@@ -1,0 +1,20 @@
+postgresql:
+  enabled: true
+  auth:
+    secretKeys:
+      adminPasswordKey: "postgres-password"
+  global:
+    postgresql:
+      auth:
+        existingSecret: "postgresql-password"
+  primary:
+    resourcesPreset: large
+    service:
+      type: NodePort
+      nodePorts:
+        postgresql: 30005
+    persistence:
+      enabled: true
+      existingClaim: nomadesk-db-storage-claim
+  volumePermissions:
+    enabled: true
