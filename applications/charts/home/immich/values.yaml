@@ -5,6 +5,8 @@ immich:
     persistence:
       library:
         existingClaim: immich-immich-claim
+  
+  useDeprecatedPostgresChart: true
   postgresql:
     enabled: true
     primary:
