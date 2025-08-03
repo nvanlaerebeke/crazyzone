@@ -1,9 +1,0 @@
-apiVersion: v1
-name: pihole
-version: 2.24.0
-appVersion: 2.24.0
-description: DNS server
-dependencies:
-  - name: pihole
-    version: "2.24.0"
-    repository: "https://mojo2600.github.io/pihole-kubernetes/"
