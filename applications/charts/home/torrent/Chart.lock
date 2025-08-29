@@ -1,6 +1,0 @@
-dependencies:
-- name: qbittorrent
-  repository: oci://oci.trueforge.org/truecharts
-  version: 23.3.2
-digest: sha256:b3316f46f9cbe00e987d28daa35c8d5c2d3d441ec1925dc219afc96b89b6e2fa
-generated: "2025-08-29T18:30:48.033867679+02:00"
