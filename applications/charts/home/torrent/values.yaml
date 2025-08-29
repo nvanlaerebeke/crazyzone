@@ -17,9 +17,10 @@ qbittorrent:
   persistence:
     config:
       enabled: true
-      mountPath: "/config"
-      accessModes: ReadWriteOnce
-      size: 5Gi
+      type: nfs
+      server: nas.crazyzone.be
+      path: /volume1/docker-storage/torrent/config
+      mountPath: /config
     data:
       enabled: true
       type: nfs
