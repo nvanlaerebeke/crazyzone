@@ -59,3 +59,25 @@ qbittorrent:
 secret:
   qtorrent-secret:
     enabled: false
+jackett:
+  persistence:
+    config:
+      enabled: true
+      type: nfs
+      server: nas.crazyzone.be
+      path: /volume1/docker-storage/torrent/jackett
+      mountPath: /config
+  ingress:
+    main:
+      enabled: true
+      hosts:
+        - host: jackett.crazyzone.be
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: main
+                port: http
+      tls:
+        - hosts: [jackett.crazyzone.be]
+          secretName: crazyzone-be-tls

@@ -1,9 +1,12 @@
 apiVersion: v2
 name: qBittorrent
-version: 23.3.2
-appVersion: 23.3.2
+version: 0.0.1
+appVersion: 0.0.1
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
 dependencies:
   - name: qbittorrent
     version: "23.3.2"
+    repository: "oci://oci.trueforge.org/truecharts"
+  - name: jackett
+    version: "25.1.12"
     repository: "oci://oci.trueforge.org/truecharts"
