@@ -1,5 +1,9 @@
-apiVersion: v1
-name: torrent
-version: 0.0.1
-appVersion: 0.0.1
-description: torrent download website 
+apiVersion: v2
+name: qBittorrent
+version: 23.3.2
+appVersion: 23.3.2
+description: qBittorrent is a cross-platform free and open-source BitTorrent client
+dependencies:
+  - name: qbittorrent
+    version: "23.3.2"
+    repository: "oci://oci.trueforge.org/truecharts"

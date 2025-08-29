@@ -1,3 +1,22 @@
-name: torrent
-tlssecret: crazyzone-be-tls
-hostname: torrent.crazyzone.be
+qbittorrent:
+  persistence:
+    data:
+      type: nfs
+      server: "nas.crazyzone.be"
+      path: "/volume1/docker-storage/torrent/downloads"
+  ingress:
+    main:
+      enabled: true
+      primary: true
+      hosts:
+        - host: torrent.crazyzone.be
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - torrent.crazyzone.be
+          secretName: crazyzone-be-tls
+      integrations:
+        homepage:
+          enabled: false
