@@ -5,7 +5,7 @@ argo-cd:
     domain: argocd.crazyzone.be
   server:
     certificateSecret:
-      enabled: true
+      enabled: false
     ingress:
       enabled: true
       hosts:
