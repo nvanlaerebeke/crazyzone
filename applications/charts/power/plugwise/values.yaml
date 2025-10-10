@@ -9,5 +9,14 @@ plugwise:
     - plugwise.crazyzone.be
   ingress:
     enabled: true
+    labels:
+      trigger: "1"
+    hosts: 
+    - host: plugwise.crazyzone.be
+      paths:
+      - path: /
+        pathType: Prefix
     tls:
-      existingSecret: secret-tls
+    - hosts:
+      - plugwise.crazyzone.be
+      secretName: secret-tls
