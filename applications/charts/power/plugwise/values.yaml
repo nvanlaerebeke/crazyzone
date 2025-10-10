@@ -1,3 +1,13 @@
 plugwise:
   global:
     existingRegisrySecret: registry-crazyzone-cred-plugwise
+  device:
+    path: /dev/ttyUSB0
+  resources:
+    replicaCount: 1
+  hostnames:
+    - plugwise.crazyzone.be
+  ingress:
+    enabled: true
+    tls:
+      existingSecret: secret-tls
