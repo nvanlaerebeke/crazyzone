@@ -14,7 +14,6 @@ argo-cd:
       annotations:
         traefik.ingress.kubernetes.io/router.tls: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
-        traefik.ingress.kubernetes.io/router.middlewares: kube-system-allow-internal-only@kubernetescrd
       extraTls:
         - hosts:
           - argocd.crazyzone.be
