@@ -1,5 +1,6 @@
 home:
   global:
+    imagePullPolicy: Always
     existingRegistrySecret: registry-crazyzone-cred-plugwise
   plugwise:
     enabled: true
