@@ -29,6 +29,16 @@ home:
     enabled: true
     broker: "localhost"
     port: 1883
+    config: |
+      persistence true
+      persistence_location /mosquitto/data/
+
+      log_dest stdout
+
+      listener 1883
+      protocol mqtt
+      
+      allow_anonymous true
   mosquitto:
     enabled: true
     persistence:
