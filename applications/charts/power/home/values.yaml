@@ -64,3 +64,17 @@ home:
       frontend:
         enabled: true
         port: 8080
+      ingress:
+        enabled: true
+        pathType: Prefix
+        hosts:
+          - host: zigbee2mqtt.crazyzone.be
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
+              - path: /api
+                pathType: ImplementationSpecific
+        tls:
+          - secretName: secret-tls
+            hosts:
+              - zigbee2mqtt.crazyzone.be
