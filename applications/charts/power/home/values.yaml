@@ -2,11 +2,9 @@ home:
   global:
     existingRegistrySecret: registry-crazyzone-cred-plugwise
   plugwise:
-    enabled: false
+    enabled: true
     device:
       path: /dev/ttyUSB0
-  resources:
-    replicaCount: 1
   ingress:
     enabled: true
     labels:
@@ -26,54 +24,21 @@ home:
       - home.crazyzone.be
       secretName: secret-tls
   mqtt:
-    enabled: true
-    broker: "home-mosquitto"
-    port: 1883
-  mosquitto:
-    enabled: true
     persistence:
-      enabled: false
-      existingClaim: ""
+      enabled: true
+      existingClaim: "crazy-home-storage-api-claim"    
+  mosquitto:
+    persistence:
+      enabled: true
+      existingClaim: "crazy-home-storage-mosquitto-claim"
     service:
       type: LoadBalancer
-      externalTrafficPolicy: null
-    config: |
-      listener 1883
-      listener 9090
-      protocol websockets
-      allow_anonymous true
-      persistence true
-      persistence_location /mosquitto/data/
-      log_dest stdout
-
   zigbee2mqtt:
-    enabled: true
     zigbee2mqtt:
-      permit_join: true
-      homeassistant:
-        enabled: false
-      timezone: CET
-      mqtt:
-        server: "mqtt://home-mosquitto:1883"
       serial:
         port: "tcp://zigbee.crazyzone.be:6638"
-        adapter: ember
-        baudrate: null
-        rtscts: null
-      frontend:
+    statefulset:
+      storage:
         enabled: true
-        port: 8080
-    ingress:
-      enabled: true
-      pathType: Prefix
-      hosts:
-        - host: zigbee2mqtt.crazyzone.be
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-            - path: /api
-              pathType: ImplementationSpecific
-      tls:
-        - secretName: secret-tls
-          hosts:
-            - zigbee2mqtt.crazyzone.be
+        size: 1Gi
+        existingVolume: "crazy-home-storage-zigbee2mqtt-claim"
