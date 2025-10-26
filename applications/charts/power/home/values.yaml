@@ -29,6 +29,14 @@ home:
     enabled: true
     broker: "home-mosquitto"
     port: 1883
+  mosquitto:
+    enabled: true
+    persistence:
+      enabled: false
+      existingClaim: ""
+    service:
+      type: ClusterIP
+      externalTrafficPolicy: null
     config: |
       persistence true
       persistence_location /mosquitto/data/
@@ -38,15 +46,7 @@ home:
       listener 1883
       protocol mqtt
       
-      allow_anonymous true
-  mosquitto:
-    enabled: true
-    persistence:
-      enabled: false
-      existingClaim: ""
-    service:
-      type: ClusterIP
-      externalTrafficPolicy: null
+      allow_anonymous true      
   zigbee2mqtt:
     enabled: true
     zigbee2mqtt:
