@@ -40,12 +40,9 @@ home:
     config: |
       persistence true
       persistence_location /mosquitto/data/
-
       log_dest stdout
-
       listener 1883
-      protocol mqtt
-      
+      protocol mqtt     
       allow_anonymous true      
   zigbee2mqtt:
     enabled: true
