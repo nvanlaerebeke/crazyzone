@@ -38,12 +38,13 @@ home:
       type: ClusterIP
       externalTrafficPolicy: null
     config: |
+      listener 1883
+      protocol mqtt
+      allow_anonymous true
       persistence true
       persistence_location /mosquitto/data/
       log_dest stdout
-      listener 1883
-      protocol mqtt     
-      allow_anonymous true      
+
   zigbee2mqtt:
     enabled: true
     zigbee2mqtt:
