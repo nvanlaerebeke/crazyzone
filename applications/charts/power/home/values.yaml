@@ -10,7 +10,7 @@ home:
   ingress:
     enabled: true
     labels:
-      trigger: "1"
+      trigger: "2"
     hosts: 
     - host: plugwise.crazyzone.be
       paths:
