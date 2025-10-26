@@ -44,6 +44,9 @@ home:
         server: "mqtt://mosquitto:1883"
       serial:
         port: "tcp://zigbee.crazyzone.be:6638"
+        adapter: ember
+        baudrate: null
+        rtscts: null
       frontend:
         enabled: true
         port: 8080
