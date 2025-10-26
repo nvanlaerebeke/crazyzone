@@ -2,7 +2,7 @@ home:
   global:
     existingRegisrySecret: registry-crazyzone-cred-plugwise
   plugwise:
-    enabled: true
+    enabled: false
     device:
       path: /dev/ttyUSB0
   resources:
