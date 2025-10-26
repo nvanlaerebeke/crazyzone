@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: {{ $.Chart.Name | lower }}-storage-zigbee2mqtt
   labels:
-    app: {{ $.Chart.Name | lower }}-storage-zigbee2mqtt
+    app: crazy-home-storage-zigbee2mqtt
 spec:
   storageClassName: standard
   capacity:
