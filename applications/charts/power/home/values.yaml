@@ -42,4 +42,6 @@ home:
         enabled: true
         size: 1Gi
         storageClassName: "standard"
-        existingVolume: "crazy-home-storage-zigbee2mqtt-claim"
+        matchLabels:
+          app: crazy-home-storage-zigbee2mqtt
+        existingVolume: "crazy-home-storage-zigbee2mqtt"
