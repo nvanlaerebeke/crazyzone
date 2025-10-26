@@ -55,7 +55,7 @@ home:
         enabled: false
       timezone: CET
       mqtt:
-        server: "mqtt://mosquitto:1883"
+        server: "mqtt://home-mosquitto:1883"
       serial:
         port: "tcp://zigbee.crazyzone.be:6638"
         adapter: ember
