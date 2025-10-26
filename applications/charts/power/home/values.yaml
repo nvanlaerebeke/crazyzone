@@ -50,6 +50,7 @@ home:
   zigbee2mqtt:
     enabled: true
     zigbee2mqtt:
+      permit_join: true
       homeassistant:
         enabled: false
       timezone: CET
