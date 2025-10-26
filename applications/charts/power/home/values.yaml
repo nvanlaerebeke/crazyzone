@@ -39,7 +39,8 @@ home:
       externalTrafficPolicy: null
     config: |
       listener 1883
-      protocol mqtt
+      listener 9090
+      protocol websockets
       allow_anonymous true
       persistence true
       persistence_location /mosquitto/data/
