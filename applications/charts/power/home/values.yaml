@@ -44,6 +44,9 @@ home:
     persistence:
       enabled: false
       existingClaim: ""
+    service:
+      type: ClusterIP
+      externalTrafficPolicy: null
   zigbee2mqtt:
     enabled: true
     zigbee2mqtt:
