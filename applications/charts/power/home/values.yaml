@@ -1,6 +1,6 @@
 home:
   global:
-    existingRegisrySecret: registry-crazyzone-cred-plugwise
+    existingRegistrySecret: registry-crazyzone-cred-plugwise
   plugwise:
     enabled: false
     device:
@@ -10,7 +10,7 @@ home:
   ingress:
     enabled: true
     labels:
-      trigger: "2"
+      trigger: "3"
     hosts: 
     - host: plugwise.crazyzone.be
       paths:
