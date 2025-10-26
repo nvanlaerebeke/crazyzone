@@ -35,7 +35,7 @@ home:
       enabled: false
       existingClaim: ""
     service:
-      type: ClusterIP
+      type: LoadBalancer
       externalTrafficPolicy: null
     config: |
       listener 1883
