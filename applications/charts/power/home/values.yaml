@@ -1,0 +1,49 @@
+home:
+  global:
+    existingRegisrySecret: registry-crazyzone-cred-plugwise
+  plugwise:
+    enabled: true
+    device:
+      path: /dev/ttyUSB0
+  resources:
+    replicaCount: 1
+  ingress:
+    enabled: true
+    labels:
+      trigger: "1"
+    hosts: 
+    - host: plugwise.crazyzone.be
+      paths:
+      - path: /
+        pathType: Prefix
+    - host: home.crazyzone.be
+      paths:
+      - path: /
+        pathType: Prefix        
+    tls:
+    - hosts:
+      - plugwise.crazyzone.be
+      - home.crazyzone.be
+      secretName: secret-tls
+  mqtt:
+    enabled: true
+    broker: "localhost"
+    port: 1883
+  mosquitto:
+    enabled: true
+    persistence:
+      enabled: false
+      existingClaim: ""
+  zigbee2mqtt:
+    enabled: true
+    zigbee2mqtt:
+      homeassistant:
+        enabled: false
+      timezone: CET
+      mqtt:
+        server: "mqtt://mosquitto:1883"
+      serial:
+        port: "tcp://zigbee.crazyzone.be:6638"
+      frontend:
+        enabled: true
+        port: 8080

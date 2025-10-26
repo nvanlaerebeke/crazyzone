@@ -1,0 +1,6 @@
+dependencies:
+- name: home
+  repository: oci://harbor.crazyzone.be/crazyzone-helm
+  version: 1.0.0
+digest: sha256:9a751356703d3af7060254bf25746efff7d51145617aff265c4a7b9164c8c675
+generated: "2025-10-26T14:24:06.014057081+01:00"
