@@ -37,6 +37,8 @@ home:
     zigbee2mqtt:
       serial:
         port: "tcp://zigbee.crazyzone.be:6638"
+      frontend:
+        enabled: true
     statefulset:
       storage:
         enabled: true
