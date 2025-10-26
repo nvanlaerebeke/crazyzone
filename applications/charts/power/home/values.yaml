@@ -27,7 +27,7 @@ home:
       secretName: secret-tls
   mqtt:
     enabled: true
-    broker: "localhost"
+    broker: "home-mosquitto"
     port: 1883
     config: |
       persistence true
