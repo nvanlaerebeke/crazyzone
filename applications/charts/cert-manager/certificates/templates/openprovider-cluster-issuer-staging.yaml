@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer  # Make this Issuer if you don't want to serve the whole cluster
+metadata:
+  name: openprovider-acme-issuer-staging
+spec:
+  acme:
+    email: nico.vanlaerebeke@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory  # Testing usage
+    #server: https://acme-v02.api.letsencrypt.org/directory  # Production usage
+    privateKeySecretRef:
+      name: openprovider-staging-issuer-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: cert-manager-webhook-openprovider.crazyzone.be
+            solverName: openprovider
+            config:
+              secret:
+                name: openprovider-credentials

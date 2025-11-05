@@ -5,16 +5,18 @@ metadata:
   namespace: default
 spec:
   secretName: crazyzone-be-tls
+  duration: 2160h
   renewBefore: 720h
   dnsNames:
     - "crazyzone.be"
     - "*.crazyzone.be"  
   additionalOutputFormats:
-  - type: CombinedPEM
+    - type: CombinedPEM
+    - type: DER
   privateKey:
     rotationPolicy: Always    
   issuerRef:
-    name: hetzner-acme-issuer-prod
+    name: openprovider-acme-issuer
     kind: ClusterIssuer
   secretTemplate:
     annotations:
