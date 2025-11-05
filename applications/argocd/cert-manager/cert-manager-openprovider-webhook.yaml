@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'cert-manager-webhook-hetzner'
+  name: 'cert-manager-openprovider-webhook'
 spec:
   project: 'cert-manager'
   destination:
@@ -9,7 +9,7 @@ spec:
     namespace: 'cert-manager'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/cert-manager/cert-manager-webhook-hetzner'
+    path: 'applications/charts/cert-manager/cert-manager-openprovider-webhook'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:
