@@ -4,9 +4,6 @@ argo-cd:
   global:
     domain: argocd.crazyzone.be
   server:
-    certificate:
-      enabled: true
-      secretName: crazyzone-be-tls
     certificateSecret:
       enabled: false
     ingress:
