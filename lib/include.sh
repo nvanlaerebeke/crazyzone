@@ -19,7 +19,7 @@ function configure {
 
     #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus-json-exporter.yaml"
     #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus-snmp-exporter.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus.yaml"
+    argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/operations/gitea.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/kickstart.yaml"
