@@ -1,3 +1,0 @@
-kickstart:
-  global:
-    existingRegisrySecret: registry-crazyzone-cred

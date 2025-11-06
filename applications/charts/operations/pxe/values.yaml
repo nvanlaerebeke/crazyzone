@@ -1,3 +1,0 @@
-pxe:
-  global:
-    existingRegisrySecret: registry-crazyzone-cred

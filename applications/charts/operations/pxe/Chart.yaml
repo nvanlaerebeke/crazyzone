@@ -1,9 +1,0 @@
-apiVersion: v1
-name: pxe
-version: 0.0.3
-appVersion: 0.0.3
-description: webserver providing files for ipxe pxe boot
-dependencies:
-  - name: pxe
-    version: "0.0.3"
-    repository: "oci://harbor.crazyzone.be/crazyzone-helm"
