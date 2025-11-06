@@ -1,10 +1,10 @@
 apiVersion: v1
 name: prometheus
-version: 66.3.1
-appVersion: 66.3.1
+version: 75.11.0
+appVersion: 75.11.0
 description: prometheus monitoring
 dependencies:
   #https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
   - name: kube-prometheus-stack
-    version: "66.3.1"
+    version: "75.11.0"
     repository: "https://prometheus-community.github.io/helm-charts/"
