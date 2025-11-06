@@ -1,0 +1,20 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: registry-crazyzone-cred
+  namespace: registry
+spec:
+  encryptedData:
+    .dockerconfigjson: AgBmbP6lDjXiu+Dekpqf1yU6hNAOyninsNbmVOVFc/V65tCztQEvbT2IBOw913/9ef9Yg9xSAjtnCchZ+Vi7moXSMsmCYmYutguQpQWtAnkQ8LRwwbxR2Jsj3ezbQwKdssYFPGWboqKv2WJ8mDNooRn7oW9V4BP1+HZgO7HfA+HKu904FfB4MT1MegGuHMk8G8FHpDxzlAKKc/CBYVeWWnd1iXr4vFwllIksTCpKemOrPM+5M/a4FRHfs7SrNGUY29SQ56WSu/niFc3q7TOo0wbYAzZ70ehZ3b/LOEZw8TOFEP/dZ5ghPbj9sd9sd4h68S8s39AwKY8LrnLWXQpwHFM9JREgjebe8uk7G2TewxmNeqZ1BdyPuQ0i0NZPUZfJgpB/zRO/YIECJhokc3gJdkMCtaekLJiNONCqco/iIivq3DNPIV1GlytEYfbib81Vb5MZbU9J9eSfkiTAeYqX+ZL60KPwnu0NxzqbiFJCJtQoj4MPVP8JCrAdd8zpNvjhOc3pCgGkJeFgMH0M5fuy4LEAm9H0965KcqaK6IctiekzbtQhQJmGnSINi4L5lva2aUFQvzEbMHeuZd+lkAfykB9hyKVxGB1LiAGWVyHT9JIwABsZ+BVOEzxpr/vXLsAzO0NIdICqgCfo1LEVxjwAtl2T1viPRr9S/0rpPTVtF51MFkSlxWqyfZ26MrL76F2kfyDBnRTOG1RTLT0XmKlSOoAOeHOVjqcF5SfmJjyo4MMOedCDXd9xIR9QWqPCVeVnumqeOOigS1SvdLa3VH2j+dFXQJwrj6WQvgi1KlXdNY7OqG8QV/MOd4n5BXvAE/hNKsc37cuU1NVIr8IxW3SwZ5+oWBa53UELeL1XUrnT5GhEpOVvTRN8LEs=
+  template:
+    metadata:
+      annotations:
+        reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+        reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: default,home,jenkins,monitoring,operations,power
+        reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+        reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: default,home,jenkins,monitoring,operations,power
+      creationTimestamp: null
+      name: registry-crazyzone-cred
+      namespace: registry
+    type: kubernetes.io/dockerconfigjson
