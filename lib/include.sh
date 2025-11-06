@@ -12,14 +12,14 @@ function configure {
 
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/host.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
+    argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/torrent.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/jenkins/jenkins.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus-json-exporter.yaml"
     #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus-snmp-exporter.yaml"
-    argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/monitoring/prometheus.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/operations/gitea.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/kickstart.yaml"
