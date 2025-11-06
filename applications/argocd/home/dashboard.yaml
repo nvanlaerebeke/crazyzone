@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'dashboard'
 spec:
-  project: 'home'
+  project: 'default'
   destination:
     name: ''
     namespace: 'home'

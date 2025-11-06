@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: certificates
 spec:
-  project: 'cert-manager'
+  project: 'default'
   destination:
     name: ''
     namespace: 'cert-manager'

@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'unifi'
 spec:
-  project: 'operations'
+  project: 'default'
   destination:
     name: ''
     namespace: 'unifi'

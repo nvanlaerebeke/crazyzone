@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: power-reader
 spec:
-  project: 'home-automation'
+  project: 'default'
   destination:
     name: ''
     namespace: 'power'

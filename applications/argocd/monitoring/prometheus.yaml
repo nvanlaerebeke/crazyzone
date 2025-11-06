@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: prometheus
 spec:
-  project: 'monitoring'
+  project: 'default'
   destination:
     name: ''
     namespace: 'monitoring'

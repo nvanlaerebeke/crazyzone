@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'minio'
 spec:
-  project: 'minio'
+  project: 'default'
   destination:
     name: ''
     namespace: 'minio'

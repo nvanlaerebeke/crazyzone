@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: kickstart
 spec:
-  project: 'operations'
+  project: 'default'
   destination:
     name: ''
     namespace: 'operations'

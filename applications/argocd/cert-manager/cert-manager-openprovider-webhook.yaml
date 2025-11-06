@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: 'cert-manager-openprovider-webhook'
 spec:
-  project: 'cert-manager'
+  project: 'default'
   destination:
     name: ''
     namespace: 'cert-manager'
