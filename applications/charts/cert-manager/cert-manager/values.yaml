@@ -1,4 +1,6 @@
 cert-manager:
+  crds:
+    enabled: true
   featureGates: "AdditionalCertificateOutputFormats=true"
   webhook:
     extraArgs:
