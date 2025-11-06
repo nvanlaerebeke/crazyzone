@@ -20,8 +20,8 @@ kube-prometheus-stack:
         - alert.crazyzone.be
       path: /        
   grafana:
-    admin:
-      existingSecret: prometheus-grafana
+    #admin:
+    #  existingSecret: prometheus-grafana
     plugins: 
       - digrich-bubblechart-panel
       - grafana-clock-panel
