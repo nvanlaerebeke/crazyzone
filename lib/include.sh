@@ -7,7 +7,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager.yaml"
-    argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/certificates.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
@@ -27,7 +27,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/operations/pxe.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/wekan.yaml"
     #
-    #argocd_install_application "$ROOT/applications/argocd/power/home.yaml"
+    argocd_install_application "$ROOT/applications/argocd/power/home.yaml"
     #argocd_install_application "$ROOT/applications/argocd/power/power-reader.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/registry/harbor.yaml"
