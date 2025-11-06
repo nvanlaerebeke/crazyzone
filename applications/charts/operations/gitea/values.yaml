@@ -7,7 +7,7 @@ gitea:
           - path: /
             pathType: Prefix
     tls:
-      - secretName: chart-example-tls
+      - secretName: crazyzone-be-tls
         hosts:
           - git.crazyzone.be
   service:            
