@@ -4,10 +4,9 @@ argo-cd:
   global:
     domain: argocd.crazyzone.be
   server:
+    extraArgs:
+      - --insecure 
     certificate:
-      enabled: true
-      secretName: crazyzone-be-tls    
-    certificateSecret:
       enabled: false
     ingress:
       enabled: true
@@ -18,10 +17,6 @@ argo-cd:
       annotations:
         traefik.ingress.kubernetes.io/router.tls: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
-      extraTls:
-        - hosts:
-          - argocd.crazyzone.be
-          secretName: crazyzone-be-tls
     config:
       repositories: |
         - type: helm
