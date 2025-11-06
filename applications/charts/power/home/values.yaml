@@ -1,7 +1,7 @@
 home:
   global:
     imagePullPolicy: Always
-    existingRegistrySecret: registry-crazyzone-cred-plugwise
+    existingRegistrySecret: registry-crazyzone-cred
   plugwise:
     enabled: true
     device:
@@ -11,17 +11,12 @@ home:
     labels:
       trigger: "3"
     hosts: 
-    - host: plugwise.crazyzone.be
-      paths:
-      - path: /
-        pathType: Prefix
     - host: home.crazyzone.be
       paths:
       - path: /
         pathType: Prefix        
     tls:
     - hosts:
-      - plugwise.crazyzone.be
       - home.crazyzone.be
       secretName: secret-tls
   mqtt:
