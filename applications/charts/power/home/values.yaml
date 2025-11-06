@@ -18,7 +18,7 @@ home:
     tls:
     - hosts:
       - home.crazyzone.be
-      secretName: secret-tls
+      secretName: crazyzone-be-tls
   mqtt:
     persistence:
       enabled: true
