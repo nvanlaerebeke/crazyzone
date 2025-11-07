@@ -1,4 +1,8 @@
 crazy-store:
+  global:
+    init:
+      tag: 0.0.4
+
   ingress:
     secretName: crazy-store-tls
   persistence:
