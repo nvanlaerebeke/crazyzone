@@ -12,7 +12,7 @@ spec:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/store"
+    path: "/volume1/docker-storage/store/android"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

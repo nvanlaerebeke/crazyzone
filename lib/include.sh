@@ -10,6 +10,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/certificates.yaml"
 
+    argocd_install_application "$ROOT/applications/argocd/home/crazy-store.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/host.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
