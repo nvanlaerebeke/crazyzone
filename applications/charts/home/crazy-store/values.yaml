@@ -1,0 +1,3 @@
+crazy-store:
+  ingress:
+    secretName: crazy-store-tls

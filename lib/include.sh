@@ -12,7 +12,7 @@ function configure {
 
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/host.yaml"
-    argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/torrent.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/jenkins/jenkins.yaml"
