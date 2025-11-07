@@ -1,9 +1,9 @@
 apiVersion: v1
 name: crazy-store
-version: 0.0.3
-appVersion: 0.0.3
+version: 0.0.4
+appVersion: 0.0.4
 description: Crazy's Android Store
 dependencies:
   - name: crazy-store
-    version: "0.0.3"
+    version: "0.0.4"
     repository: "oci://harbor.crazyzone.be/crazyzone-helm"
