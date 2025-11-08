@@ -32,6 +32,7 @@ qbittorrent:
       enabled: true
       container:
         env:
+          FIREWALL: "on"
           #FIREWALL:
           #  secretKeyRef:
           #    name: qtorrent-secret
