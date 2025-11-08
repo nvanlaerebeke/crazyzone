@@ -34,16 +34,6 @@ qbittorrent:
         env:
           FIREWALL: "on"
           FIREWALL_OUTBOUND_SUBNETS: "192.168.5.0/24,10.0.0.0/8"
-          #FIREWALL:
-          #  secretKeyRef:
-          #    name: qtorrent-secret
-          #    key: FIREWALL
-          #    expandObjectName: false
-          #FIREWALL_OUTBOUND_SUBNETS:
-          #  secretKeyRef:
-          #    name: qtorrent-secret
-          #    key: FIREWALL_OUTBOUND_SUBNETS
-          #    expandObjectName: false
           VPN_SERVICE_PROVIDER:
             secretKeyRef: { name: qtorrent-secret, key: VPN_SERVICE_PROVIDER, expandObjectName: false }
           VPN_TYPE:
