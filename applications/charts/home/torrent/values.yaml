@@ -29,10 +29,14 @@ qbittorrent:
       mountPath: "/downloads"
   addons:
     gluetun:
-      enabled: true
+      enabled: false
       container:
         env:
-          FIREWALL: "on"
+          FIREWALL:
+            secretKeyRef:
+              name: qtorrent-secret
+              key: FIREWALL
+              expandObjectName: false
           FIREWALL_OUTBOUND_SUBNETS:
             secretKeyRef:
               name: qtorrent-secret
