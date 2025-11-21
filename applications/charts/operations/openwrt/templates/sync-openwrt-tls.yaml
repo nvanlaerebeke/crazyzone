@@ -37,10 +37,10 @@ spec:
                   apk add --no-cache openssh-client
 
                   # Copy cert and key to firewall
-                  scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
+                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
                     /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.crt"
 
-                  scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
+                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
                     /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.key"
 
                   # Trigger sync script on firewall (or forced command via authorized_keys)
