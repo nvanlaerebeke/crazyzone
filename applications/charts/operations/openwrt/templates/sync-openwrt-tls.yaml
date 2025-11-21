@@ -27,7 +27,8 @@ spec:
                 - -c
                 - |
                   set -e
-
+                  sleep 3600
+                  
                   if [ -z "$FIREWALL_HOST" ] || [ "$FIREWALL_HOST" = "REPLACE_WITH_FIREWALL_HOST" ]; then
                     echo "FIREWALL_HOST not configured" >&2
                     exit 1
