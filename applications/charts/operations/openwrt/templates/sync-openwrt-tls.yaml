@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: sync-openwrt-tls
-              image: kroniak/ssh-client:latest
+              image: alpine:latest
               imagePullPolicy: IfNotPresent
               env:
                 - name: FIREWALL_HOST
@@ -32,6 +32,9 @@ spec:
                     echo "FIREWALL_HOST not configured" >&2
                     exit 1
                   fi
+
+                  # Ensure ssh and scp is available
+                  apk add --no-cache openssh-client
 
                   # Copy cert and key to firewall
                   scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
