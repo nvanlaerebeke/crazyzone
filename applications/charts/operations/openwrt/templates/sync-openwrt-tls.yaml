@@ -53,10 +53,10 @@ spec:
                   readOnly: true
           volumes:
             - name: tls
-              defaultMode: 0400
               secret:
                 secretName: crazyzone-be-tls
+                defaultMode: 0400
             - name: ssh-key
-              defaultMode: 0400
               secret:
+                defaultMode: 0400
                 secretName: gateway-crazyzone-be-ssh
