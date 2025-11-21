@@ -1,0 +1,63 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sync-openwrt-tls
+  namespace: operations
+spec:
+  schedule: "0 3 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-openwrt-tls
+              image: kroniak/ssh-client:latest
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: FIREWALL_HOST
+                  value: "gw.crazyzone.be"
+                - name: FIREWALL_USER
+                  value: "root"
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  set -e
+
+                  if [ -z "$FIREWALL_HOST" ] || [ "$FIREWALL_HOST" = "REPLACE_WITH_FIREWALL_HOST" ]; then
+                    echo "FIREWALL_HOST not configured" >&2
+                    exit 1
+                  fi
+
+                  # Ensure SSH key has correct permissions
+                  chmod 600 /ssh/id_ed25519
+
+                  # Copy cert and key to firewall
+                  scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
+                    /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.crt"
+
+                  scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
+                    /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.key"
+
+                  # Trigger sync script on firewall (or forced command via authorized_keys)
+                  ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
+                    "${FIREWALL_USER}@${FIREWALL_HOST}" '/usr/local/bin/sync-cert.sh'
+              volumeMounts:
+                - name: tls
+                  mountPath: /certs
+                  readOnly: true
+                - name: ssh-key
+                  mountPath: /ssh/id_ed25519
+                  subPath: gateway-crazyzone-be-ssh
+                  readOnly: true
+          volumes:
+            - name: tls
+              secret:
+                secretName: crazyzone-be-tls
+            - name: ssh-key
+              secret:
+                secretName: gateway-crazyzone-be-ssh
