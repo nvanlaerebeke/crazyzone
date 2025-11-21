@@ -25,15 +25,15 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/operations/gitea.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/kickstart.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/netbox.yaml"
+    argocd_install_application "$ROOT/applications/argocd/operations/openwrt.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/pxe.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/wekan.yaml"
-    #
+    
     #argocd_install_application "$ROOT/applications/argocd/power/home.yaml"
     #argocd_install_application "$ROOT/applications/argocd/power/power-reader.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/registry/harbor.yaml"
-
-    argocd_install_application "$ROOT/applications/argocd/dev/installers.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/dev/installers.yaml"
 
     #argocd_install_dir "$ROOT/applications/argocd/backend-services/"
     #argocd_install_dir "$ROOT/applications/argocd/cert-manager/"

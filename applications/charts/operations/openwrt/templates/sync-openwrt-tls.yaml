@@ -33,9 +33,6 @@ spec:
                     exit 1
                   fi
 
-                  # Ensure SSH key has correct permissions
-                  chmod 600 /ssh/id_ed25519
-
                   # Copy cert and key to firewall
                   scp -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
                     /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.crt"
@@ -54,6 +51,7 @@ spec:
                   mountPath: /ssh/id_ed25519
                   subPath: gateway-crazyzone-be-ssh
                   readOnly: true
+                  defaultMode: 0600
           volumes:
             - name: tls
               secret:
