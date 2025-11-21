@@ -55,8 +55,8 @@ spec:
             - name: tls
               secret:
                 secretName: crazyzone-be-tls
-                defaultMode: 0400
+                defaultMode: 256
             - name: ssh-key
               secret:
-                defaultMode: 0400
+                defaultMode: 256
                 secretName: gateway-crazyzone-be-ssh
