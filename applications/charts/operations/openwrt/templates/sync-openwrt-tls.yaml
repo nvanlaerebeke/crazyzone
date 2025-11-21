@@ -49,7 +49,7 @@ spec:
                   readOnly: true
                 - name: ssh-key
                   mountPath: /ssh/id_ed25519
-                  subPath: gateway-crazyzone-be-ssh
+                  subPath: gateway-crazyzone-be-key
                   readOnly: true
           volumes:
             - name: tls
