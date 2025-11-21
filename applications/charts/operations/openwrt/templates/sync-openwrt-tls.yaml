@@ -36,16 +36,13 @@ spec:
                   # Ensure ssh and scp is available
                   apk add --no-cache openssh-client
 
-                  # Copy cert and key to firewall
-                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
-                    /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.crt"
+                  # Copy cert and key directly into /etc on the firewall
+                  # -O = legacy SCP protocol (works with Dropbear, avoids SFTP)
+                  scp -O -i /tmp/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
+                  scp -O -i /tmp/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
 
-                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
-                    /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/fw.key"
-
-                  # Trigger sync script on firewall (or forced command via authorized_keys)
-                  ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no \
-                    "${FIREWALL_USER}@${FIREWALL_HOST}" '/usr/local/bin/sync-cert.sh'
+                  # Fix permissions and reload uhttpd
+                  ssh -i /tmp/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
               volumeMounts:
                 - name: tls
                   mountPath: /certs
