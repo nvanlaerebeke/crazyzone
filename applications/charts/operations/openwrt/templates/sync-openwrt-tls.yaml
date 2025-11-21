@@ -27,8 +27,7 @@ spec:
                 - -c
                 - |
                   set -e
-                  sleep 3600
-                  
+
                   if [ -z "$FIREWALL_HOST" ] || [ "$FIREWALL_HOST" = "REPLACE_WITH_FIREWALL_HOST" ]; then
                     echo "FIREWALL_HOST not configured" >&2
                     exit 1
@@ -39,11 +38,11 @@ spec:
 
                   # Copy cert and key directly into /etc on the firewall
                   # -O = legacy SCP protocol (works with Dropbear, avoids SFTP)
-                  scp -O -i /tmp/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
-                  scp -O -i /tmp/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
+                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
+                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
 
                   # Fix permissions and reload uhttpd
-                  ssh -i /tmp/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
+                  ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
               volumeMounts:
                 - name: tls
                   mountPath: /certs
