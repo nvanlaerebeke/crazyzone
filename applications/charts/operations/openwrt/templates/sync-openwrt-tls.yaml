@@ -47,6 +47,7 @@ spec:
                 - name: tls
                   mountPath: /certs
                   readOnly: true
+                  defaultMode: 0600
                 - name: ssh-key
                   mountPath: /ssh/id_ed25519
                   subPath: gateway-crazyzone-be-ssh
