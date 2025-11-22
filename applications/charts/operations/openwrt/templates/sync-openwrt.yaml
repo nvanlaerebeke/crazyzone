@@ -36,7 +36,7 @@ spec:
 
                   # Now run the package update script (from ConfigMap)
                   sh /openwrt-actions/package_update
-            volumeMounts:
+              volumeMounts:
                 - name: tls
                   mountPath: /certs
                   readOnly: true
