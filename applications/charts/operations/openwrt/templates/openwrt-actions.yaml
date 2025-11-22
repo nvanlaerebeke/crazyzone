@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openwrt-actions
+  namespace: operations
+data:
+  cert_update: |-
+    if [ -z "$FIREWALL_HOST" ] || [ "$FIREWALL_HOST" = "REPLACE_WITH_FIREWALL_HOST" ]; then
+      echo "FIREWALL_HOST not configured" >&2
+      exit 1
+    fi
+
+    # Copy cert and key directly into /etc on the firewall
+    # -O = legacy SCP protocol (works with Dropbear, avoids SFTP)
+    scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
+    scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
+
+    # Fix permissions and reload uhttpd
+    ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
+  
+  package_update: |
+    # Copy package list and restore script to the firewall
+    scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /openwrt-actions/installed_packages.txt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/config/installed_packages.txt"
+    scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /openwrt-actions/restore-packages.sh "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/restore-packages.sh"
+
+    # Run restore script on the firewall
+    ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 700 /tmp/restore-packages.sh && /tmp/restore-packages.sh'
+
+  installed_packages.txt: |-
+    # One package name per line.
+    # Replace this example list with the actual output of:
+    #   opkg list-installed | awk '{print $1}'
+    #
+    # Core services you likely care about:
+    openvpn-openssl
+    luci-app-openvpn
+    luci-app-sqm
+    luci-app-statistics
+    luci-app-nlbwmon
+    luci-app-attendedsysupgrade
+    luci-ssl
+    # Debug / tools (optional):
+    htop
+    tcpdump
+
+  restore-packages.sh: |-
+    #!/bin/sh
+    #
+    # Upgrade all OpenWrt packages listed in /etc/config/installed_packages.txt
+    # Intended to be copied to the router and run via SSH from your k8s CronJob.
+    #
+    set -e
+
+    PKG_LIST_FILE="/etc/config/installed_packages.txt"
+
+    if [ ! -f "$PKG_LIST_FILE" ]; then
+        echo "Package list $PKG_LIST_FILE not found; aborting." >&2
+        exit 1
+    fi
+
+    # Build package list, ignore comments/blank lines
+    PKGS="$(grep -vE '^\s*#' "$PKG_LIST_FILE" | tr '\n' ' ' | sed 's/  */ /g' | sed 's/^ //; s/ $//')"
+
+    if [ -z "$PKGS" ]; then
+        echo "No packages listed in ${PKG_LIST_FILE}; nothing to upgrade."
+        exit 0
+    fi
+
+    echo "Updating package index..."
+    opkg update
+
+    echo "Upgrading packages from ${PKG_LIST_FILE}: $PKGS"
+    # opkg install with an updated index will install/upgrade these packages to the latest
+    # available versions in the repo (this is what LuCI uses under the hood).
+    opkg install $PKGS
+
+    echo "Package upgrade completed."
+

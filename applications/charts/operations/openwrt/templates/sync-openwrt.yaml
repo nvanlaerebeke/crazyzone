@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: sync-openwrt-tls
+  name: sync-openwrt
   namespace: operations
 spec:
   schedule: "0 3 * * *"
@@ -14,7 +14,7 @@ spec:
         spec:
           restartPolicy: OnFailure
           containers:
-            - name: sync-openwrt-tls
+            - name: sync-openwrt
               image: alpine:latest
               imagePullPolicy: IfNotPresent
               env:
@@ -28,28 +28,24 @@ spec:
                 - |
                   set -e
 
-                  if [ -z "$FIREWALL_HOST" ] || [ "$FIREWALL_HOST" = "REPLACE_WITH_FIREWALL_HOST" ]; then
-                    echo "FIREWALL_HOST not configured" >&2
-                    exit 1
-                  fi
-
-                  # Ensure ssh and scp is available
+                  # Make sure SSH client + scp are available
                   apk add --no-cache openssh-client
 
-                  # Copy cert and key directly into /etc on the firewall
-                  # -O = legacy SCP protocol (works with Dropbear, avoids SFTP)
-                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
-                  scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
+                  # Run the cert update script (from ConfigMap)
+                  sh /openwrt-actions/cert_update
 
-                  # Fix permissions and reload uhttpd
-                  ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
-              volumeMounts:
+                  # Now run the package update script (from ConfigMap)
+                  sh /openwrt-actions/package_update
+            volumeMounts:
                 - name: tls
                   mountPath: /certs
                   readOnly: true
                 - name: ssh-key
                   mountPath: /ssh/id_ed25519
                   subPath: gateway-crazyzone-be-key
+                  readOnly: true
+                - name: openwrt-actions
+                  mountPath: /openwrt-actions
                   readOnly: true
           volumes:
             - name: tls
@@ -58,5 +54,8 @@ spec:
                 defaultMode: 256
             - name: ssh-key
               secret:
-                defaultMode: 256
                 secretName: gateway-crazyzone-be-ssh
+                defaultMode: 256
+            - name: openwrt-actions
+              configMap:
+                name: openwrt-actions
