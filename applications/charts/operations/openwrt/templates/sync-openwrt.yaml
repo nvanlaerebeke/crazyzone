@@ -36,6 +36,8 @@ spec:
 
                   # Now run the package update script (from ConfigMap)
                   sh /openwrt-actions/package_update
+
+                  echo "OpenWrt sync completed successfully."
               volumeMounts:
                 - name: tls
                   mountPath: /certs

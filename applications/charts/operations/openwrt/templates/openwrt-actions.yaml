@@ -12,20 +12,24 @@ data:
 
     # Copy cert and key directly into /etc on the firewall
     # -O = legacy SCP protocol (works with Dropbear, avoids SFTP)
+    echo "Uploading new TLS certificate and key to ${FIREWALL_HOST}..."
     scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.crt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.crt"
     scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /certs/tls.key "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/uhttpd.key"
 
     # Fix permissions and reload uhttpd
+    echo "Reloading uhttpd on ${FIREWALL_HOST}..."
     ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 600 /etc/uhttpd.crt /etc/uhttpd.key && /etc/init.d/uhttpd reload'
   
+    echo "Certificate update completed."
   package_update: |
     # Copy package list and restore script to the firewall
+    echo "Uploading package list and restore script to ${FIREWALL_HOST}..."
     scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /openwrt-actions/installed_packages.txt "${FIREWALL_USER}@${FIREWALL_HOST}:/etc/config/installed_packages.txt"
     scp -O -i /ssh/id_ed25519 -o StrictHostKeyChecking=no /openwrt-actions/restore-packages.sh "${FIREWALL_USER}@${FIREWALL_HOST}:/tmp/restore-packages.sh"
 
     # Run restore script on the firewall
+    echo "Running package restore script on ${FIREWALL_HOST}..."
     ssh -i /ssh/id_ed25519 -o StrictHostKeyChecking=no "${FIREWALL_USER}@${FIREWALL_HOST}" 'chmod 700 /tmp/restore-packages.sh && /tmp/restore-packages.sh'
-
   installed_packages.txt: |-
     # One package name per line.
     # Replace this example list with the actual output of:
