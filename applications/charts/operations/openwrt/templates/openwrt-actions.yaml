@@ -43,6 +43,7 @@ data:
     luci-app-nlbwmon
     luci-app-attendedsysupgrade
     luci-ssl
+    luci-mod-dashboard
     # Debug / tools (optional):
     htop
     tcpdump
