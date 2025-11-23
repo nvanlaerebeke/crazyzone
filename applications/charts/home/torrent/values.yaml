@@ -45,9 +45,9 @@ qbittorrent:
           #SERVER_REGIONS: "Belgium"
           #SERVER_REGIONS: "Netherlands"
           #SERVER_REGIONS: "DE Frankfurt"
-          #SERVER_REGIONS: "DE Berlin"
+          SERVER_REGIONS: "DE Berlin"
           #SERVER_REGIONS: "DK Copenhagen"
-          SERVER_REGIONS: "UK Southampton"
+          #SERVER_REGIONS: "UK Southampton"
           VPN_PORT_FORWARDING:
             secretKeyRef: { name: qtorrent-secret, key: VPN_PORT_FORWARDING, expandObjectName: false }
           UPDATER_PERIOD:
