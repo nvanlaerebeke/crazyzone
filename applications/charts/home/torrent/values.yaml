@@ -29,7 +29,7 @@ qbittorrent:
       mountPath: "/downloads"
   addons:
     gluetun:
-      enabled: false
+      enabled: true
       container:
         env:
           FIREWALL: "on"
