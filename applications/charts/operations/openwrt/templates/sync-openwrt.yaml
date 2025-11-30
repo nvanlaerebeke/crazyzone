@@ -27,7 +27,7 @@ spec:
                 - -c
                 - |
                   set -e
-
+                  sleep 3600
                   # Make sure SSH client + scp are available
                   apk add --no-cache openssh-client
 
