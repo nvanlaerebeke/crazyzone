@@ -1,4 +1,7 @@
 immich:
+  global:
+    security:
+      allowInsecureImages: true
   image:
     tag: v2.1.0
   immich:
