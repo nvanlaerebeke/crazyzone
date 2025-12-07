@@ -20,3 +20,5 @@ postgresql:
       existingClaim: db-storage-claim
   volumePermissions:
     enabled: true
+    image:
+      repository: bitnamilegacy/os-shell
