@@ -4,7 +4,7 @@ function configure {
 
     #argocd_install_application "$ROOT/applications/argocd/backend-services/minio.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
+    argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
@@ -25,7 +25,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/operations/gitea.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/kickstart.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/netbox.yaml"
-    argocd_install_application "$ROOT/applications/argocd/operations/openwrt.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/operations/openwrt.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/pxe.yaml"
     #argocd_install_application "$ROOT/applications/argocd/operations/wekan.yaml"
     

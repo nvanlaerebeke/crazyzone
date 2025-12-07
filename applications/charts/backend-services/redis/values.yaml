@@ -5,7 +5,7 @@ redis:
     existingSecret: "redis-password"
     existingSecretPasswordKey: "redis-password"
   volumePermissions:
-    enabled: true
+    enabled: false
     image:
       repository: bitnamilegacy/os-shell
   master:

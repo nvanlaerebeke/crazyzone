@@ -19,6 +19,6 @@ postgresql:
       enabled: true
       existingClaim: db-storage-claim
   volumePermissions:
-    enabled: true
+    enabled: false
     image:
       repository: bitnamilegacy/os-shell
