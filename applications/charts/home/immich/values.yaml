@@ -12,8 +12,8 @@ immich:
   useDeprecatedPostgresChart: true
   postgresql:
     enabled: true
-    image:
-      #repository: bitnamilegacy/postgresql
+    #image:
+    #  repository: bitnamilegacy/postgresql
     primary:
       resourcesPreset: large
       persistence:
