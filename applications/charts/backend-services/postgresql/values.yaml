@@ -1,5 +1,7 @@
 postgresql:
   enabled: true
+  image:
+    repository: bitnamilegacy/postgresql
   auth:
     secretKeys:
       adminPasswordKey: "postgres-password"

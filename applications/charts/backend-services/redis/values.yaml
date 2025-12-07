@@ -1,4 +1,6 @@
 redis:
+  image:
+    repository: bitnamilegacy/redis
   auth:
     existingSecret: "redis-password"
     existingSecretPasswordKey: "redis-password"
