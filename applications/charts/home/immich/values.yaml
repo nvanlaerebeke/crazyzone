@@ -9,12 +9,16 @@ immich:
   useDeprecatedPostgresChart: true
   postgresql:
     enabled: true
+    image:
+      repository: bitnamilegacy/postgresql
     primary:
       resourcesPreset: large
       persistence:
         existingClaim: immich-db-claim
   redis:
     enabled: true
+    image:
+      repository: bitnamilegacy/postgresql
     master:
       persistence:
         existingClaim: immich-redis-claim

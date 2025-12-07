@@ -1,9 +1,9 @@
 apiVersion: v1
 name: Immich
-version: 0.10.3
-appVersion: 0.10.3
+version: 0.9.3
+appVersion: 0.9.3
 description: Immich
 dependencies:
   - name: immich
-    version: "0.10.3"
+    version: "0.9.3"
     repository: "https://immich-app.github.io/immich-charts"
