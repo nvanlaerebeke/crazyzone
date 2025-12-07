@@ -21,7 +21,7 @@ immich:
   redis:
     enabled: true
     image:
-      repository: bitnamilegacy/postgresql
+      repository: bitnamilegacy/redis
     master:
       persistence:
         existingClaim: immich-redis-claim
