@@ -47,6 +47,9 @@ data:
     # Debug / tools (optional):
     htop
     tcpdump
+    # SNMP support
+    snmpd
+    snmp-utils
 
   restore-packages.sh: |-
     #!/bin/sh
