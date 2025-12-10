@@ -19,7 +19,7 @@ spec:
               imagePullPolicy: IfNotPresent
               env:
                 - name: FIREWALL_HOST
-                  value: "gw.crazyzone.be"
+                  value: "gateway.crazyzone.be"
                 - name: FIREWALL_USER
                   value: "root"
               command:
