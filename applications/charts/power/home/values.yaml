@@ -41,3 +41,5 @@ home:
         size: 1Gi
         storageClassName: "standard"
         existingVolume: "crazy-home-storage-zigbee2mqtt"
+  spotify:
+    existingSecret: home-secret
