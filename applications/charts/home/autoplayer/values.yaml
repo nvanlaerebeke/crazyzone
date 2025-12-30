@@ -1,0 +1,23 @@
+spotify-client:
+  image:
+    pullPolicy: Always
+  nodeSelector:
+    type: autoplayer
+
+  tolerations:
+    - key: "type"
+      operator: "Equal"
+      value: "autoplayer"
+      effect: "NoSchedule"
+
+  affinity: {}
+  controller:
+    api:
+      existsUrl: "https://home.crazyzone.be/audio/spotify/device/"
+      startUrl: "https://home.crazyzone.be/audio/spotify/device/"
+  secrets:
+    existingSecret: "autoplayer-secret"
+  securityContext:
+    spotifyd:
+      privileged: true
+      allowPrivilegeEscalation: true

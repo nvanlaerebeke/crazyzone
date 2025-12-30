@@ -1,0 +1,9 @@
+apiVersion: v1
+name: autoplayer
+version: 0.0.1
+appVersion: 0.0.1
+description: Spotify Auto Player
+dependencies:
+  - name: spotify-client
+    version: "0.0.1"
+    repository: "oci://harbor.crazyzone.be/crazyzone-helm"
