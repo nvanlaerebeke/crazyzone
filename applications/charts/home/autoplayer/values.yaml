@@ -14,7 +14,7 @@ spotify-client:
   affinity: {}
   spotifyd:
     labels:
-      - trigger: "1"
+      trigger: "1"
   controller:
     api:
       existsUrl: "https://home.crazyzone.be/audio/spotify/device/"
