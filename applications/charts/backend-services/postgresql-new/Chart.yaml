@@ -1,0 +1,9 @@
+apiVersion: v1
+name: PostgreSQL-2
+version: 0.26.1
+appVersion: 0.26.1
+description: PostgreSQL
+dependencies:
+  - name: cloudnative-pg
+    version: "0.26.1"
+    repository: "https://cloudnative-pg.github.io/charts"

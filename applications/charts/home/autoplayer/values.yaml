@@ -1,6 +1,7 @@
 spotify-client:
   image:
     pullPolicy: Always
+    imagePullSecrets: "registry-crazyzone-cred"
   nodeSelector:
     type: autoplayer
 
@@ -11,6 +12,9 @@ spotify-client:
       effect: "NoSchedule"
 
   affinity: {}
+  spotifyd:
+    labels:
+      - trigger: "1"
   controller:
     api:
       existsUrl: "https://home.crazyzone.be/audio/spotify/device/"
