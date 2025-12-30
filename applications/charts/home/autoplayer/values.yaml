@@ -1,7 +1,7 @@
 spotify-client:
   image:
     pullPolicy: Always
-    imagePullSecrets: "registry-crazyzone-cred"
+    imagePullSecret: "registry-crazyzone-cred"
   nodeSelector:
     type: autoplayer
 
