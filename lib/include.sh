@@ -4,13 +4,14 @@ function configure {
 
     #argocd_install_application "$ROOT/applications/argocd/backend-services/minio.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql-new.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/certificates.yaml"
 
-    argocd_install_application "$ROOT/applications/argocd/home/autoplayer.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/home/autoplayer.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/crazy-store.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/host.yaml"

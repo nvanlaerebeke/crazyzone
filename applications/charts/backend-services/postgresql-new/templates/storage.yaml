@@ -1,0 +1,19 @@
+# pv-postgresql2.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgresql-pv
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/backend-services/postgresql2"
+  claimRef:
+    namespace: services
+    name: postgresql-1

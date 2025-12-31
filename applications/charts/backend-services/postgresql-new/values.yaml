@@ -1,24 +1,30 @@
-postgresql:
-  enabled: true
-  image:
-    repository: bitnamilegacy/postgresql
-  auth:
-    secretKeys:
-      adminPasswordKey: "postgres-password"
-  global:
-    postgresql:
-      auth:
-        existingSecret: "postgresql-password"
-  primary:
-    resourcesPreset: large
-    service:
-      type: NodePort
-      nodePorts:
-        postgresql: 30000
-    persistence:
-      enabled: true
-      existingClaim: db-storage-claim
-  volumePermissions:
-    enabled: false
-    image:
-      repository: bitnamilegacy/os-shell
+cloudnative-pg:
+  fullnameOverride: postgresql
+  type: postgresql
+  version:
+    postgresql: "17"
+
+  cluster:
+    instances: 1
+    enableSuperuserAccess: true
+    superuserSecret: postgresql-user
+
+    storage:
+      size: 50Gi
+      storageClass: standard
+
+    # Expose the RW service as NodePort 30000
+    # (CNPG service management uses selectorType: rw|r|ro) :contentReference[oaicite:4]{index=4}
+    services:
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: postgresql-rw-nodeport
+            spec:
+              type: NodePort
+              ports:
+                - name: postgresql
+                  port: 5432
+                  targetPort: 5432
+                  nodePort: 30000
