@@ -14,7 +14,8 @@ spotify-client:
   affinity: {}
   spotifyd:
     labels:
-      trigger: "2"
+      trigger: "3"
+  #Not yet supported, does nothing atm
   cache:
     existingClaim: "autoplayer-spotifyd-claim"
   controller:
