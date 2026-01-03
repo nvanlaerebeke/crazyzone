@@ -12,3 +12,18 @@ cluster:
     storage:
       size: 50Gi
       storageClass: standard
+    managed:
+      services:
+        additional:
+          - selectorType: rw
+            serviceTemplate:
+              metadata:
+                # Must be a unique name; don't use the reserved <cluster>-rw / -ro / -r names :contentReference[oaicite:1]{index=1}
+                name: postgresql-new-cluster-nodeport
+              spec:
+                type: NodePort
+                ports:
+                  - name: postgresql
+                    port: 5432
+                    targetPort: 5432
+                    nodePort: 30002
