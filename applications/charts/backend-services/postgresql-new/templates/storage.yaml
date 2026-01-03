@@ -16,4 +16,4 @@ spec:
     path: "/volume1/docker-storage/backend-services/postgresql2"
   claimRef:
     namespace: default
-    name: postgresql-1
+    name: postgresql-new-cluster-1
