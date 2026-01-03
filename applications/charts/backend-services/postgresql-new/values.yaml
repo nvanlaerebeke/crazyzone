@@ -8,7 +8,7 @@ cluster:
     instances: 1
     enableSuperuserAccess: true
     superuserSecret: postgresql-user
-
+    externalClusters: []
     storage:
       size: 50Gi
       storageClass: standard
