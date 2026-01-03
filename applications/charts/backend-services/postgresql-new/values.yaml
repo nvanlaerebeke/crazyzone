@@ -12,18 +12,19 @@ cluster:
     storage:
       size: 50Gi
       storageClass: standard
-    managed:
-      services:
-        additional:
-          - selectorType: rw
-            serviceTemplate:
-              metadata:
-                # Must be a unique name; don't use the reserved <cluster>-rw / -ro / -r names :contentReference[oaicite:1]{index=1}
-                name: postgresql-new-cluster-nodeport
-              spec:
-                type: NodePort
-                ports:
-                  - name: postgresql
-                    port: 5432
-                    targetPort: 5432
-                    nodePort: 30002
+    services:
+      additional:
+        - selectorType: rw
+          # Important for NodePort: nodePort is effectively create-time.
+          # If the service already existed once, patch won't change it -> use replace.
+          updateStrategy: replace
+          serviceTemplate:
+            metadata:
+              name: postgresql-new-rw-nodeport
+            spec:
+              type: NodePort
+              ports:
+                - name: postgres
+                  port: 5432
+                  targetPort: 5432
+                  nodePort: 30002
