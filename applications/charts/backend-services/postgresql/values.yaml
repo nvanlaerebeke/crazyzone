@@ -13,9 +13,9 @@ cluster:
     storage:
       size: 50Gi
       storageClass: standard
-    postgresql:
-      parameters:
-        shared_preload_libraries: "vchord.so,vectors.so"
+#    postgresql:
+#      parameters:
+#        shared_preload_libraries: "vchord.so,vectors.so"
     services:
       additional:
         - selectorType: rw
