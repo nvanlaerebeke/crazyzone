@@ -15,8 +15,6 @@ cluster:
     services:
       additional:
         - selectorType: rw
-          # Important for NodePort: nodePort is effectively create-time.
-          # If the service already existed once, patch won't change it -> use replace.
           updateStrategy: replace
           serviceTemplate:
             metadata:
@@ -25,6 +23,7 @@ cluster:
               type: NodePort
               ports:
                 - name: postgres
+                  protocol: TCP
                   port: 5432
                   targetPort: 5432
                   nodePort: 30002
