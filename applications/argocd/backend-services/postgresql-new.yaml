@@ -6,7 +6,7 @@ spec:
   project: 'default'
   destination:
     name: ''
-    namespace: 'services'
+    namespace: 'default'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'applications/charts/backend-services/postgresql-new'
