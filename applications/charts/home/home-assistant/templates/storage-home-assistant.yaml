@@ -1,31 +1,31 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: immich-db
+  name: storage-home-assistant
   labels:
-    app: immich-db
+    app: storage-home-assistant
 spec:
   storageClassName: standard
   capacity:
-    storage: 500Gi
+    storage: 10Gi
   accessModes:
   - ReadWriteOnce
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/immich/db"
+    path: "/volume1/docker-storage/home-assistant"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: immich-db-claim
+  name: storage-home-assistant-claim
 spec:
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
   selector:
     matchLabels:
-      app: immich-db
+      app: storage-home-assistant
   resources:
     requests:
-      storage: 500Gi
+      storage: 10Gi
   volumeMode: Filesystem

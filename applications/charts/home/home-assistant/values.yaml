@@ -1,0 +1,19 @@
+home-assistant:
+  # Required for use auto-discovery feature of Home Assistant
+  hostNetwork: true
+  ingress:
+    enabled: true
+    className: traefik
+    hosts:
+      - host: home-assistant.crazyzone.be
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: crazyzone-be-tls
+        hosts:
+          - home-assistant.crazyzone.be
+  persistence:
+    enabled: true
+    size: 10Gi
+    existingClaim: "storage-home-assistant-claim"
