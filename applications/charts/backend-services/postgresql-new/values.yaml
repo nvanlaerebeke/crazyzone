@@ -7,7 +7,7 @@ cloudnative-pg:
   cluster:
     instances: 1
     enableSuperuserAccess: true
-    superuserSecret: postgresql-user
+    superuserSecret: postgresql-secret
 
     storage:
       size: 50Gi
