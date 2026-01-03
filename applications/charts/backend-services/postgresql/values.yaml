@@ -5,6 +5,7 @@ cluster:
   version:
     postgresql: "17"
   cluster:
+    imageName: crazytje/cnpg-vchord:17
     instances: 1
     enableSuperuserAccess: true
     superuserSecret: postgresql-secret
@@ -12,6 +13,9 @@ cluster:
     storage:
       size: 50Gi
       storageClass: standard
+    postgresql:
+      parameters:
+        shared_preload_libraries: "vchord.so,vectors.so"
     services:
       additional:
         - selectorType: rw
