@@ -4,7 +4,7 @@ template:
 	helm template --debug -f values.yaml postgres .
 
 container:
-	docker build -t crazytje/cnpg-vchord:17 .
+	docker build -t crazytje/cnpg-vchord:17-1 .
 
 push: container
-	docker push crazytje/cnpg-vchord:17
+	docker push crazytje/cnpg-vchord:17-1
