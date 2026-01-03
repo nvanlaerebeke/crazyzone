@@ -31,6 +31,9 @@ home:
       type: LoadBalancer
   zigbee2mqtt:
     zigbee2mqtt:
+      homeassistant:
+        enabled: true
+        discovery_topic: "zigbee2mqtt-discovery"
       serial:
         port: "tcp://zigbee.crazyzone.be:6638"
       frontend:
