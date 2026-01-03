@@ -8,11 +8,11 @@ immich:
     security:
       allowInsecureImages: true
   controllers:
-  main:
-    containers:
-      main:
-        image:
-          tag: v2.4.1
+    main:
+      containers:
+        main:
+          image:
+            tag: v2.4.1
   immich:
     persistence:
       library:
