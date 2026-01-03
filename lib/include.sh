@@ -3,7 +3,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/operations/reflector.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/backend-services/minio.yaml"
-    argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql.yaml"
     argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql-new.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
 
