@@ -16,7 +16,6 @@ cluster:
     postgresql:
       shared_preload_libraries:
         - "vchord.so"
-        - "vectors.so"
     services:
       additional:
         - selectorType: rw
