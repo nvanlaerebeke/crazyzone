@@ -17,3 +17,9 @@ home-assistant:
     enabled: true
     size: 10Gi
     existingClaim: "storage-home-assistant-claim"
+  configuration:
+    enabled: true
+    trusted_proxies:
+      - 10.42.0.0/24 # home.crazyzone.be
+      - 10.42.3.0/24 # power.crazyzone.be
+      - 10.42.7.0/24 # autoplay.crazyzone.be
