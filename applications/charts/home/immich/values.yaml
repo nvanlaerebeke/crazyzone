@@ -10,7 +10,11 @@ immich:
             DB_HOSTNAME: postgresql.services.svc.cluster.local
             DB_USERNAME: immich
             DB_DATABASE_NAME: immich
-            DB_PASSWORD: immich            
+            DB_PASSWORD:
+              valueFrom:
+                secretKeyRef:
+                  name: immich-secrets
+                  key: password            
           image:
             tag: v2.4.1
   immich:
