@@ -18,7 +18,7 @@ cluster:
           updateStrategy: replace
           serviceTemplate:
             metadata:
-              name: postgresql-rw-nodeport
+              name: postgresql
             spec:
               type: NodePort
               ports:
