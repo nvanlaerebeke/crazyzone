@@ -2,8 +2,8 @@ FROM ghcr.io/cloudnative-pg/postgresql:17-system-trixie
 
 USER root
 
-# Immich accepted VectorChord range is currently >=0.3,<0.9, so pin to 1.0.0 by default.
-ARG VCHORD_VERSION=1.0.0
+# Immich accepted VectorChord range is currently >=0.3,<0.6, so pin to 0.5.3 by default.
+ARG VCHORD_VERSION=0.5.3
 # BuildKit sets TARGETARCH automatically (amd64/arm64) when building multi-arch
 ARG TARGETARCH
 

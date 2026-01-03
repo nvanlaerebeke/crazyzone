@@ -2,6 +2,7 @@ cloudnative-pg:
   fullnameOverride: postgresql
 
 cluster:
+  imagePullPolicy: Always
   version:
     postgresql: "17"
   cluster:
