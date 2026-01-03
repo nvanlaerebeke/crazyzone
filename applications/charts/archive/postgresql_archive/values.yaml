@@ -1,0 +1,24 @@
+postgresql:
+  enabled: true
+  image:
+    repository: bitnamilegacy/postgresql
+  auth:
+    secretKeys:
+      adminPasswordKey: "postgres-password"
+  global:
+    postgresql:
+      auth:
+        existingSecret: "postgresql-password"
+  primary:
+    resourcesPreset: large
+    service:
+      type: NodePort
+      nodePorts:
+        postgresql: 30000
+    persistence:
+      enabled: true
+      existingClaim: db-storage-claim
+  volumePermissions:
+    enabled: false
+    image:
+      repository: bitnamilegacy/os-shell

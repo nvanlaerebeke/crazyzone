@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'postgresql-new'
+  name: 'postgresql'
 spec:
   project: 'default'
   destination:
     name: ''
-    namespace: 'default'
+    namespace: 'services'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'applications/charts/backend-services/postgresql-new'
+    path: 'applications/charts/backend-services/postgresql'
     repoURL: '$GIT_URL'
     targetRevision: HEAD
   syncPolicy:

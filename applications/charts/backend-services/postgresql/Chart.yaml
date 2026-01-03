@@ -1,9 +1,15 @@
 apiVersion: v1
-name: PostgreSQL
-version: 16.2.5
-appVersion: 16.2.5
+name: PostgreSQL-2
+version: 0.26.1
+appVersion: 0.26.1
 description: PostgreSQL
 dependencies:
-  - name: postgresql
-    version: "16.2.5"
-    repository: "oci://registry-1.docker.io/bitnamicharts"
+  # CNPG Operator (CRDs + controller)
+  - name: cloudnative-pg
+    version: "0.26.1"
+    repository: "https://cloudnative-pg.github.io/charts"
+
+  # CNPG Cluster (creates a Cluster CR -> actual Postgres pods)
+  - name: cluster
+    version: "0.4.0"
+    repository: "https://cloudnative-pg.github.io/charts"

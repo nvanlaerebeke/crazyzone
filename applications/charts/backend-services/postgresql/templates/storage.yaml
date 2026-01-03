@@ -1,4 +1,4 @@
-# pv-postgresql2.yaml
+# pv-postgresql.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -13,7 +13,7 @@ spec:
   volumeMode: Filesystem
   nfs:
     server: nas.crazyzone.be
-    path: "/volume1/docker-storage/backend-services/postgresql2"
+    path: "/volume1/docker-storage/backend-services/postgresql"
   claimRef:
-    namespace: default
-    name: postgresql-new-cluster-1
+    namespace: services
+    name: postgresql-cluster-1
