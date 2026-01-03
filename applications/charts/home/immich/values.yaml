@@ -3,7 +3,7 @@ immich:
     security:
       allowInsecureImages: true
   image:
-    tag: v2.1.0
+    tag: v2.4.0
   immich:
     persistence:
       library:
