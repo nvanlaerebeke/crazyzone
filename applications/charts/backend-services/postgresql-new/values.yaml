@@ -27,4 +27,4 @@ cloudnative-pg:
                 - name: postgresql
                   port: 5432
                   targetPort: 5432
-                  nodePort: 30000
+                  nodePort: 30002
