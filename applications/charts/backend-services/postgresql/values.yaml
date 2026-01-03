@@ -5,7 +5,7 @@ cluster:
   version:
     postgresql: "17"
   cluster:
-    imageName: crazytje/cnpg-vchord:17
+#    imageName: crazytje/cnpg-vchord:17
     instances: 1
     enableSuperuserAccess: true
     superuserSecret: postgresql-secret
