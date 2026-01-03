@@ -12,32 +12,21 @@ immich:
   immich:
     persistence:
       library:
-        existingClaim: immich-immich-claim
-  
-  useDeprecatedPostgresChart: true
-  postgresql:
+        existingClaim: immich-immich-claim  
+  valkey:
     enabled: true
-    image:
-      registry: ghcr.io
-      repository: immich-app/postgres
-      tag: 14-vectorchord0.3.0-pgvectors0.2.0
-    primary:
-      resourcesPreset: large
-      persistence:
-        existingClaim: immich-db-claim
-  redis:
-    enabled: true
-    image:
-      repository: bitnamilegacy/redis
-    master:
-      persistence:
-        existingClaim: immich-redis-claim
+    persistence:
+      data:
+        enabled: true
+        type: persistentVolumeClaim
+        existingClaim: immich-redis-claim  # re-use your old redis PVC if you want
+
   server:
     ingress:
       main:
         enabled: true
         annotations:
-        # proxy-body-size is set to 0 to remove the body limit on file uploads
+          # proxy-body-size is set to 0 to remove the body limit on file uploads
           traefik.ingress.kubernetes.io/router.middlewares: "home-immich-buffering@kubernetescrd"
         hosts:
           - host: photos.crazyzone.be
