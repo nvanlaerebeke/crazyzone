@@ -1,6 +1,8 @@
 home-assistant:
   # Required for use auto-discovery feature of Home Assistant
   hostNetwork: true
+  controller:
+    type: Deployment
   ingress:
     enabled: true
     className: traefik
