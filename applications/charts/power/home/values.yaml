@@ -46,3 +46,5 @@ home:
         existingVolume: "crazy-home-storage-zigbee2mqtt"
   spotify:
     existingSecret: home-secret
+  power:
+    url: "https://power-reader.crazyzone.be"
