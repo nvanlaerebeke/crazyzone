@@ -16,7 +16,7 @@ immich:
                   name: immich-secrets
                   key: password            
           image:
-            tag: v2.4.1
+            tag: v2.7.5
   immich:
     persistence:
       library:

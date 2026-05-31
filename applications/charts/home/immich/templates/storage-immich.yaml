@@ -7,7 +7,7 @@ metadata:
 spec:
   storageClassName: standard
   capacity:
-    storage: 500Gi
+    storage: 5000Gi
   accessModes:
   - ReadWriteOnce
   nfs:
@@ -27,5 +27,5 @@ spec:
       app: immich-immich
   resources:
     requests:
-      storage: 500Gi
+      storage: 5000Gi
   volumeMode: Filesystem
