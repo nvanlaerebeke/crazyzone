@@ -9,7 +9,7 @@ spec:
       - "--entryPoints.web.transport.respondingTimeouts.readTimeout=0s"
       - "--entryPoints.websecure.transport.respondingTimeouts.readTimeout=0s"
       # optional: also nuke write + idle if you want maximum safety
-       - "--entryPoints.web.transport.respondingTimeouts.writeTimeout=0s"
-       - "--entryPoints.websecure.transport.respondingTimeouts.writeTimeout=0s"
-       - "--entryPoints.web.transport.respondingTimeouts.idleTimeout=0s"
-       - "--entryPoints.websecure.transport.respondingTimeouts.idleTimeout=0s"
+      - "--entryPoints.web.transport.respondingTimeouts.writeTimeout=0s"
+      - "--entryPoints.websecure.transport.respondingTimeouts.writeTimeout=0s"
+      - "--entryPoints.web.transport.respondingTimeouts.idleTimeout=0s"
+      - "--entryPoints.websecure.transport.respondingTimeouts.idleTimeout=0s"

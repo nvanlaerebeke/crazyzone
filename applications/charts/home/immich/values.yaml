@@ -33,9 +33,6 @@ immich:
     ingress:
       main:
         enabled: true
-        annotations:
-          # proxy-body-size is set to 0 to remove the body limit on file uploads
-          traefik.ingress.kubernetes.io/router.middlewares: "home-immich-buffering@kubernetescrd"
         hosts:
           - host: photos.crazyzone.be
             paths:
@@ -44,3 +41,17 @@ immich:
         - secretName: crazyzone-be-tls
           hosts:
           - photos.crazyzone.be
+
+  machine-learning:
+    controllers:
+      main:
+        containers:
+          main:
+            env:
+              MACHINE_LEARNING_REQUEST_THREADS: "6"
+              MACHINE_LEARNING_WORKERS: "2"
+    persistence:
+      cache:
+        enabled: true
+        type: persistentVolumeClaim
+        existingClaim: immich-ml-cache-claim

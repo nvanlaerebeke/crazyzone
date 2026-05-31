@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-ml-cache
+  labels:
+    app: immich-ml-cache
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 100Gi
+  accessModes:
+  - ReadWriteMany
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/immich/ml-cache"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-ml-cache-claim
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  selector:
+    matchLabels:
+      app: immich-ml-cache
+  resources:
+    requests:
+      storage: 100Gi
+  volumeMode: Filesystem
