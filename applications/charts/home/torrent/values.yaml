@@ -48,6 +48,7 @@ qbittorrent:
           #SERVER_REGIONS: "DE Berlin"
           #SERVER_REGIONS: "DK Copenhagen"
           #SERVER_REGIONS: "UK Southampton"
+          OPENVPN_ENDPOINT_PORT: "8080"
           VPN_PORT_FORWARDING:
             secretKeyRef: { name: qtorrent-secret, key: VPN_PORT_FORWARDING, expandObjectName: false }
           UPDATER_PERIOD:
