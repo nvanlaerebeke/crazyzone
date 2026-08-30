@@ -27,6 +27,16 @@ qbittorrent:
       server: "nas.crazyzone.be"
       path: "/volume1/docker-storage/torrent/downloads"
       mountPath: "/downloads"
+    gluetun:
+      enabled: true
+      type: nfs
+      server: 192.168.5.50
+      path: /volume1/docker-storage/torrent/gluetun
+      mountPath: /gluetun
+      targetSelector:
+        main:
+          gluetun:
+            mountPath: /gluetun
   addons:
     gluetun:
       enabled: true
