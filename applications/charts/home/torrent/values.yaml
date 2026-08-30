@@ -55,7 +55,7 @@ qbittorrent:
           #SERVER_REGIONS: "Belgium"
           #SERVER_REGIONS: "Netherlands"
           #SERVER_REGIONS: "DE Frankfurt"
-          #SERVER_REGIONS: "DE Berlin"
+          SERVER_REGIONS: "DE Berlin"
           #SERVER_REGIONS: "DK Copenhagen"
           #SERVER_REGIONS: "UK Southampton"
           OPENVPN_ENDPOINT_PORT: "8080"
