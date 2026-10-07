@@ -91,15 +91,52 @@ docs:
   #    repository: registry.nomadesk.com/nomadesk-public/cluster-docs
   #    tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
   #    pullPolicy: Always
+  proxy:
+    image:
+      repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
+      tag: v9.3.4-hotfix.1
+      pullPolicy: Always
   adminpanel:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
       pullPolicy: Always
+  tests:
+    image:
+      repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
   install:
     job:
       image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
         tag: v9.3.4-hotfix.1
+  upgrade:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  rollback:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  delete:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  clearCache:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  grafanaDashboard:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  wopiKeysGeneration:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
+  wopiKeysDeletion:
+    job:
+      image:
+        repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
   ingress:
     enabled: true
     ingressClassName: traefik
