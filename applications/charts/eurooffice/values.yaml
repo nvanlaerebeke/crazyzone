@@ -155,7 +155,7 @@ docs:
     ssl:
       enabled: true
       secret: crazyzone-be-tls
-    host: "eurooffice.nomadesk.com"
+    host: "eurooffice.crazyzone.be"
   #upgrade:
   #  existingConfigmap:
   #    dsStop: euro-office-pre-upgrade
