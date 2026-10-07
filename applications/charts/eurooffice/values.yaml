@@ -41,8 +41,7 @@ docs:
   #          savetimeoutdelay: 2s
   #          editorDataStorage: editorDataRedis
   images:
-    repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
-    tag: v9.3.4-hotfix.1
+    tag: latest
   #runtimeOverrides:``
   #  configMap: runtime-config-override
   #  filename: runtime.json
@@ -51,7 +50,7 @@ docs:
     replicas: 1
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
-      tag: v9.3.4-hotfix.1
+      tag: latest
       pullPolicy: Always
     extraEnvVars:
       - name: COMPANY_NAME
@@ -87,7 +86,7 @@ docs:
     #    readOnly: true
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
-      tag: v9.3.4-hotfix.1
+      tag: latest
       pullPolicy: Always
     extraEnvVars:
       - name: COMPANY_NAME
@@ -100,7 +99,7 @@ docs:
   proxy:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
-      tag: v9.3.4-hotfix.1
+      tag: latest
       pullPolicy: Always
     extraEnvVars:
       - name: COMPANY_NAME
@@ -109,7 +108,7 @@ docs:
     enabled: true
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
-      tag: v9.3.4-hotfix.1
+      tag: latest
       pullPolicy: Always
     extraEnvVars:
       - name: COMPANY_NAME
