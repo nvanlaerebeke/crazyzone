@@ -106,6 +106,7 @@ docs:
       - name: COMPANY_NAME
         value: euro-office
   adminpanel:
+    enabled: true
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
@@ -113,6 +114,8 @@ docs:
     extraEnvVars:
       - name: COMPANY_NAME
         value: euro-office
+  example:
+    enabled: true
   tests:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
