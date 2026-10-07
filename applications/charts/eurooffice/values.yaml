@@ -53,6 +53,9 @@ docs:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
       pullPolicy: Always
+    extraEnvVars:
+      - name: COMPANY_NAME
+        value: euro-office
     #extraVolumes:
     #  - name: document-formats
     #    configMap:
@@ -86,6 +89,9 @@ docs:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
       pullPolicy: Always
+    extraEnvVars:
+      - name: COMPANY_NAME
+        value: euro-office
   #proxy:
   #  image:
   #    repository: registry.nomadesk.com/nomadesk-public/cluster-docs
@@ -96,11 +102,17 @@ docs:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
       pullPolicy: Always
+    extraEnvVars:
+      - name: COMPANY_NAME
+        value: euro-office
   adminpanel:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: v9.3.4-hotfix.1
       pullPolicy: Always
+    extraEnvVars:
+      - name: COMPANY_NAME
+        value: euro-office
   tests:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-utils
