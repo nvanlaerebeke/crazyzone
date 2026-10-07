@@ -1,4 +1,4 @@
-euro-office:
+docs:
   connections:
     dbHost: "postgresql.services.svc.cluster.local"
     dbUser: eurooffice
