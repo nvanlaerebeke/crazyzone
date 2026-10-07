@@ -6,7 +6,8 @@ kind: PersistentVolume
 metadata:
   name: euro-office-storage-buffer
   annotations:
-    "argocd.argoproj.io/sync-wave": "-1"
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-10"    
   labels:
     app: euro-office-storage-buffer
 spec:
