@@ -4,7 +4,7 @@ euro-office:
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: db.nomadesk.com
+    redisHost: valkey-standalone.services.svc.cluster.local
     redisDBNum: "0"
     redisNoPass: true
     amqpHost: eurooffice-rabbitmq
@@ -40,9 +40,9 @@ euro-office:
   #        server:
   #          savetimeoutdelay: 2s
   #          editorDataStorage: editorDataRedis
-  #images:
-  #  tag: v9.3.2
-  #runtimeOverrides:
+  images:
+    tag: v9.3.4-hotfix.1
+  #runtimeOverrides:``
   #  configMap: runtime-config-override
   #  filename: runtime.json
   #  settings: {}
