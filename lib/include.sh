@@ -5,9 +5,9 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/backend-services/minio.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql-new.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-standalone.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-cluster.yaml"
+    argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
+    argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-standalone.yaml"
+    argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-cluster.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager.yaml"
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager-openprovider-webhook.yaml"
