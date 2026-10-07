@@ -1,0 +1,42 @@
+#
+# Runtime ds=files
+#
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: euro-office-storage-files
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+  labels:
+    app: euro-office-storage-files
+spec:
+  capacity:
+    storage: 50Gi
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/euro-office/files"
+  mountOptions:
+    - noac
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: euro-office-storage-files-claim
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  selector:
+    matchLabels:
+      app: euro-office-storage-files
+  resources:
+    requests:
+      storage: 50Gi

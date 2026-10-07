@@ -1,0 +1,42 @@
+#
+#  Storage for Custom Resources (Fonts, Dictionaries, Plugins)
+#
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: euro-office-storage-custom-resources
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+  labels:
+    app: euro-office-storage-custom-resources
+spec:
+  capacity:
+    storage: 50Gi
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/euro-office/custom-resources"    
+  mountOptions:
+    - noac
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: euro-office-storage-custom-resources-claim
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  selector:
+    matchLabels:
+      app: euro-office-storage-custom-resources
+  resources:
+    requests:
+      storage: 50Gi

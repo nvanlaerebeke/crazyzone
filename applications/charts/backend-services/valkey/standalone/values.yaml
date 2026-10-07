@@ -1,0 +1,20 @@
+# The alias keeps this chart's values isolated from the cluster umbrella chart.
+valkeyStandalone:
+  fullnameOverride: valkey-standalone
+
+  service:
+    type: ClusterIP
+
+  dataStorage:
+    enabled: true
+    requestedSize: 10Gi
+    className: local-path
+    keepPvc: true
+
+  # Plain standalone mode is the default. Sentinel support exists upstream on
+  # main, but is not part of the pinned valkey 0.12.0 release dependency yet.
+  auth:
+    enabled: false
+
+  replica:
+    enabled: false

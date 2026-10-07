@@ -1,0 +1,18 @@
+valkeyOperator:
+  fullnameOverride: valkey-operator
+  manager:
+    # Keep the operator watching the namespace where this cluster is deployed.
+    watchNamespaces:
+      - services
+
+valkeyResources:
+  fullnameOverride: valkey-cluster
+  cluster:
+    spec:
+      shards: 3
+      replicas: 1
+      workloadType: StatefulSet
+      persistence:
+        size: 10Gi
+        storageClassName: local-path
+

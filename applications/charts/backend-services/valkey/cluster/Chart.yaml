@@ -1,0 +1,15 @@
+apiVersion: v2
+name: valkey-cluster
+description: Valkey cluster deployment using the official Valkey operator and resources charts
+type: application
+version: 0.1.0
+appVersion: "0.7.1"
+dependencies:
+  - name: valkey-operator
+    alias: valkeyOperator
+    version: "0.7.0"
+    repository: "https://valkey.io/valkey-helm/"
+  - name: valkey-resources
+    alias: valkeyResources
+    version: "0.3.0"
+    repository: "https://valkey.io/valkey-helm/"

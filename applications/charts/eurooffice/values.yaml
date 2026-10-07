@@ -1,0 +1,107 @@
+euro-office:
+  connections:
+    dbHost: "postgresql.services.svc.cluster.local"
+    dbUser: eurooffice
+    dbName: eurooffice
+    dbExistingSecret: euro-office-passwords
+    redisHost: db.nomadesk.com
+    redisDBNum: "0"
+    redisNoPass: true
+    amqpHost: eurooffice-rabbitmq
+    amqpUser: default_user_yZTHVOy1EN96hiJd36z
+    amqpExistingSecret: euro-office-passwords
+  persistence:
+    existingClaim: "euro-office-storage-files-claim"
+    customResources:
+      existingClaim: "euro-office-storage-custom-resources-claim"
+    buffer:
+      existingClaim: "euro-office-storage-buffer-claim"
+    runtimeConfig:
+      enabled: true
+      existingClaim: "euro-office-storage-runtime-config-claim"
+  log:
+    level: DEBUG
+  wopi:
+    enabled: true
+    keys:
+      generation: true
+  #extraConf:
+  #  configMap: euro-office-local-config
+  #  filename: local.json
+  #  settings:
+  #    storage:
+  #      externalHost: https://eurooffice.crazyzone.be
+  #    services:
+  #      CoAuthoring:
+  #        autoAssembly:
+  #          enable: true
+  #          interval: 5s
+  #          step: 5s
+  #        server:
+  #          savetimeoutdelay: 2s
+  #          editorDataStorage: editorDataRedis
+  #images:
+  #  tag: v9.3.2
+  #runtimeOverrides:
+  #  configMap: runtime-config-override
+  #  filename: runtime.json
+  #  settings: {}
+  docservice:
+    replicas: 1
+    #image:
+    #  repository: registry.nomadesk.com/nomadesk-public/cluster-docs
+    #  tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
+    #  pullPolicy: Always
+    #extraVolumes:
+    #  - name: document-formats
+    #    configMap:
+    #      name: euro-office-document-formats
+    #      items:
+    #        - key: onlyoffice-docs-formats.json
+    #          path: onlyoffice-docs-formats.json
+    #  - name: runtime-config-override
+    #    configMap:
+    #      name: runtime-config-override
+    #extraVolumeMounts:
+    #  - name: document-formats
+    #    mountPath: /var/www/euro-office/documentserver/document-formats
+    #    readOnly: true
+    #  - name: runtime-config-override
+    #    mountPath: /var/www/euro-office/config/runtime.json
+    #    subPath: runtime.json
+    #    readOnly: true
+  converter:
+    replicas: 1
+    #extraVolumes:
+    #  - name: runtime-config-override
+    #    configMap:
+    #      name: runtime-config-override
+    #extraVolumeMounts:
+    #  - name: runtime-config-override
+    #    mountPath: /var/www/euro-office/config/runtime.json
+    #    subPath: runtime.json
+    #    readOnly: true
+    #image:
+    #  repository: registry.nomadesk.com/nomadesk-public/cluster-docs
+    #  tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
+    #  pullPolicy: Always
+  #proxy:
+  #  image:
+  #    repository: registry.nomadesk.com/nomadesk-public/cluster-docs
+  #    tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
+  #    pullPolicy: Always
+  #adminpanel:
+  #  image:
+  #    repository: registry.nomadesk.com/nomadesk-public/cluster-docs
+  #    tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
+  #    pullPolicy: Always
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    ssl:
+      enabled: true
+      secret: crazyzone-be-tls
+    host: "eurooffice.nomadesk.com"
+  #upgrade:
+  #  existingConfigmap:
+  #    dsStop: euro-office-pre-upgrade

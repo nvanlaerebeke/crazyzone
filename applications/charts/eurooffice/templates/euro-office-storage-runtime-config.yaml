@@ -1,0 +1,42 @@
+#
+# Runtime Config Storage
+#
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: euro-office-storage-runtime-config
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+  labels:
+    app: euro-office-storage-runtime-config
+spec:
+  capacity:
+    storage: 50Gi
+  nfs:
+    server: nas.crazyzone.be
+    path: "/volume1/docker-storage/euro-office/runtime-config"    
+  mountOptions:
+    - noac
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: euro-office-storage-runtime-config-claim
+  annotations:
+    "argocd.argoproj.io/sync-wave": "-1"
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  selector:
+    matchLabels:
+      app: euro-office-storage-runtime-config
+  resources:
+    requests:
+      storage: 50Gi
