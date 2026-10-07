@@ -1,9 +1,9 @@
 apiVersion: v1
 name: euro-office
-version: 6.0.0-test.2
-appVersion: 9.3.1
+version: 6.0.0-test.4
+appVersion: 9.3.4-hotfix.1
 description: Euro-Office Umbrella Chart
 dependencies:
   - name: docs
-    version: "6.0.0-test.3"
+    version: "6.0.0-test.4"
     repository: "oci://ghcr.io/nvanlaerebeke/charts"
