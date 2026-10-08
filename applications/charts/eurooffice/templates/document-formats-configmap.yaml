@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: euro-office-document-formats
+data:
+  onlyoffice-docs-formats.json: |
+{{ .Files.Get "files/onlyoffice-docs-formats.json" | nindent 4 }}
