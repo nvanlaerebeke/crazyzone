@@ -25,21 +25,21 @@ docs:
     enabled: true
     keys:
       generation: true
-  #extraConf:
+  extraConf:
   #  configMap: euro-office-local-config
   #  filename: local.json
-  #  settings:
-  #    storage:
-  #      externalHost: https://eurooffice.crazyzone.be
-  #    services:
-  #      CoAuthoring:
-  #        autoAssembly:
-  #          enable: true
-  #          interval: 5s
-  #          step: 5s
-  #        server:
-  #          savetimeoutdelay: 2s
-  #          editorDataStorage: editorDataRedis
+    settings:
+      storage:
+        externalHost: https://eurooffice.crazyzone.be
+      services:
+        CoAuthoring:
+          autoAssembly:
+            enable: true
+            interval: 5s
+            step: 5s
+          server:
+            savetimeoutdelay: 2s
+            editorDataStorage: editorDataRedis
   images:
     tag: latest
   #runtimeOverrides:``
