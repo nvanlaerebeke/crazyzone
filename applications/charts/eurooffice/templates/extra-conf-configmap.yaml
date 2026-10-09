@@ -1,0 +1,14 @@
+{{- $docs := .Values.docs | default dict -}}
+{{- $extraConf := $docs.extraConf | default dict -}}
+{{- $configMap := $extraConf.configMap -}}
+{{- $filename := $extraConf.filename -}}
+{{- $settings := $extraConf.settings | default dict -}}
+{{- if $configMap }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $configMap }}
+data:
+  {{ $filename }}: |
+{{ $settings | toPrettyJson | nindent 4 }}
+{{- end }}
