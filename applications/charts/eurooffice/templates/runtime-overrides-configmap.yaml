@@ -1,0 +1,19 @@
+{{- $euroOffice := index .Values "euro-office" | default dict -}}
+{{- $rootRuntimeOverrides := .Values.runtimeOverrides | default dict -}}
+{{- $nestedRuntimeOverrides := $euroOffice.runtimeOverrides | default dict -}}
+{{- $configMap := $nestedRuntimeOverrides.configMap | default $rootRuntimeOverrides.configMap -}}
+{{- $filename := $nestedRuntimeOverrides.filename | default $rootRuntimeOverrides.filename -}}
+{{- $settings := $rootRuntimeOverrides.settings | default dict -}}
+{{- if $nestedRuntimeOverrides.settings -}}
+{{- $settings = $nestedRuntimeOverrides.settings -}}
+{{- end -}}
+{{- if $configMap }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $configMap }}
+data:
+  {{ $filename }}: |
+{{ $settings | toPrettyJson | nindent 4 }}
+{{- end }}
+

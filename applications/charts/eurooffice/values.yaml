@@ -42,10 +42,10 @@ docs:
             editorDataStorage: editorDataRedis
   images:
     tag: latest
-  #runtimeOverrides:``
-  #  configMap: runtime-config-override
-  #  filename: runtime.json
-  #  settings: {}
+  runtimeOverrides:
+    configMap: runtime-config-override
+    filename: runtime.json
+    settings: {}
   docservice:
     replicas: 1
     image:
@@ -75,15 +75,15 @@ docs:
       #  readOnly: true
   converter:
     replicas: 1
-    #extraVolumes:
-    #  - name: runtime-config-override
-    #    configMap:
-    #      name: runtime-config-override
-    #extraVolumeMounts:
-    #  - name: runtime-config-override
-    #    mountPath: /var/www/euro-office/config/runtime.json
-    #    subPath: runtime.json
-    #    readOnly: true
+    extraVolumes:
+      - name: runtime-config-override
+        configMap:
+          name: runtime-config-override
+    extraVolumeMounts:
+      - name: runtime-config-override
+        mountPath: /var/www/euro-office/config/runtime.json
+        subPath: runtime.json
+        readOnly: true
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
       tag: latest
@@ -91,11 +91,6 @@ docs:
     extraEnvVars:
       - name: COMPANY_NAME
         value: euro-office
-  #proxy:
-  #  image:
-  #    repository: registry.nomadesk.com/nomadesk-public/cluster-docs
-  #    tag: v9.3.4@sha256:96d08a1a0cd32ebaf0d90f0113e5d62d8499977e62a1e2cd9d97d35922ec55dd
-  #    pullPolicy: Always
   proxy:
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
