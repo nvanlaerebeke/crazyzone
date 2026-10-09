@@ -62,17 +62,17 @@ docs:
           items:
             - key: onlyoffice-docs-formats.json
               path: onlyoffice-docs-formats.json
-    #  - name: runtime-config-override
-    #    configMap:
-    #      name: runtime-config-override
+      - name: runtime-config-override
+        configMap:
+          name: runtime-config-override
     extraVolumeMounts:
       - name: document-formats
         mountPath: /var/www/euro-office/documentserver/document-formats
         readOnly: true
-      #- name: runtime-config-override
-      #  mountPath: /var/www/euro-office/config/runtime.json
-      #  subPath: runtime.json
-      #  readOnly: true
+      - name: runtime-config-override
+        mountPath: /var/www/euro-office/config/runtime.json
+        subPath: runtime.json
+        readOnly: true
   converter:
     replicas: 1
     extraVolumes:
