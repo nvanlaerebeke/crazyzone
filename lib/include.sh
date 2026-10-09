@@ -7,6 +7,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/backend-services/postgresql-new.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/redis.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-standalone.yaml"
+    argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-standalone-password.yaml"
     #argocd_install_application "$ROOT/applications/argocd/backend-services/valkey-cluster.yaml"
 
     #argocd_install_application "$ROOT/applications/argocd/cert-manager/cert-manager.yaml"
@@ -40,7 +41,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/registry/harbor.yaml"
     #argocd_install_application "$ROOT/applications/argocd/dev/installers.yaml"
 
-    argocd_install_application "$ROOT/applications/argocd/eurooffice/eurooffice.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/eurooffice/eurooffice.yaml"
 
     #argocd_install_dir "$ROOT/applications/argocd/backend-services/"
     #argocd_install_dir "$ROOT/applications/argocd/cert-manager/"
