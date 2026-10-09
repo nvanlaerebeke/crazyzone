@@ -1,9 +1,9 @@
 apiVersion: v1
 name: euro-office
-version: 6.0.0-test.4
+version: 6.0.0-test.6
 appVersion: 9.3.4-hotfix.1
 description: Euro-Office Chart
 dependencies:
   - name: docs
-    version: "6.0.0-test.5"
+    version: "6.0.0-test.6"
     repository: "oci://ghcr.io/nvanlaerebeke/charts"

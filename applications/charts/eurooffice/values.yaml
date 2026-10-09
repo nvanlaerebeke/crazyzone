@@ -4,7 +4,9 @@ docs:
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
+    # valkey-standalone in the services namespace has authentication disabled.
     redisHost: valkey-standalone.services.svc.cluster.local
+    redisUser: ""
     redisDBNum: "0"
     redisNoPass: true
     amqpHost: eurooffice-rabbitmq
