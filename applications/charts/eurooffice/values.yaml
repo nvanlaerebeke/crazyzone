@@ -26,8 +26,8 @@ docs:
     keys:
       generation: true
   extraConf:
-  #  configMap: euro-office-local-config
-  #  filename: local.json
+    configMap: euro-office-local-config
+    filename: local.json
     settings:
       storage:
         externalHost: https://eurooffice.crazyzone.be
