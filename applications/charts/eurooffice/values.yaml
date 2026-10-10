@@ -4,13 +4,13 @@ docs:
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: valkey-standalone.services.svc.cluster.local
-    redisClusterNodes: []
-    redisUser: "default"
+    redisHost: valkey-valkey-cluster.services.svc.cluster.local
+    redisClusterNodes:
+      - valkey-valkey-cluster-0-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
+      - valkey-valkey-cluster-1-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
+      - valkey-valkey-cluster-2-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
     redisDBNum: "0"
     redisNoPass: true
-    redisExistingSecret: euro-office-passwords
-    redisSecretKeyName: redis-password
     amqpHost: eurooffice-rabbitmq
     amqpUser: default_user_yZTHVOy1EN96hiJd36z
     amqpExistingSecret: euro-office-passwords
@@ -51,8 +51,8 @@ docs:
     filename: runtime.json
     settings: {}
   docservice:
-    editorDataStorage: standalone
-    editorStatStorage: standalone
+    editorDataStorage: cluster
+    editorStatStorage: cluster
     replicas: 1
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
