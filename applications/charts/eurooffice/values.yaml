@@ -1,20 +1,27 @@
 docs:
+  editorDataStorage: sentinel
+  editorStatStorage: sentinel
   connections:
     dbHost: "postgresql.services.svc.cluster.local"
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: valkey-valkey-cluster.services.svc.cluster.local
-    redisConnectorName: redis
-    redisClusterNodes:
-      - valkey-valkey-cluster-0-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
-      - valkey-valkey-cluster-1-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
-      - valkey-valkey-cluster-2-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
+    redisHost: 192.168.5.20
+    redisConnectorName: ioredis
+    redisClusterNodes: []
     redisUser: "default"
     redisDBNum: "0"
-    redisNoPass: true
+    redisNoPass: false
     redisExistingSecret: euro-office-passwords
     redisSecretKeyName: redis-password
+    redisSentinelNodes:
+      - 192.168.5.20:26379
+      - 192.168.5.20:26380
+      - 192.168.5.20:26381
+    redisSentinelGroupName: mymaster
+    redisSentinelExistingSecret: euro-office-passwords
+    redisSentinelSecretKeyName: sentinel-password
+    redisSentinelNoPass: false
     amqpHost: eurooffice-rabbitmq
     amqpUser: default_user_yZTHVOy1EN96hiJd36z
     amqpExistingSecret: euro-office-passwords
