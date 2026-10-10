@@ -4,10 +4,15 @@ docs:
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: valkey-standalone-password.services.svc.cluster.local
+    redisHost: valkey-valkey-cluster.services.svc.cluster.local
+    redisConnectorName: redis
+    redisClusterNodes:
+      - valkey-valkey-cluster-0-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
+      - valkey-valkey-cluster-1-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
+      - valkey-valkey-cluster-2-0-0.valkey-valkey-cluster.services.svc.cluster.local:6379
     redisUser: "default"
     redisDBNum: "0"
-    redisNoPass: false
+    redisNoPass: true
     redisExistingSecret: euro-office-passwords
     redisSecretKeyName: redis-password
     amqpHost: eurooffice-rabbitmq
