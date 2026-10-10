@@ -58,8 +58,8 @@ docs:
     filename: runtime.json
     settings: {}
   docservice:
-    editorDataStorage: sentinel
-    editorStatStorage: sentinel
+    editorDataStorage: standalone
+    editorStatStorage: standalone
     replicas: 1
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
