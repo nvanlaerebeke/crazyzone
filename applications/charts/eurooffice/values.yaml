@@ -19,6 +19,7 @@ docs:
       - 192.168.5.20:26380
       - 192.168.5.20:26381
     redisSentinelGroupName: mymaster
+    redisSentinelUser: "default"
     redisSentinelExistingSecret: euro-office-passwords
     redisSentinelSecretKeyName: sentinel-password
     redisSentinelNoPass: false
