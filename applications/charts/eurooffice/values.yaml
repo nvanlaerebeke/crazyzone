@@ -1,28 +1,16 @@
 docs:
-  editorDataStorage: sentinel
-  editorStatStorage: sentinel
   connections:
     dbHost: "postgresql.services.svc.cluster.local"
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: 192.168.5.20
-    redisConnectorName: ioredis
+    redisHost: valkey-standalone-password.services.svc.cluster.local
     redisClusterNodes: []
     redisUser: "default"
     redisDBNum: "0"
     redisNoPass: false
     redisExistingSecret: euro-office-passwords
     redisSecretKeyName: redis-password
-    redisSentinelNodes:
-      - 192.168.5.20:26379
-      - 192.168.5.20:26380
-      - 192.168.5.20:26381
-    redisSentinelGroupName: mymaster
-    redisSentinelUser: "default"
-    redisSentinelExistingSecret: euro-office-passwords
-    redisSentinelSecretKeyName: sentinel-password
-    redisSentinelNoPass: false
     amqpHost: eurooffice-rabbitmq
     amqpUser: default_user_yZTHVOy1EN96hiJd36z
     amqpExistingSecret: euro-office-passwords
@@ -51,7 +39,7 @@ docs:
         CoAuthoring:
           autoAssembly:
             enable: true
-            interval: 5s
+            interval: 6s
             step: 5s
           server:
             savetimeoutdelay: 2s
@@ -63,6 +51,8 @@ docs:
     filename: runtime.json
     settings: {}
   docservice:
+    editorDataStorage: standalone
+    editorStatStorage: standalone
     replicas: 1
     image:
       repository: harbor.crazyzone.be/crazyzone-public/cluster-docs
