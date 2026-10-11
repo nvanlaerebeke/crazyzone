@@ -87,7 +87,7 @@ docs:
         subPath: runtime.json
         readOnly: true
   converter:
-    replicas: 1
+    replicas: 2
     extraVolumes:
       - name: runtime-config-override
         configMap:
