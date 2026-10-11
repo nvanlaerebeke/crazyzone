@@ -4,13 +4,13 @@ docs:
     dbUser: eurooffice
     dbName: eurooffice
     dbExistingSecret: euro-office-passwords
-    redisHost: 192.168.5.20
+    redisHost: valkey-standalone-password.services.svc.cluster.local
     redisConnectorName: redis
     redisClusterNodes: []
     redisDBNum: "0"
     redisUser: "default"
-    redisNoPass: true
-    redisExistingSecret: ""
+    redisNoPass: false
+    redisExistingSecret: euro-office-passwords
     redisSecretKeyName: redis-password
     redisSentinelNodes: []
     redisSentinelGroupName: mymaster
