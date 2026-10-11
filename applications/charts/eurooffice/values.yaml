@@ -166,6 +166,3 @@ docs:
       enabled: true
       secret: crazyzone-be-tls
     host: "eurooffice.crazyzone.be"
-  #upgrade:
-  #  existingConfigmap:
-  #    dsStop: euro-office-pre-upgrade
