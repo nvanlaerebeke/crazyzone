@@ -1,9 +1,9 @@
 apiVersion: v1
 name: harbor
-version: 1.19.2
-appVersion: 1.19.2
+version: 1.19.4
+appVersion: 1.19.4
 description: Artifact repository for crazyzone
 dependencies:
   - name: harbor
-    version: "1.19.2"
+    version: "1.19.4"
     repository: "https://helm.goharbor.io"
