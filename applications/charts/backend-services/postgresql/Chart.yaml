@@ -7,9 +7,9 @@ dependencies:
   # CNPG Operator (CRDs + controller)
   - name: cloudnative-pg
     version: "0.29.1"
-    repository: "ghcr.io/cloudnative-pg/charts"
+    repository: "oci://ghcr.io/cloudnative-pg/charts"
 
   # CNPG Cluster (creates a Cluster CR -> actual Postgres pods)
   - name: cluster
     version: "0.9.0"
-    repository: "ghcr.io/cloudnative-pg/charts"
+    repository: "oci://ghcr.io/cloudnative-pg/charts"
