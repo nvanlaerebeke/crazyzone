@@ -1,9 +1,9 @@
 apiVersion: v1
 name: argocd
-version: 10.9.2
-appVersion: 10.9.2
+version: 10.18.0  
+appVersion: 10.18.0
 description: Argocd is a declarative, GitOps continuous delivery tool for Kubernetes.
 dependencies:
   - name: argo-cd
-    version: "10.9.2"
-    repository: "https://argoproj.github.io/argo-helm"
+    version: "10.18.0"
+    repository: "oci://argoproj.github.io/argo-helm"
