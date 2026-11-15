@@ -8,9 +8,6 @@ qbittorrent:
           paths:
             - path: /
               pathType: Prefix
-              service:
-                name: main
-                port: http
       tls:
         - hosts: [torrent.crazyzone.be]
           secretName: crazyzone-be-tls
@@ -82,9 +79,6 @@ jackett:
           paths:
             - path: /
               pathType: Prefix
-              service:
-                name: main
-                port: http
       tls:
         - hosts: [jackett.crazyzone.be]
           secretName: crazyzone-be-tls
