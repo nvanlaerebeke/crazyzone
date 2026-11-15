@@ -17,7 +17,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/home/autoplayer.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/crazy-store.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/dashboard.yaml"
-    #argocd_install_application "$ROOT/applications/argocd/home/home-assistant.yaml"
+    argocd_install_application "$ROOT/applications/argocd/home/home-assistant.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/host.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/immich.yaml"
     #argocd_install_application "$ROOT/applications/argocd/home/torrent.yaml"
@@ -41,7 +41,7 @@ function configure {
     #argocd_install_application "$ROOT/applications/argocd/registry/harbor.yaml"
     #argocd_install_application "$ROOT/applications/argocd/dev/installers.yaml"
 
-    argocd_install_application "$ROOT/applications/argocd/eurooffice/eurooffice.yaml"
+    #argocd_install_application "$ROOT/applications/argocd/eurooffice/eurooffice.yaml"
 
     #argocd_install_dir "$ROOT/applications/argocd/backend-services/"
     #argocd_install_dir "$ROOT/applications/argocd/cert-manager/"
